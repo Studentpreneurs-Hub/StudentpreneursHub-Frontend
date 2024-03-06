@@ -10,7 +10,7 @@ function FogotPasswordScreen() {
         <Row className='firstRow'>
           <div className='logo'>
             <BiSolidShoppingBags color='#00A6A6' className='logo-icon'/> 
-            <span>Studentpreneurs HUB</span>
+            <span className='logo-text'>Studentpreneurs HUB</span>
           </div>
 
         </Row>
