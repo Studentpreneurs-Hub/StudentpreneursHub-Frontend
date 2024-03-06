@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Row, Col,Button, Container, Form } from 'react-bootstrap';
+import {BiSolidShoppingBags} from 'react-icons/bi';
 
 const SetNewPasswordScreen = () => {
   const [otpCode, setOtpCode] = useState('');
@@ -14,55 +16,71 @@ const SetNewPasswordScreen = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px' }}>
-      <h2 style={{ color: '#1f7a8c', marginBottom: '10px' }}>Studentpreneurs HUB.</h2>
-      <h3 style={{ marginBottom: '20px' }}>Set a new password</h3>
-      <p style={{ marginBottom: '20px' }}>Your new password must be different to previously used passwords.</p>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="otpCode" style={{ marginBottom: '5px' }}>OTP Code</label>
-          <input
-            type="text"
-            id="otpCode"
-            value={otpCode}
-            onChange={(e) => setOtpCode(e.target.value)}
-            style={{ padding: '5px', borderRadius: '4px', border: '1px solid #ccc' }}
-          />
-        </div>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="newPassword" style={{ marginBottom: '5px' }}>New Password</label>
-          <input
-            type="password"
-            id="newPassword"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            style={{ padding: '5px', borderRadius: '4px', border: '1px solid #ccc' }}
-          />
-        </div>
-        <div style={{ marginBottom: '20px' }}>
-          <label htmlFor="confirmPassword" style={{ marginBottom: '5px' }}>Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            style={{ padding: '5px', borderRadius: '4px', border: '1px solid #ccc' }}
-          />
-        </div>
-        <button
-          type="submit"
-          style={{
-            backgroundColor: '#1f7a8c',
-            color: '#fff',
-            padding: '10px 20px',
-            borderRadius: '4px',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          Submit
-        </button>
-      </form>
+    <div>
+      <Container className='main-container'>
+        <Row className='firstRow'>
+          <div className='logo'>
+            <BiSolidShoppingBags color='#00A6A6' className='logo-icon'/> 
+            <span className='logo-text'>Studentpreneurs HUB</span>
+          </div>
+
+          <div className='forgotpassword-text'>
+            <span className='forgotpassword-question'>Set a new password</span>
+            <Row className='instruction-row'>
+              <span className='reset-instructions'>Your new password must be different to previously used passwords.</span>
+            </Row>
+          </div>
+
+          <div className='forgotpassword-textbox'>
+            <span className='email-text'>OTP-Code</span>
+            <Form className='form'>
+              <input 
+                type='email'
+                placeholder='name@example.com'
+                value={otpCode}
+                onChange={(e) => setOtpCode(e.target.value)}
+                // onChange={setEmail}
+              />
+            </Form>
+          </div>
+
+          <div className='forgotpassword-textbox'>
+            <label className='email-text'>New Password</label>
+            <Form className='form'>
+              <input 
+                type='email'
+                placeholder='Your Password'
+                value={otpCode}
+                onChange={(e) => setOtpCode(e.target.value)}
+                // onChange={setEmail}
+              />
+            </Form>
+          </div>
+
+          <div className='forgotpassword-textbox'>
+            <span className='email-text'>Confirm Password</span>
+            <Form className='form'>
+              <input 
+                type='email'
+                placeholder='Confirm Your Password'
+                value={otpCode}
+                onChange={(e) => setOtpCode(e.target.value)}
+                // onChange={setEmail}
+              />
+            </Form>
+          </div>
+
+          <div>
+            <Button className='forgotpassword-btn' onClick={handleSubmit}>
+              Submit
+            </Button>
+          </div>
+          <Row className='rememberpassword-question-row'>
+              <span className='rememberpassword-question'>Remember your password? Login</span>
+            </Row>
+        </Row>
+      </Container>
+      
     </div>
   );
 };

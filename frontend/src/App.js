@@ -8,8 +8,8 @@ function App() {
     <div>
       <main className='py-3'>
         <Container>
-          <FogotPasswordScreen />
-          {/* <SetNewPasswordScreen /> */}
+          {/* <FogotPasswordScreen /> */}
+          <SetNewPasswordScreen />
         </Container>
       </main>
     </div>
