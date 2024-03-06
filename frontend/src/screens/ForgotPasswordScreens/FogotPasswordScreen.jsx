@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Row, Col, Container, Form} from 'react-bootstrap'
+import {Row, Col, Container, Form, Button} from 'react-bootstrap'
 import { BiSolidShoppingBags } from "react-icons/bi";
 
 
@@ -22,16 +22,21 @@ function FogotPasswordScreen() {
           </div>
 
           <div className='forgotpassword-textbox'>
-            <label>E-mail</label>
+            <span className='email-text'>E-mail</span>
             <Form className='form'>
               <input 
                 type='email'
                 placeholder='name@example.com'
                 value={email}
                 // onChange={setEmail}
-                
               />
             </Form>
+          </div>
+
+          <div>
+            <Button className='forgotpassword-btn'>
+              Submit
+            </Button>
           </div>
 
         </Row>
