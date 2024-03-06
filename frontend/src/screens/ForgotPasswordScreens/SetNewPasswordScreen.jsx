@@ -17,7 +17,7 @@ const SetNewPasswordScreen = () => {
 
   return (
     <div>
-      <Container className='main-container'>
+      <Container className='main-container-new-password'>
         <Row className='firstRow'>
           <div className='logo'>
             <BiSolidShoppingBags color='#00A6A6' className='logo-icon'/> 
@@ -26,17 +26,18 @@ const SetNewPasswordScreen = () => {
 
           <div className='forgotpassword-text'>
             <span className='forgotpassword-question'>Set a new password</span>
-            <Row className='instruction-row'>
-              <span className='reset-instructions'>Your new password must be different to previously used passwords.</span>
+            <Row className='new-password-row'>
+              <span className='new-password-instructions'>Your new password must be different to previously used passwords.</span>
             </Row>
           </div>
 
-          <div className='forgotpassword-textbox'>
+          <div className='otp-textbox'>
             <span className='email-text'>OTP-Code</span>
             <Form className='form'>
               <input 
                 type='email'
-                placeholder='name@example.com'
+                id='otp'
+                // placeholder='name@example.com'
                 value={otpCode}
                 onChange={(e) => setOtpCode(e.target.value)}
                 // onChange={setEmail}
@@ -44,27 +45,29 @@ const SetNewPasswordScreen = () => {
             </Form>
           </div>
 
-          <div className='forgotpassword-textbox'>
+          <div className='new-password-textbox'>
             <label className='email-text'>New Password</label>
             <Form className='form'>
               <input 
-                type='email'
+                type='password'
+                id='newPassword'
                 placeholder='Your Password'
-                value={otpCode}
-                onChange={(e) => setOtpCode(e.target.value)}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
                 // onChange={setEmail}
               />
             </Form>
           </div>
 
-          <div className='forgotpassword-textbox'>
+          <div className='confirm-password-textbox'>
             <span className='email-text'>Confirm Password</span>
             <Form className='form'>
               <input 
-                type='email'
+                type='password'
+                id='confirmPassword'
                 placeholder='Confirm Your Password'
-                value={otpCode}
-                onChange={(e) => setOtpCode(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 // onChange={setEmail}
               />
             </Form>

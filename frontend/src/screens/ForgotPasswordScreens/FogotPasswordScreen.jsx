@@ -32,6 +32,7 @@ function FogotPasswordScreen() {
             <Form className='form'>
               <input 
                 type='email'
+                id='email'
                 placeholder='name@example.com'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
