@@ -47,8 +47,6 @@ function FogotPasswordScreen() {
           <Row className='rememberpassword-question-row'>
               <span className='rememberpassword-question'>Remember your password? Login</span>
             </Row>
-
-
         </Row>
       </Container>
       
