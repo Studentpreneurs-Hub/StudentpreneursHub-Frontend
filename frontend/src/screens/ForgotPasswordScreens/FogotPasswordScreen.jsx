@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import {Row, Col, Container, Form, Button} from 'react-bootstrap'
 import { BiSolidShoppingBags } from "react-icons/bi";
+import {Link} from 'react-router-dom'
+
 
 
 function FogotPasswordScreen() {
   const [email, setEmail] = useState()
+
+  const handleSubmit =()=>{
+    
+  }
   return (
     <div>
       <Container className='main-container'>
@@ -34,10 +40,14 @@ function FogotPasswordScreen() {
           </div>
 
           <div>
-            <Button className='forgotpassword-btn'>
+            <Button className='forgotpassword-btn' onClick={handleSubmit}>
               Submit
             </Button>
           </div>
+          <Row className='rememberpassword-question-row'>
+              <span className='rememberpassword-question'>Remember your password? Login</span>
+            </Row>
+
 
         </Row>
       </Container>
