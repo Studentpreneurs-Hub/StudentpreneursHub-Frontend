@@ -11,7 +11,8 @@
 
 .Container {
   max-width: 50%;
-  margin: 4rem auto;
+  margin: 2rem auto;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,8 +49,13 @@
    gap: 1.5rem;
 }
 
+input::placeholder{
+  padding-left: 0.6rem;
+}
+
 label{
     display: block;
+    margin-bottom: 0.2rem;
     color: #000;
     font-family: Satoshi;
     font-size: 14px;

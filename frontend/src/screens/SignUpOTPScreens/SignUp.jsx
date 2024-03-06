@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
-import logo from "../../logo.png";
+import logo from "../../assets/logo.png";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -42,7 +42,6 @@ const SignUp = () => {
                 placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                // onChange={setEmail}
               />
             </Form>
 
@@ -54,7 +53,6 @@ const SignUp = () => {
                 placeholder="Your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                // onChange={setEmail}
               />
             </Form>
           </div>
@@ -64,7 +62,7 @@ const SignUp = () => {
               Create Account
             </Button>
           </div>
-          <Row className="">
+          <Row className="terms">
             <span className="">
               By signing up, you agree to our{" "}
               <a href="/#">Terms of Service & Privacy Policy</a>
