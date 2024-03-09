@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
+import show from "../../assets/Show.png";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {};
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  }
+
+  const handleSubmit = (e) => {
+    // Validation code
+    if (name || email || password == "") {
+      alert("Field(s) cannot be blank");
+    }
+  };
 
   return (
     <div>
@@ -24,7 +35,7 @@ const SignUp = () => {
 
           <div className="signup-form">
             <Form>
-            <label>Full Name</label>
+              <label>Full Name</label>
               <input
                 type="text"
                 id="name"
@@ -35,7 +46,7 @@ const SignUp = () => {
             </Form>
 
             <Form>
-            <label>Email</label>
+              <label>Email</label>
               <input
                 type="email"
                 id="email"
@@ -46,31 +57,32 @@ const SignUp = () => {
             </Form>
 
             <Form>
-            <label>Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <label>Password</label>
+              <div>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  placeholder="Your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <img src={show} className="showIcon" onClick={handleTogglePassword} />
+              </div>
             </Form>
-          </div>
-
-          <div>
-            <Button className="" onClick={handleSubmit}>
+            <Button className="btn" onClick={handleSubmit}>
               Create Account
             </Button>
           </div>
-          <Row className="terms">
-            <span className="">
+
+          <div className="termslogin">
+            <p className="terms">
               By signing up, you agree to our{" "}
               <a href="/#">Terms of Service & Privacy Policy</a>
-            </span>
-            <span className="">
+            </p>
+            <p className="login">
               Already have an account? <a href="/#">Log in</a>
-            </span>
-          </Row>
+            </p>
+          </div>
         </Row>
       </Container>
     </div>
