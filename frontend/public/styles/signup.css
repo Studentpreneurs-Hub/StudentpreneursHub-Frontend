@@ -1,0 +1,130 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/Lufga");
+
+:root {
+  --primary-colour: #00a6a6;
+  --secondary-colour: #191c1f;
+  --neutral-colour: #6f767e;
+  --primary-font: Lufga;
+  --secondary-font: Satoshi;
+}
+
+.Container {
+  max-width: 50%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--primary-font);
+}
+
+.logo {
+  margin: 1rem auto;
+}
+
+.getting-started {
+  display: grid;
+  place-content: center;
+  margin-bottom: 1rem;
+}
+
+.gettting-started-heading {
+  color: var(--secondary-colour);
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+
+.getting-started-sub {
+  color: var(--neutral-colour);
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.signup-form {
+  display: grid;
+  place-content: center;
+  gap: 1.5rem;
+}
+
+input {
+  padding-left: 0.6rem;
+}
+
+Form div {
+  position: relative;
+}
+
+img.showIcon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #000;
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn {
+  font-family: Satoshi;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  border-radius: 42px;
+  border: none;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    var(--primary-colour);
+  display: flex;
+  width: 370px;
+  padding: 10px 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 80%;
+}
+
+.termslogin {
+  color: var(--neutral-colour);
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+  width: 363px;
+  height: 66px;
+  flex-shrink: 0;
+}
+
+.terms a {
+  color: var(--neutral-colour);
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.login a {
+  color: var(--primary-colour);
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.terms a:hover,
+.login a:hover {
+  opacity: 80%;
+}
