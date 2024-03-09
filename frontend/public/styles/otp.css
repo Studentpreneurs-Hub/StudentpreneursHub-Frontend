@@ -1,0 +1,77 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/Lufga");
+
+:root {
+  --primary-colour: #00a6a6;
+  --secondary-colour: #191c1f;
+  --neutral-colour: #6f767e;
+  --primary-font: Lufga;
+  --secondary-font: Satoshi;
+}
+
+.Container {
+  max-width: 50%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--primary-font);
+}
+
+.Container.Verify {
+  margin: 7rem auto;
+}
+
+.logo {
+  margin: 1rem auto;
+}
+
+.verify {
+  display: grid;
+  place-content: center;
+  margin-bottom: 1rem;
+}
+
+.verify-heading {
+  color: var(--secondary-colour);
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+
+.verify-sub {
+  color: var(--neutral-colour);
+  font-family: var(--secondary-font);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  width: 319px;
+}
+
+.verify-sub span {
+  color: var(--primary-colour);
+}
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 6rem;
+}
+
+.boxes input {
+  font-family: var(--primary-font);
+  color: var(--secondary-colour);
+  width: 3rem;
+  height: 3rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+}
+
+.btn.verify-btn {
+  margin: 0 auto;
+}
