@@ -13,10 +13,19 @@ const OTPScreen = () => {
   const handleSubmit = (e) => {
     // Validation code
 
-    if(number1 === "" || number2 === "" || number3 === "" || number4 === "" || number5 === "" || number6 === ""){
-        alert("Field(s) can't be blank")
-    }else{
-        alert(`${number1} ${number2} ${number3} ${number4} ${number5} ${number6}`)
+    if (
+      number1 === "" ||
+      number2 === "" ||
+      number3 === "" ||
+      number4 === "" ||
+      number5 === "" ||
+      number6 === ""
+    ) {
+      alert("Field(s) can't be blank");
+    } else {
+      alert(
+        `${number1} ${number2} ${number3} ${number4} ${number5} ${number6}`
+      );
     }
   };
 
@@ -40,43 +49,61 @@ const OTPScreen = () => {
                 type="text"
                 id="number1"
                 value={number1}
+                inputMode="numeric"
                 maxLength={1}
-                onChange={(e) => setNumber1(e.target.value)}
+                onChange={(e) =>
+                  setNumber1(!isNaN(e.target.value) ? e.target.value : "")
+                }
               />
               <input
                 type="text"
                 id="number2"
                 value={number2}
+                inputMode="numeric"
                 maxLength={1}
-                onChange={(e) => setNumber2(e.target.value)}
+                onChange={(e) =>
+                  setNumber2(!isNaN(e.target.value) ? e.target.value : "")
+                }
               />
               <input
                 type="text"
                 id="number3"
                 value={number3}
+                inputMode="numeric"
                 maxLength={1}
-                onChange={(e) => setNumber3(e.target.value)}
+                onChange={(e) =>
+                  setNumber3(!isNaN(e.target.value) ? e.target.value : "")
+                }
               />
               <input
                 type="text"
                 id="number4"
                 value={number4}
+                inputMode="numeric"
                 maxLength={1}
-                onChange={(e) => setNumber4(e.target.value)}
+                onChange={(e) =>
+                  setNumber4(!isNaN(e.target.value) ? e.target.value : "")
+                }
               />
               <input
                 type="text"
                 id="number5"
                 value={number5}
+                inputMode="numeric"
                 maxLength={1}
-                onChange={(e) => setNumber5(e.target.value)}
+                onChange={(e) =>
+                  setNumber5(!isNaN(e.target.value) ? e.target.value : "")
+                }
               />
               <input
                 type="text"
                 id="number6"
                 value={number6}
+                inputMode="numeric"
                 maxLength={1}
-                onChange={(e) => setNumber6(e.target.value)}
+                onChange={(e) =>
+                  setNumber6(!isNaN(e.target.value) ? e.target.value : "")
+                }
               />
             </Form>
           </div>
