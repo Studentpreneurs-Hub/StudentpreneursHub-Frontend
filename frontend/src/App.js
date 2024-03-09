@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import {BrowserRouter as Routes, Route, Router} from 'react-router-dom'
 import FogotPasswordScreen from './screens/ForgotPasswordScreens/FogotPasswordScreen';
 import SetNewPasswordScreen from './screens/SetNewPasswordScreen/SetNewPasswordScreen';
-import SignUp from './screens/SignUpOTPScreens/SignUp';
+import SignUp from './screens/SignUpScreens/SignUp';
 import OTPScreen from './screens/OTPScreen/OTPScreen';
 
 function App() {
@@ -11,9 +11,9 @@ function App() {
       <main className='py-3'>
         <Container>
           {/* <FogotPasswordScreen /> */}
-          {/* <SetNewPasswordScreen /> */}
+          <SetNewPasswordScreen />
           {/* <SignUp /> */}
-          <OTPScreen />
+          {/* <OTPScreen /> */}
         </Container>
       </main>
     </div>
