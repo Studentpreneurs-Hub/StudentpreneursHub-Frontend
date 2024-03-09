@@ -1,9 +1,9 @@
 import { Container } from 'react-bootstrap';
 import {BrowserRouter as Routes, Route, Router} from 'react-router-dom'
 import FogotPasswordScreen from './screens/ForgotPasswordScreens/FogotPasswordScreen';
-import SetNewPasswordScreen from './screens/ForgotPasswordScreens/SetNewPasswordScreen';
+import SetNewPasswordScreen from './screens/SetNewPasswordScreen/SetNewPasswordScreen';
 import SignUp from './screens/SignUpOTPScreens/SignUp';
-import OTPScreen from './screens/SignUpOTPScreens/OTPScreen';
+import OTPScreen from './screens/OTPScreen/OTPScreen';
 
 function App() {
   return (

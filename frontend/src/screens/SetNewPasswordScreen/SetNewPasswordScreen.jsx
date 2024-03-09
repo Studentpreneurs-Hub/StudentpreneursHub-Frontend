@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import {BiSolidShoppingBags} from 'react-icons/bi';
+import show from "../../assets/Show.png";
+import './setnewpassword.css'
 
 const SetNewPasswordScreen = () => {
   const [otpCode, setOtpCode] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
     console.log('OTP Code:', otpCode);
     console.log('New Password:', newPassword);
     console.log('Confirm Password:', confirmPassword);
   };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  }
 
   return (
     <div sm={12} lg={4} md={6} xl={2}>
@@ -47,16 +53,17 @@ const SetNewPasswordScreen = () => {
           </div>
 
           <div className='new-password-textbox'>
-            <label className='email-text'>New Password</label>
+            <span className='email-text'>New Password</span>
             <Form className='form'>
               <input 
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 id='newPassword'
                 placeholder='Your Password'
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 // onChange={setEmail}
               />
+              <img src={show} className="showPassIcon" onClick={handleTogglePassword} alt="show/hide password img" />
             </Form>
           </div>
 
@@ -75,7 +82,7 @@ const SetNewPasswordScreen = () => {
           </div>
 
           <div>
-            <Button className='forgotpassword-btn' onClick={handleSubmit}>
+            <Button className='set-new-password-btn' onClick={handleSubmit}>
               Submit
             </Button>
           </div>

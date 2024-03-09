@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
+import './signup.css'
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -66,7 +67,7 @@ const SignUp = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <img src={show} className="showIcon" onClick={handleTogglePassword} />
+                <img src={show} className="showIcon" onClick={handleTogglePassword} alt="show/hide password img" />
               </div>
             </Form>
             <Button className="btn" onClick={handleSubmit}>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
+import './otp.css'
 
 const OTPScreen = () => {
   const [number1, setNumber1] = useState("");

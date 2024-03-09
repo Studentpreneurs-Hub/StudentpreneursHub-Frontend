@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Row, Col, Container, Form, Button} from 'react-bootstrap'
 import { BiSolidShoppingBags } from "react-icons/bi";
 import {Link} from 'react-router-dom'
+import './Forgotpassword.css'
 
 
 
