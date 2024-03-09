@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col,Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import {BiSolidShoppingBags} from 'react-icons/bi';
 
 const SetNewPasswordScreen = () => {
@@ -16,9 +16,9 @@ const SetNewPasswordScreen = () => {
   };
 
   return (
-    <div>
-      <Container className='main-container-new-password'>
-        <Row className='firstRow'>
+    <div sm={12} lg={4} md={6} xl={2}>
+      <Container className='main-container-new-password' >
+        <div className='firstRow'>
           <div className='logo'>
             <BiSolidShoppingBags color='#00A6A6' className='logo-icon'/> 
             <span className='logo-text'>Studentpreneurs HUB</span>
@@ -26,11 +26,12 @@ const SetNewPasswordScreen = () => {
 
           <div className='forgotpassword-text'>
             <span className='forgotpassword-question'>Set a new password</span>
-            <Row className='new-password-row'>
+            <div className='new-password-row'>
               <span className='new-password-instructions'>Your new password must be different to previously used passwords.</span>
-            </Row>
+            </div>
           </div>
 
+        <div className='center'>
           <div className='otp-textbox'>
             <span className='email-text'>OTP-Code</span>
             <Form className='form'>
@@ -78,10 +79,11 @@ const SetNewPasswordScreen = () => {
               Submit
             </Button>
           </div>
-          <Row className='rememberpassword-question-row'>
+          <div className='rememberpassword-question-row'>
               <span className='rememberpassword-question'>Remember your password? Login</span>
-            </Row>
-        </Row>
+            </div>
+        </div>
+        </div>
       </Container>
       
     </div>

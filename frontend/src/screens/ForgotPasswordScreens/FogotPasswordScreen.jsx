@@ -14,7 +14,7 @@ function FogotPasswordScreen() {
   return (
     <div>
       <Container className='main-container'>
-        <Row className='firstRow'>
+        <div className='firstRow'>
           <div className='logo'>
             <BiSolidShoppingBags color='#00A6A6' className='logo-icon'/> 
             <span className='logo-text'>Studentpreneurs HUB</span>
@@ -22,9 +22,9 @@ function FogotPasswordScreen() {
 
           <div className='forgotpassword-text'>
             <span className='forgotpassword-question'>Forgot Password</span>
-            <Row className='instruction-row'>
+            <div className='instruction-row'>
               <span className='reset-instructions'>No worries, we'll send you reset instructions.</span>
-            </Row>
+            </div>
           </div>
 
           <div className='forgotpassword-textbox'>
@@ -46,10 +46,10 @@ function FogotPasswordScreen() {
               Submit
             </Button>
           </div>
-          <Row className='rememberpassword-question-row'>
+          <div className='rememberpassword-question-row'>
               <span className='rememberpassword-question'>Remember your password? Login</span>
-            </Row>
-        </Row>
+            </div>
+        </div>
       </Container>
       
     </div>
