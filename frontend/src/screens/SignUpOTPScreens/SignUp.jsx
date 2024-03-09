@@ -15,7 +15,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     // Validation code
-    if (name || email || password == "") {
+    if (name === "" || email === "" || password === "") {
       alert("Field(s) cannot be blank");
     }
   };
