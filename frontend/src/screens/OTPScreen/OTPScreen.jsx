@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
-import './otp.css'
+import "./otp.css";
 
 const OTPScreen = () => {
   const [number1, setNumber1] = useState("");
@@ -32,20 +32,20 @@ const OTPScreen = () => {
 
   return (
     <>
-      <Container className="Container Verify">
+      <Container className="verify">
         <Row>
-          <img src={logo} alt="logo" className="logo" />
+          <img src={logo} alt="logo" className="verify__logo" />
 
-          <div className="verify">
-            <div className="verify-heading">Check your email</div>
-            <div className="verify-sub">
+          <div className="verify__header">
+            <div className="verify__header__title">Check your email</div>
+            <div className="verify__header__subtitle">
               Enter the 6 digit code sent to <span>nathan@gmail.com</span> to
               verify your account.
             </div>
           </div>
 
-          <div className="verify-form">
-            <Form className="boxes">
+          <div className="verify__form">
+            <Form className="verify__form__boxes">
               <input
                 type="text"
                 id="number1"
@@ -108,9 +108,14 @@ const OTPScreen = () => {
               />
             </Form>
           </div>
-          <Button className="btn verify-btn" onClick={handleSubmit}>
-            Verify
-          </Button>
+          <div className="verify__info">
+            <p className="verify__info__resend">
+              OTP not received? <a href="#">Resend now</a>
+            </p>
+            <Button className="verify__btn" onClick={handleSubmit}>
+              Verify
+            </Button>
+          </div>
         </Row>
       </Container>
     </>

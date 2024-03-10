@@ -9,9 +9,9 @@
   --secondary-font: Satoshi;
 }
 
-.Container {
+.verify {
   max-width: 50%;
-  margin: 0.5rem auto;
+  margin: 5rem auto;
   padding: 0.5rem 2rem;
   display: flex;
   justify-content: center;
@@ -19,28 +19,26 @@
   font-family: var(--primary-font);
 }
 
-.Container.Verify {
-  margin: 7rem auto;
+.verify__logo {
+  display: grid;
+  place-content: center;
+  margin: 2rem auto;
 }
 
-.logo {
-  margin: 1rem auto;
-}
-
-.verify {
+.verify__header {
   display: grid;
   place-content: center;
   margin-bottom: 1rem;
 }
 
-.verify-heading {
+.verify__header__title {
   color: var(--secondary-colour);
   font-weight: 700;
   font-size: 30px;
   text-align: center;
 }
 
-.verify-sub {
+.verify__header__subtitle {
   color: var(--neutral-colour);
   font-family: var(--secondary-font);
   font-size: 16px;
@@ -49,29 +47,69 @@
   width: 319px;
 }
 
-.verify-sub span {
+.verify__header__subtitle > span {
   color: var(--primary-colour);
 }
 
-.boxes {
+.verify__form__boxes {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
-.boxes input {
+.verify__form__boxes > input {
   font-family: var(--primary-font);
   color: var(--secondary-colour);
   width: 3rem;
   height: 3rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   text-align: center;
   outline: none;
 }
 
-.btn.verify-btn {
-  margin: 0 auto;
+.verify__info {
+  display: grid;
+  place-content: center;
+}
+
+.verify__info__resend {
+  color: var(--neutral-colour);
+  font-family: Satoshi;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.verify__info__resend > a{
+  color: var(--primary-colour);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.verify__info__resend > a:hover{
+  opacity: 80%;
+}
+
+.verify__btn {
+  font-family: Satoshi;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  border-radius: 42px;
+  border: none;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    var(--primary-colour);
+  width: 370px;
+  padding: 10px 22px;
+  cursor: pointer;
+}
+
+.verify__btn:hover {
+  opacity: 80%;
 }
