@@ -11,8 +11,8 @@ function App() {
       <main className='py-3'>
         <Container>
           {/* <FogotPasswordScreen /> */}
-          <SetNewPasswordScreen />
-          {/* <SignUp /> */}
+          {/* <SetNewPasswordScreen /> */}
+          <SignUp />
           {/* <OTPScreen /> */}
         </Container>
       </main>

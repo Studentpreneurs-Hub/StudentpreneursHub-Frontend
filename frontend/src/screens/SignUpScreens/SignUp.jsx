@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
-import './signup.css'
+import './signup.css';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -23,22 +23,23 @@ const SignUp = () => {
 
   return (
     <div>
-      <Container className="Container">
-        <Row className="signup">
-          <img src={logo} alt="logo" className="logo" />
+      <Container className="signup">
+        <Row>
+          <img src={logo} className="signup__logo" alt="logo"/>
 
-          <div className="getting-started">
-            <div className="gettting-started-heading">Get Started</div>
-            <div className="getting-started-sub">
+          <div className="signup__header">
+            <div className="signup__header__title">Get Started</div>
+            <div className="signup__header__subtitle">
               Start Selling to peers on Campus
             </div>
           </div>
 
-          <div className="signup-form">
+          <div className="signup__form">
             <Form>
-              <label>Full Name</label>
+              <label className="signup__form__label">Full Name</label>
               <input
                 type="text"
+                className="signup__input"
                 id="name"
                 placeholder="Enter Your Name"
                 value={name}
@@ -47,9 +48,10 @@ const SignUp = () => {
             </Form>
 
             <Form>
-              <label>Email</label>
+              <label className="signup__form__label">Email</label>
               <input
                 type="email"
+                className="signup__input"
                 id="email"
                 placeholder="name@example.com"
                 value={email}
@@ -58,10 +60,11 @@ const SignUp = () => {
             </Form>
 
             <Form>
-              <label>Password</label>
+              <label className="signup__form__label">Password</label>
               <div>
                 <input
                   type={showPassword ? 'text' : 'password'}
+                  className="signup__input"
                   id="password"
                   placeholder="Your password"
                   value={password}
@@ -70,17 +73,17 @@ const SignUp = () => {
                 <img src={show} className="showIcon" onClick={handleTogglePassword} alt="show/hide password img" />
               </div>
             </Form>
-            <Button className="button" onClick={handleSubmit}>
+            <Button className="signup__btn" onClick={handleSubmit}>
               Create Account
             </Button>
           </div>
 
-          <div className="termslogin">
-            <p className="terms">
+          <div className="signup__info">
+            <p className="signup__info__terms">
               By signing up, you agree to our{" "}
               <a href="/#">Terms of Service & Privacy Policy</a>
             </p>
-            <p className="login">
+            <p className="signup__info__login">
               Already have an account? <a href="/#">Log in</a>
             </p>
           </div>
