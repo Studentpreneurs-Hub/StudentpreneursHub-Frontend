@@ -22,8 +22,8 @@ const SetNewPasswordScreen = () => {
   }
 
   return (
-    <div sm={12} lg={4} md={6} xl={2}>
-      <Container className='main-container-new-password' >
+    <div >
+      <Container className='main-container-new-password' sm={12} lg={4} md={6} xl={2}>
         <div className='firstRow'>
           <div className='logo'>
             <BiSolidShoppingBags color='#00A6A6' className='logo-icon'/> 
@@ -73,7 +73,7 @@ const SetNewPasswordScreen = () => {
               <input 
                 type='password'
                 id='confirmPassword'
-                placeholder='Confirm Your Password'
+                placeholder='Confirm Password'
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 // onChange={setEmail}

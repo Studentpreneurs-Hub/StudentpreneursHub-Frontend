@@ -72,9 +72,10 @@ label {
   font-family: Satoshi;
   font-size: 14px;
   font-weight: 500;
+  background-color: red;
 }
 
-.button {
+.btn {
   font-family: Satoshi;
   font-size: 16px;
   color: white;
