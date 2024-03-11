@@ -10,15 +10,10 @@ function App() {
     <div>
       <main className='py-3'>
         <Container>
-<<<<<<< HEAD
-          <FogotPasswordScreen />
-          {/* <SetNewPasswordScreen /> */}
-          {/* <SignUp /> */}
-=======
+          
           {/* <FogotPasswordScreen /> */}
           {/* <SetNewPasswordScreen /> */}
-          <SignUp />
->>>>>>> 663d680e033a0599b1c986df2c134e06337bedec
+          {/* <SignUp /> */}
           {/* <OTPScreen /> */}
         </Container>
       </main>

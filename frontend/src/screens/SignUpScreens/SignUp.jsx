@@ -73,12 +73,9 @@ const SignUp = () => {
                 <img src={show} className="showIcon" onClick={handleTogglePassword} alt="show/hide password img" />
               </div>
             </Form>
-<<<<<<< HEAD
+
             <Button className="btn" onClick={handleSubmit}>
-=======
-            <Button className="signup__btn" onClick={handleSubmit}>
->>>>>>> 663d680e033a0599b1c986df2c134e06337bedec
-              Create Account
+                Click
             </Button>
           </div>
 

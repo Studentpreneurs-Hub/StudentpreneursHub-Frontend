@@ -82,14 +82,10 @@ img.showIcon {
   font-family: Satoshi;
   font-size: 14px;
   font-weight: 500;
-  background-color: red;
 }
 
-<<<<<<< HEAD
-.btn {
-=======
+/* .btn { */
 .signup__btn {
->>>>>>> 663d680e033a0599b1c986df2c134e06337bedec
   font-family: Satoshi;
   font-size: 16px;
   color: white;
