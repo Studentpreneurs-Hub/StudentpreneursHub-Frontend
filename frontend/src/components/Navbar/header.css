@@ -4,16 +4,16 @@
     background-color: #f8f9fa; /* Change this to your desired background color 
   } */
   
-  .navbar-nav {
+  /* .navbar-nav {
     display: flex;
     justify-content: center;
     width: 100%;
     text-transform: capitalize;
-    /* margin-left: 60rem; */
+    /* margin-left: 60rem; 
     
-  }
+  } */
 
-  .nav_text{
+  /* .nav_text{
     font-family: satoshi;
     color: #000000 !important;
     font-size: 16px;
@@ -21,11 +21,10 @@
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
-    /* padding-left: -30rem; */
+    padding-left: -30rem; 
 
   }
-
-  
+ 
   .navbar-nav .nav-item {
     margin: 0 1rem; 
     
@@ -40,3 +39,48 @@
     letter-spacing: 0em;
     text-align: left;
   }
+
+  /* .header-second{
+    margin-left: 6rem;
+  } */
+
+  .navbar {
+    /* background-color: #f8f9fa;  */
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    gap: 2rem;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0 1rem; /* Adjust the spacing between nav items */
+  }
+  
+  .nav-text {
+    color: black;
+    font-family: satoshi;
+    color: #000000 !important;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-left: -30rem; 
+  }
+  
+  .dropdown-link .nav-link {
+    color: black !important; /* Set the color to black for the dropdown title */
+  }
+  
+  .header-second {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-second .nav-link {
+    margin-right: 1rem; /* Adjust the spacing between the login link and the button */
+  }
+
