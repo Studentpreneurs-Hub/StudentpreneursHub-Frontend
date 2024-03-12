@@ -4,16 +4,18 @@ import FogotPasswordScreen from './screens/ForgotPasswordScreens/FogotPasswordSc
 import SetNewPasswordScreen from './screens/SetNewPasswordScreen/SetNewPasswordScreen';
 import SignUp from './screens/SignUpScreens/SignUp';
 import OTPScreen from './screens/OTPScreen/OTPScreen';
+import Header from './components/Navbar/Header';
+
 
 function App() {
   return (
     <div>
       <main className='py-3'>
         <Container>
-          
+          <Header />
           {/* <FogotPasswordScreen /> */}
           {/* <SetNewPasswordScreen /> */}
-          <SignUp />
+          {/* <SignUp /> */}
           {/* <OTPScreen /> */}
         </Container>
       </main>
