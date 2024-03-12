@@ -9,6 +9,7 @@
     justify-content: center;
     width: 100%;
     text-transform: capitalize;
+    /* margin-left: 60rem; */
     
   }
 
@@ -20,15 +21,22 @@
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
+    /* padding-left: -30rem; */
 
   }
 
   
   .navbar-nav .nav-item {
-    margin: 0 1rem; /* Adjust the spacing between nav items */
+    margin: 0 1rem; 
     
   }
 
   .dropdown-link .nav-link {
-    color: black !important; /* Set the color to black for the dropdown title */
+    color: black !important; 
+    font-family: satoshi;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
   }
