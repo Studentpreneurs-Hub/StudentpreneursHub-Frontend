@@ -27,11 +27,11 @@ function Header() {
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Nav className="header-second ms-auto">
+            <Nav className="header-second ">
               <Nav.Link href="#login" className="nav-text">
                 Login
               </Nav.Link>
-              <Button className="btn btn-primary">Start selling</Button>
+              <Button className="btn btn-primary start_selling_btn">Start selling</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
