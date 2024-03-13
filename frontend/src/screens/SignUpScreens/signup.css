@@ -20,9 +20,9 @@
 }
 
 .signup__logo {
-  display: grid;
-  place-content: center;
-  margin: 1rem auto;
+  display: grid !important;
+  place-content: center !important;
+  margin: 1rem auto !important;
 }
 
 .signup__header {
@@ -96,8 +96,8 @@ img.showIcon {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    var(--primary-colour);
-  display: flex;
+    var(--primary-colour) !important;
+  display: flex !important;
   width: 370px;
   padding: 10px 22px;
   margin-top: 0;
