@@ -9,6 +9,17 @@
   --secondary-font: Satoshi;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .verify {
   max-width: 50%;
   margin: 5rem auto;
@@ -56,7 +67,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .verify__form__boxes > input {
@@ -82,13 +93,13 @@
   text-align: center;
 }
 
-.verify__info__resend > a{
+.verify__info__resend > a {
   color: var(--primary-colour);
   font-weight: 600;
   text-decoration: none;
 }
 
-.verify__info__resend > a:hover{
+.verify__info__resend > a:hover {
   opacity: 80%;
 }
 
@@ -104,7 +115,7 @@
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    var(--primary-colour);
+    var(--primary-colour) !important;
   width: 370px;
   padding: 10px 22px;
   cursor: pointer;
