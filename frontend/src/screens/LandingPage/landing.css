@@ -68,7 +68,7 @@ div > p{
 .campus_creativity_main_div{
     background: #F2FFFF;
     width: 100%;
-    height: 30rem;
+    height: auto;
     padding: 2rem;
     margin-top: 4rem;
     justify-content: center;
@@ -82,7 +82,7 @@ div > p{
     letter-spacing: 0em;
     text-align: left;
     width: 662px;
-    height: 126px;
+    /* height: 126px; */
     top: 87px;
     left: 180px;
     margin-top: 6rem;
@@ -99,3 +99,7 @@ Button{
     text-transform: capitalize !important;
 }
 
+.onboarding_instructions{
+    display: flex;
+    gap: 5rem;
+}

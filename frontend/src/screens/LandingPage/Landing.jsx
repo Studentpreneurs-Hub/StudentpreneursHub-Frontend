@@ -40,6 +40,33 @@ function Landing() {
                     </p>
                     <Button className='start_selling'>Start Selling</Button>
                     <hr style={{width:'1151px'}}/>
+
+                    <div className='onboarding_instructions'>
+                        <div>
+                            <span>01</span>
+                            <h3>Sign up</h3>
+                            <p>
+                            Register now to unlock a world of opportunities and 
+                            resources tailored for your success on campus.
+                            </p>
+                        </div>
+                        <div>
+                            <span>02</span>
+                            <h3>Create a store</h3>
+                            <p>
+                            Easily set up your personalized store in minutes. 
+                            Showcase your brand and what makes your offerings special.
+                            </p>
+                        </div>
+                        <div>
+                            <span>03</span>
+                            <h3>Upload Products and Flourish</h3>
+                            <p>
+                            Upload your products and let your creativity shine! 
+                            Reach fellow students and staff with your unique offerings
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 
         </div>
