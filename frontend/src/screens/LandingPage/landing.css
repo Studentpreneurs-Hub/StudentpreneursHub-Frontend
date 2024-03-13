@@ -2,23 +2,24 @@
 @import url('https://fonts.cdnfonts.com/css/Lufga');
 
 
-body {
+/* body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+  } */
 
-/* .langingImage-container{
-    margin-left: 5rem;
-    width: 100%;
-} */
+.langingImage_container{
+    margin-left: 10rem;
+    /* width: 100%; */
+    justify-content: center;
+}
 
 .langingImage{
     width: 1152px;
     height: 453.22px;
     top: 159px;
     left: 180px;
-    margin-left: 50px;
+    
     
 
 }
@@ -51,7 +52,7 @@ body {
 }
 
 .arrow_div{
-    width: 40%;
+    width: 30%;
 }
 
 div > p{
@@ -61,6 +62,7 @@ div > p{
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
+    color: #5D5D5D;
 }
 
 .campus_creativity_main_div{
@@ -69,7 +71,7 @@ div > p{
     height: 30rem;
     padding: 2rem;
     margin-top: 4rem;
-
+    justify-content: center;
 }
 
 .campus_creativity_heading{
@@ -78,16 +80,22 @@ div > p{
     font-weight: 700;
     line-height: 63px;
     letter-spacing: 0em;
-    /* text-align: left; */
+    text-align: left;
     width: 662px;
     height: 126px;
-    /* top: 87px;
-    left: 180px; */
+    top: 87px;
+    left: 180px;
     margin-top: 6rem;
     margin-left: 3rem;
     color: #000000;
-
-
+    margin-left: 7rem;
 }
 
+.campus_p_text{
+    width: 90%;
+}
+
+Button{
+    text-transform: capitalize !important;
+}
 

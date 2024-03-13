@@ -12,14 +12,14 @@ function App() {
   return (
     <div>
       <main className='py-3'>
-        <Container>
+        {/* <Container> */}
           <Header />
           <Landing />
           {/* <FogotPasswordScreen /> */}
           {/* <SetNewPasswordScreen /> */}
           {/* <SignUp /> */}
           {/* <OTPScreen /> */}
-        </Container>
+        {/* </Container> */}
       </main>
     </div>
   );

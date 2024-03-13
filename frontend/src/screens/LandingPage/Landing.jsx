@@ -6,8 +6,8 @@ import arrowRight from '../../assets/arrowRight.jpeg'
 
 function Landing() {
   return (
-    <div >
-        <div className='langingImage-container'>
+    <div>
+        <div className='langingImage_container'>
             <img src={landingImage} alt="uu" className='langingImage' />
         </div>
 
@@ -33,8 +33,14 @@ function Landing() {
                     <span>
                     Where Campus Creativity Meets Exceptional Quality
                     </span>
+                    <p className='campus_p_text'>
+                    Delve into a world of entrepreneurial spirit with a diverse range of 
+                    offerings. From mouth-watering cuisines to cutting-edge gadgets 
+                    and trendy fashion, our student entrepreneurs have it all!
+                    </p>
+                    <Button className='start_selling'>Start Selling</Button>
                 </div>
-
+                
         </div>
     </div>
   )
