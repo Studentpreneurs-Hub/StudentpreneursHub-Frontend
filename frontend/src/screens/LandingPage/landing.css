@@ -1,3 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import url('https://fonts.cdnfonts.com/css/Lufga');
+
+
 /* .langingImage-container{
     margin-left: 5rem;
     width: 100%;
@@ -9,5 +13,24 @@
     top: 159px;
     left: 180px;
     margin-left: 50px;
+    
 
 }
+
+.sell_faster_text{
+    font-family: Lufga;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 84px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+
+.sell_Faster_main_div{
+    display: flex;
+    gap: 5rem;
+    /* justify-content: center; */
+}
+
+
