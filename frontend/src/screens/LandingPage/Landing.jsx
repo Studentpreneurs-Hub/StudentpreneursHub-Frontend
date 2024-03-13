@@ -39,9 +39,11 @@ function Landing() {
                     and trendy fashion, our student entrepreneurs have it all!
                     </p>
                     <Button className='start_selling'>Start Selling</Button>
+                    <hr style={{width:'1151px'}}/>
                 </div>
                 
         </div>
+        
     </div>
   )
 }
