@@ -22,7 +22,7 @@ function FogotPasswordScreen() {
           </div>
 
           <div className={styles.forgotpasswordText}>
-            <span className={styles.forgotpasswordQuestion}>Forgot Password</span>
+            <span className={styles.forgotpasswordQuestion}>Forgot Password?</span>
             <div className={styles.instructionRow}>
               <span className={styles.resetInstructions}>No worries, we'll send you reset instructions.</span>
            </div>

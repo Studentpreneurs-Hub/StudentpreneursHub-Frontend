@@ -12,8 +12,8 @@ function App() {
     <div>
       <main className='py-3'>
         <Container>
-          <Header />
-          {/* <FogotPasswordScreen /> */}
+          {/* <Header /> */}
+          <FogotPasswordScreen />
           {/* <SetNewPasswordScreen /> */}
           {/* <SignUp /> */}
           {/* <OTPScreen /> */}

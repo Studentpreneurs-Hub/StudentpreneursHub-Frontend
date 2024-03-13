@@ -31,7 +31,7 @@ function Header() {
               <Nav.Link href="#login" className="nav-text">
                 Login
               </Nav.Link>
-              <Button className="btn btn-primary start_selling_btn">Start selling</Button>
+              <Button className="btn start_selling_btn">Start selling</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
