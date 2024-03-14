@@ -67,7 +67,7 @@ div > p{
 
 .campus_creativity_main_div{
     background: #F2FFFF;
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     padding: 2rem;
     margin-top: 4rem;
@@ -101,5 +101,36 @@ Button{
 
 .onboarding_instructions{
     display: flex;
-    gap: 5rem;
+    /* width: 100%; */
+    /* gap: 10rem; */
+    /* justify-content: center; */
+}
+
+.onboarding_number{
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #717171;
+}
+
+/* .onboard{
+    width: 100%;
+} */
+
+.onboarding_title{
+    font-family: Satoshi;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    width: 25rem;
+}
+
+.onboarding_text{
+    width: 90%;
 }

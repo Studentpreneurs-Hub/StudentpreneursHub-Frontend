@@ -42,33 +42,41 @@ function Landing() {
                     <hr style={{width:'1151px'}}/>
 
                     <div className='onboarding_instructions'>
-                        <div>
-                            <span>01</span>
-                            <h3>Sign up</h3>
-                            <p>
+                        <div className='onboard'>
+                            <span className='onboarding_number'>01.</span>
+                            <h3 className='onboarding_title'>Sign up</h3>
+                            <p className='onboarding_text'>
                             Register now to unlock a world of opportunities and 
                             resources tailored for your success on campus.
                             </p>
                         </div>
                         <div>
-                            <span>02</span>
-                            <h3>Create a store</h3>
-                            <p>
+                            <span className='onboarding_number'>02</span>
+                            <h3 className='onboarding_title'>Create a store</h3>
+                            <p className='onboarding_text'>
                             Easily set up your personalized store in minutes. 
                             Showcase your brand and what makes your offerings special.
                             </p>
                         </div>
                         <div>
-                            <span>03</span>
-                            <h3>Upload Products and Flourish</h3>
-                            <p>
+                            <span className='onboarding_number'>03</span>
+                            <h3 className='onboarding_title'>Upload Products and Flourish</h3>
+                            <p className='onboarding_text'>
                             Upload your products and let your creativity shine! 
                             Reach fellow students and staff with your unique offerings
                             </p>
                         </div>
                     </div>
-                </div>
-                
+                </div> 
+        </div>
+
+        <div>
+            <div>
+                <h1>Hello 1</h1>
+            </div>
+            <div>
+                <h1>Hello 1</h1>
+            </div>
         </div>
         
     </div>
