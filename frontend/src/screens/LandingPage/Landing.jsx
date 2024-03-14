@@ -86,6 +86,13 @@ function Landing() {
                 <img src={Thousand} alt="oop" className='reach_thousand_img' />
             </div>
         </div>
+
+        <div className='frequestly_asked_questions'>
+            <h1 id='frequently_asked_questions_title'>Frequently Asked Questions</h1>
+            <div>
+
+            </div>
+        </div>
         
     </div>
   )

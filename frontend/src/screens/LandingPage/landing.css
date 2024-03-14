@@ -180,3 +180,20 @@ Button{
 
 }
 
+.frequestly_asked_questions{
+    margin-top: 6rem;
+}
+
+#frequently_asked_questions_title{
+    font-family: Lufga;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 63px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-align: center;
+}
+
+
+
+
