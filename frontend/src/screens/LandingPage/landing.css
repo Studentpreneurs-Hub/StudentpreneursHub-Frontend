@@ -123,7 +123,7 @@ Button{
 .onboarding_title{
     font-family: Satoshi;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 500 !important;
     line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
@@ -134,3 +134,49 @@ Button{
 .onboarding_text{
     width: 90%;
 }
+
+.reach_thousand_main_div{
+    display: flex;
+    margin-left: 9rem;
+    margin-top: 5rem;
+    gap: 8.5rem;
+    /* justify-content: center; */
+}
+
+.reach_thousand_title_div{
+    width: 547px;
+    height: 84px;
+    
+}
+
+.reach_thousand_title{
+    font-family: Lufga;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    margin-top: 7rem;
+    /* align-items: center; */   
+}
+
+.reach_thousand_text{
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #717171;
+    width: 40rem;
+}
+
+.reach_thousand_img{
+    width: 450px;
+    height: 459.52px;
+    top: 1880px;
+    left: 881px;
+
+}
+

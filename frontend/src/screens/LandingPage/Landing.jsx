@@ -3,6 +3,7 @@ import landingImage from '../../assets/landingImage.jpeg'
 import './landing.css'
 import { Button } from 'react-bootstrap'
 import arrowRight from '../../assets/arrowRight.jpeg'
+import Thousand from '../../assets/thousand.jpeg'
 
 function Landing() {
   return (
@@ -51,7 +52,7 @@ function Landing() {
                             </p>
                         </div>
                         <div>
-                            <span className='onboarding_number'>02</span>
+                            <span className='onboarding_number'>02.</span>
                             <h3 className='onboarding_title'>Create a store</h3>
                             <p className='onboarding_text'>
                             Easily set up your personalized store in minutes. 
@@ -59,7 +60,7 @@ function Landing() {
                             </p>
                         </div>
                         <div>
-                            <span className='onboarding_number'>03</span>
+                            <span className='onboarding_number'>03.</span>
                             <h3 className='onboarding_title'>Upload Products and Flourish</h3>
                             <p className='onboarding_text'>
                             Upload your products and let your creativity shine! 
@@ -70,12 +71,19 @@ function Landing() {
                 </div> 
         </div>
 
-        <div>
-            <div>
-                <h1>Hello 1</h1>
+        <div className='reach_thousand_main_div'>
+            <div className='reach_thousand_title_div'>
+                <p className='reach_thousand_title'>Reach Thousands of Student Buyers on Campus</p>
+                <p className='reach_thousand_text'>
+                Tap into a vast network of student buyers right at the 
+                heart of the University of Ghana. 
+                Connect with an engaged and dynamic community eager to 
+                explore and support student-run businesses.
+                </p>
+                <Button className='start_selling'>Start Selling</Button>
             </div>
             <div>
-                <h1>Hello 1</h1>
+                <img src={Thousand} alt="oop" className='reach_thousand_img' />
             </div>
         </div>
         
