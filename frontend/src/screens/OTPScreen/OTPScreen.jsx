@@ -33,7 +33,7 @@ const OTPScreen = () => {
   return (
     <>
       <Container className="verify">
-        <Row>
+        <div>
           <img src={logo} alt="logo" className="verify__logo" />
 
           <div className="verify__header">
@@ -116,7 +116,7 @@ const OTPScreen = () => {
               Verify
             </Button>
           </div>
-        </Row>
+        </div>
       </Container>
     </>
   );

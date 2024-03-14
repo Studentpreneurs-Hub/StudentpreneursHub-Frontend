@@ -9,6 +9,17 @@
   --secondary-font: Satoshi;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .signup {
   max-width: 50%;
   margin: 0.5rem auto;
@@ -20,9 +31,9 @@
 }
 
 .signup__logo {
-  display: grid !important;
-  place-content: center !important;
-  margin: 1rem auto !important;
+  display: grid;
+  place-content: center;
+  margin: 1rem auto;
 }
 
 .signup__header {
@@ -48,9 +59,8 @@
 .signup__form {
   display: grid;
   place-content: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
-
 
 .signup__input {
   width: 100%;
@@ -97,7 +107,7 @@ img.showIcon {
       rgba(0, 0, 0, 0.2) 100%
     ),
     var(--primary-colour) !important;
-  display: flex !important;
+  display: flex;
   width: 370px;
   padding: 10px 22px;
   margin-top: 0;
@@ -119,6 +129,10 @@ img.showIcon {
   width: 363px;
   height: 66px;
   flex-shrink: 0;
+}
+
+.signup__info__terms {
+  margin: 0;
 }
 
 .signup__info__terms > a {

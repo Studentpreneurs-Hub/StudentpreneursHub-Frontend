@@ -24,7 +24,7 @@ const SignUp = () => {
   return (
     <div>
       <Container className="signup">
-        <Row>
+        <div>
           <img src={logo} className="signup__logo" alt="logo"/>
 
           <div className="signup__header">
@@ -88,7 +88,7 @@ const SignUp = () => {
               Already have an account? <a href="/#">Log in</a>
             </p>
           </div>
-        </Row>
+        </div>
       </Container>
     </div>
   );
