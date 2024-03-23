@@ -1,8 +1,6 @@
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Dropdown, Tabs, Tab } from "react-bootstrap";
 import "../OnClickProfile/OnClickProfile.css";
 import pic from "../../assets/profile_picture.png";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
 import {
   RiPhoneFill,
   RiWhatsappFill,
@@ -61,16 +59,33 @@ const OnClickProfile = () => {
             id="uncontrolled-tab-example"
             className="mb-3"
           >
-            <Tab eventKey="home" title="Home">
-              Tab content for Home
+            <Tab eventKey="active" title="Active">
+              Tab content for Active
+            </Tab>
+            <Tab eventKey="pending" title="Pending">
+              Tab content for Pending
+            </Tab>
+            <Tab eventKey="declined" title="Declined">
+              Tab content for Declined
+            </Tab>
+            <Tab eventKey="Draft" title="Draft">
+              Tab content for Draft
             </Tab>
             <Tab eventKey="profile" title="Profile">
               Tab content for Profile
             </Tab>
-            <Tab eventKey="contact" title="Contact" disabled>
-              Tab content for Contact
-            </Tab>
           </Tabs>
+          <Dropdown>
+            <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
+              Dropdown Button
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">Electronics</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Fashion</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Stationary</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Container>
     </>
