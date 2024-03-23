@@ -1,0 +1,53 @@
+.profile {
+  max-width: 50%;
+  margin: 5rem auto;
+  padding: 0.5rem 2rem;
+  display: grid;
+  place-content: center;
+  font-family: var(--primary-font);
+}
+
+.profile__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.56rem;
+  margin-bottom: 4.18rem;
+}
+
+.profile__header__info__company {
+  color: #000;
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.profile__header__info_socials,
+.socials {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+  gap: 0.6rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38.667px;
+  height: 38.667px;
+  background-color: #f4f5fa;
+  padding: 0.5rem;
+  border-radius: 24.167px;
+}
+
+.socials:hover {
+  background-color: var(--primary-colour);
+}
+
+.profile__edit--btn {
+  font-family: var(--secondary-font) !important;
+  font-size: 14px;
+  border-radius: 2.6rem;
+  border: 1px solid var(--secondary-colour) !important;
+}

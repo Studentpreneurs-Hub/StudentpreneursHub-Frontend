@@ -6,6 +6,7 @@ import SignUp from './screens/SignUpScreens/SignUp';
 import OTPScreen from './screens/OTPScreen/OTPScreen';
 import Header from './components/Navbar/Header';
 import Landing from './screens/LandingPage/Landing';
+import OnClickProfile from './screens/OnClickProfile/OnClickProfile';
 
 
 function App() {
@@ -14,11 +15,12 @@ function App() {
       <main className='py-3'>
         {/* <Container> */}
           <Header />
-          <Landing />
+          {/* <Landing /> */}
           {/* <FogotPasswordScreen /> */}
           {/* <SetNewPasswordScreen /> */}
           {/* <SignUp /> */}
           {/* <OTPScreen /> */}
+          <OnClickProfile />
         {/* </Container> */}
       </main>
     </div>
