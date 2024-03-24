@@ -45,10 +45,24 @@
   background-color: var(--primary-colour);
 }
 
-.profile__edit--btn {
+.profile__edit__btn {
   font-family: var(--secondary-font) !important;
   font-size: 14px;
   border-radius: 2.6rem;
   border: 1px solid var(--secondary-colour) !important;
 }
 
+.nav-tabs .nav-link {
+  border: none !important;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: var(--primary-colour) !important;
+  border-bottom: 4px solid var(--primary-colour) !important;
+  border-radius: 4px;
+}
+
+.profile__dropdown {
+  border-radius: 9px;
+  border: 1px solid #e4e4e4 !important;
+}

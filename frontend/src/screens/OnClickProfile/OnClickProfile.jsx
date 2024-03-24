@@ -45,7 +45,7 @@ const OnClickProfile = () => {
                 </a>
               </li>
               <li>
-                <Button variant="outline-dark" className="profile__edit--btn">
+                <Button variant="outline-dark" className="profile__edit__btn">
                   Edit Profile
                 </Button>
               </li>
@@ -76,7 +76,7 @@ const OnClickProfile = () => {
             </Tab>
           </Tabs>
           <Dropdown>
-            <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
+            <Dropdown.Toggle variant="outline-dark" className="profile__dropdown" id="dropdown-basic">
               Dropdown Button
             </Dropdown.Toggle>
 
