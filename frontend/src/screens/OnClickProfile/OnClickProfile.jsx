@@ -7,6 +7,7 @@ import {
   RiInstagramFill,
   RiFacebookFill,
 } from "react-icons/ri";
+import ProductCard from "../../components/ProductCard/productcard"
 
 const OnClickProfile = () => {
   return (
@@ -60,7 +61,7 @@ const OnClickProfile = () => {
             className="mb-3"
           >
             <Tab eventKey="active" title="Active">
-              Tab content for Active
+              <ProductCard />
             </Tab>
             <Tab eventKey="pending" title="Pending">
               Tab content for Pending
