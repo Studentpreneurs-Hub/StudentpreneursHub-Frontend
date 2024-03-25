@@ -14,13 +14,13 @@ function App() {
     <div>
       <main className='py-3'>
         {/* <Container> */}
-          <Header />
+          {/* <Header /> */}
           {/* <Landing /> */}
           {/* <FogotPasswordScreen /> */}
-          {/* <SetNewPasswordScreen /> */}
+          <SetNewPasswordScreen /> 
           {/* <SignUp /> */}
           {/* <OTPScreen /> */}
-          <OnClickProfile />
+          {/* <OnClickProfile /> */}
         {/* </Container> */}
       </main>
     </div>
