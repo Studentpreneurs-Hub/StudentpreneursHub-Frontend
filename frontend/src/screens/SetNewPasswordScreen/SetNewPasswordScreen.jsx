@@ -9,6 +9,7 @@ const SetNewPasswordScreen = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const[confirmShowPass, setConfirmShowPass] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +20,12 @@ const SetNewPasswordScreen = () => {
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
+    
   };
+
+  const handleConfirmTogglePassword = () => {
+    setConfirmShowPass(!confirmShowPass)
+  }
 
   return (
     <div>
@@ -33,7 +39,7 @@ const SetNewPasswordScreen = () => {
         <div className="firstRow">
           <div className="logo">
             <BiSolidShoppingBags color="#00A6A6" className="logo-icon" />
-            <span className="logo-text">Studentpreneurs HUB</span>
+            <span className="logo-text">Studentpreneurs HUB.</span>
           </div>
 
           <div className="forgotpassword-text">
@@ -85,12 +91,18 @@ const SetNewPasswordScreen = () => {
               <span className="email-text">Confirm Password</span>
               <Form className="form">
                 <input
-                  type="password"
+                  type={confirmShowPass ? "text" : "password"}
                   id="confirmPassword"
                   placeholder="Confirm Password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   // onChange={setEmail}
+                />
+                <img
+                  src={show}
+                  className="showPassIcon"
+                  onClick={handleConfirmTogglePassword}
+                  alt="show/hide password img"
                 />
               </Form>
             </div>
