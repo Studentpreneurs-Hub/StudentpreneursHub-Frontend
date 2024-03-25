@@ -100,15 +100,9 @@ const SetNewPasswordScreen = () => {
                 Submit
               </Button>
             </div>
-            <div className="rememberpassword-question-row">
-              <span className="rememberpassword-question">
-                Remember your password? Login
-              </span>
-            </div>
           </div>
         </div>
       </Container>
-      
     </div>
   );
 };
