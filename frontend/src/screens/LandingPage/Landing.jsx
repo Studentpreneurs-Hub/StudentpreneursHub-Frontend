@@ -1,9 +1,10 @@
 import React from "react";
 import landingImage from "../../assets/landingImage.jpeg";
 import "./landing.css";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import arrowRight from "../../assets/arrowRight.jpeg";
 import Thousand from "../../assets/thousand.jpeg";
+import AccordionCompo from "../../components/Accordion/AccordionCompo";
 
 function Landing() {
   return (
@@ -92,7 +93,9 @@ function Landing() {
         <h1 id="frequently_asked_questions_title">
           Frequently Asked Questions
         </h1>
-        <div></div>
+        <Container>
+            <AccordionCompo />
+        </Container>
       </div>
     </div>
   );
