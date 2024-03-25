@@ -15,9 +15,9 @@ function App() {
       <main className='py-3'>
         {/* <Container> */}
           {/* <Header /> */}
-          {/* <Landing /> */}
+          <Landing />
           {/* <FogotPasswordScreen /> */}
-          <SetNewPasswordScreen /> 
+          {/* <SetNewPasswordScreen />  */}
           {/* <SignUp /> */}
           {/* <OTPScreen /> */}
           {/* <OnClickProfile /> */}

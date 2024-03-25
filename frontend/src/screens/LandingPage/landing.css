@@ -1,199 +1,185 @@
-@import url('https://fonts.cdnfonts.com/css/satoshi');
-@import url('https://fonts.cdnfonts.com/css/Lufga');
-
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/Lufga");
 
 /* body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
-
-.langingImage_container{
-    margin-left: 10rem;
-    /* width: 100%; */
-    justify-content: center;
-}
-
-.langingImage{
-    width: 1152px;
-    height: 453.22px;
-    top: 159px;
-    left: 180px;
-    
-    
-
-}
-
-.sell_faster_text{
-    font-family: Lufga;
-    font-size: 60px;
-    font-weight: 700;
-    line-height: 84px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #000000;
-}
-
-.sell_Faster_main_div{
-    display: flex;
-    gap: 5rem;
-    margin-top: 3rem;
-    justify-content: center;
-}
-
-.start_selling{
-    width: Hug (133px);
-    height: Hug (42px);
-    padding: 10px, 23px, 10px, 23px;
-    border-radius: 42px;
-    gap: 10px;
-    background: #00A6A6 !important;
-
-}
-
-.arrow_div{
-    width: 30%;
-}
-
-div > p{
-    font-family: Satoshi;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #5D5D5D;
-}
-
-.campus_creativity_main_div{
-    background: #F2FFFF;
-    /* width: 100%; */
-    height: auto;
-    padding: 2rem;
-    margin-top: 4rem;
-    justify-content: center;
-}
-
-.campus_creativity_heading{
-    font-family: Lufga;
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 63px;
-    letter-spacing: 0em;
-    text-align: left;
-    width: 662px;
-    /* height: 126px; */
-    top: 87px;
-    left: 180px;
-    margin-top: 6rem;
-    margin-left: 3rem;
-    color: #000000;
-    margin-left: 7rem;
-}
-
-.campus_p_text{
-    width: 90%;
-}
-
-Button{
-    text-transform: capitalize !important;
-}
-
-.onboarding_instructions{
-    display: flex;
-    /* width: 100%; */
-    /* gap: 10rem; */
-    /* justify-content: center; */
-}
-
-.onboarding_number{
-    font-family: Satoshi;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #717171;
-}
-
-/* .onboard{
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 } */
 
-.onboarding_title{
-    font-family: Satoshi;
-    font-size: 20px;
-    font-weight: 500 !important;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #000000;
-    width: 25rem;
+/* .langingImage_container {
+  margin-left: 3rem;
+  width: 100%;
+}*/
+
+.landingImage {
+  width: 1152px;
+  height: 453.22px;
+  top: 159px;
+  justify-content: center;
+  padding-left: 5.8rem;
 }
 
-.onboarding_text{
-    width: 90%;
+.sell_faster_text {
+  font-family: Lufga;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 84px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
 }
 
-.reach_thousand_main_div{
-    display: flex;
-    margin-left: 9rem;
-    margin-top: 5rem;
-    gap: 8.5rem;
-    /* justify-content: center; */
+.sell_Faster_main_div {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3rem;
+  justify-content: center;
+  margin-left: -3.5rem;
 }
 
-.reach_thousand_title_div{
-    width: 547px;
-    height: 84px;
-    
+.start_selling {
+  width: 133px;
+  height: 42px;
+  padding: 10px 23px;
+  border-radius: 42px;
+  gap: 10px;
+  background: #00a6a6 !important;
 }
 
-.reach_thousand_title{
-    font-family: Lufga;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 42px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #000000;
-    margin-top: 7rem;
-    /* align-items: center; */   
+.arrow_div {
+  width: 30%;
 }
 
-.reach_thousand_text{
-    font-family: Satoshi;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #717171;
-    width: 40rem;
+div > p {
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5d5d5d;
 }
 
-.reach_thousand_img{
-    width: 450px;
-    height: 459.52px;
-    top: 1880px;
-    left: 881px;
-
+.campus_creativity_main_div {
+  width: 100%;
+  background: #f2ffff;
+  height: auto;
+  padding: 2rem;
+  margin-top: 4rem;
+  justify-content: center;
 }
 
-.frequestly_asked_questions{
-    margin-top: 6rem;
+.campus_creativity_heading {
+  font-family: Lufga;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 63px;
+  letter-spacing: 0em;
+  /* text-align: left; */
+  width: 662px;
+  margin-top: 6rem;
+  color: #000000;
+  justify-content: center;
 }
 
-#frequently_asked_questions_title{
-    font-family: Lufga;
-    font-size: 35px;
-    font-weight: 700;
-    line-height: 63px;
-    letter-spacing: 0em;
-    text-align: left;
-    text-align: center;
+.campus_p_text {
+  width: 90%;
 }
 
+Button {
+  text-transform: capitalize !important;
+}
 
+.onboarding_instructions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
+.onboard {
+  margin-left: -0.5rem;
+}
 
+.onboarding_number {
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717171;
+}
+
+.onboarding_title {
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500 !important;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  width: 25rem;
+  /* margin-left: 3rem; */
+}
+
+.onboarding_text {
+  width: 90%;
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: left;
+}
+
+.reach_thousand_main_div {
+  display: flex;
+  margin-left: 4rem;
+  margin-top: 5rem;
+  gap: 8rem;
+}
+
+/*.reach_thousand_title_div {
+  width: 547px;
+  height: 84px;
+}
+
+.reach_thousand_title {
+  font-family: Lufga;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  margin-top: 7rem;
+}
+
+.reach_thousand_text {
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717171;
+  width: 40rem;
+}
+
+.reach_thousand_img {
+  width: 450px;
+  height: 459.52px;
+}
+
+.frequestly_asked_questions {
+  margin-top: 6rem;
+}
+
+#frequently_asked_questions_title {
+  font-family: Lufga;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 63px;
+  letter-spacing: 0em;
+  text-align: center;
+} */
