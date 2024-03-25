@@ -88,12 +88,12 @@ function Landing() {
         </div>
       </div>
 
-      {/* <div className="frequestly_asked_questions">
+      <div className="frequestly_asked_questions">
         <h1 id="frequently_asked_questions_title">
           Frequently Asked Questions
         </h1>
         <div></div>
-      </div> */}
+      </div>
     </div>
   );
 }

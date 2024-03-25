@@ -139,7 +139,7 @@ Button {
   gap: 8rem;
 }
 
-/*.reach_thousand_title_div {
+.reach_thousand_title_div {
   width: 547px;
   height: 84px;
 }
@@ -182,4 +182,4 @@ Button {
   line-height: 63px;
   letter-spacing: 0em;
   text-align: center;
-} */
+}
