@@ -90,13 +90,17 @@ function Landing() {
       </div>
 
       <div className="frequestly_asked_questions">
-        <h1 id="frequently_asked_questions_title">
-          Frequently Asked Questions
-        </h1>
-        <Container>
-            <AccordionCompo />
-        </Container>
+            <h1 id="frequently_asked_questions_title">
+            Frequently Asked Questions
+            </h1>
+            <Container>
+                <AccordionCompo />
+            </Container>
       </div>
+
+      <footer>
+        
+      </footer>
     </div>
   );
 }
