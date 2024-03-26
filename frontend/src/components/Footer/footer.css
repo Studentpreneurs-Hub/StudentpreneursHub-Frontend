@@ -7,13 +7,17 @@ footer {
   margin-top: 3rem;
 }
 
+.footer_sub_div {
+  margin-left: 6rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   justify-content: left;
-  margin-bottom: 3rem;
-  /* margin-left: 36rem; */
+  margin-bottom: 2rem;
+  /* margin-left: 6rem; */
 }
 
 .logo-text {
@@ -28,4 +32,9 @@ footer {
 .logo-icon {
   width: 1.625rem;
   height: 1.625rem;
+}
+
+.footer_icons {
+  display: flex;
+  gap: 2rem;
 }
