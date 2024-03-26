@@ -1,0 +1,18 @@
+/* * {
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  gap: 0px;
+  margin-top: 5rem;
+  background: #003a3a;
+  padding: 5rem;
+} */

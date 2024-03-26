@@ -5,6 +5,7 @@ import { Button, Container } from "react-bootstrap";
 import arrowRight from "../../assets/arrowRight.jpeg";
 import Thousand from "../../assets/thousand.jpeg";
 import AccordionCompo from "../../components/Accordion/AccordionCompo";
+import Footer from "../../components/Footer/Footer";
 
 function Landing() {
   return (
@@ -22,7 +23,7 @@ function Landing() {
 
         <div className="arrow_div">
           <img src={arrowRight} alt="" />
-          <p style={{width:'30rem'}}>
+          <p style={{ width: "30rem" }}>
             Join our vibrant hub of student entrepreneurs! Discover unique
             products and innovative services right on campus, from gourmet
             delights to the latest in tech and fashion.
@@ -32,38 +33,64 @@ function Landing() {
 
       <div className="campus_creativity_main_div">
         <div className="campus_creativity_heading">
-            <section style={{paddingLeft:'3rem'}}>
-            <span >Where Campus Creativity Meets Exceptional Quality</span>
-            </section>
-          <p className="campus_p_text" style={{marginLeft:'3rem'}}>
+          <section style={{ paddingLeft: "3rem" }}>
+            <span>Where Campus Creativity Meets Exceptional Quality</span>
+          </section>
+          <p className="campus_p_text" style={{ marginLeft: "3rem" }}>
             Delve into a world of entrepreneurial spirit with a diverse range of
             offerings. From mouth-watering cuisines to cutting-edge gadgets and
             trendy fashion, our student entrepreneurs have it all!
           </p>
-          <Button className="start_selling" style={{marginLeft:'3rem'}}>Start Selling</Button>
-          <hr style={{ width: "1030px", marginLeft:'3rem' }} />
+          <Button className="start_selling" style={{ marginLeft: "3rem" }}>
+            Start Selling
+          </Button>
+          <hr style={{ width: "1030px", marginLeft: "3rem" }} />
 
           <div className="onboarding_instructions">
             <div className="onboard">
-              <span className="onboarding_number" style={{marginLeft:'3rem'}}>01.</span>
-              <h3 className="onboarding_title" style={{marginLeft:'3rem'}}>Sign up</h3>
-              <p className="onboarding_text" style={{marginLeft:'3rem', width:'70%'}}>
+              <span
+                className="onboarding_number"
+                style={{ marginLeft: "3rem" }}
+              >
+                01.
+              </span>
+              <h3 className="onboarding_title" style={{ marginLeft: "3rem" }}>
+                Sign up
+              </h3>
+              <p
+                className="onboarding_text"
+                style={{ marginLeft: "3rem", width: "70%" }}
+              >
                 Register now to unlock a world of opportunities and resources
                 tailored for your success on campus.
               </p>
             </div>
             <div>
-              <span className="onboarding_number" style={{marginLeft:'-2rem'}}>02.</span>
-              <h3 className="onboarding_title" style={{marginLeft:'-2rem'}}>Create a store</h3>
-              <p className="onboarding_text" style={{marginLeft:'-2rem'}}>
+              <span
+                className="onboarding_number"
+                style={{ marginLeft: "-2rem" }}
+              >
+                02.
+              </span>
+              <h3 className="onboarding_title" style={{ marginLeft: "-2rem" }}>
+                Create a store
+              </h3>
+              <p className="onboarding_text" style={{ marginLeft: "-2rem" }}>
                 Easily set up your personalized store in minutes. Showcase your
                 brand and what makes your offerings special.
               </p>
             </div>
             <div>
-              <span className="onboarding_number" style={{marginLeft:'-2rem'}}>03.</span>
-              <h3 className="onboarding_title" style={{marginLeft:'-2rem'}}>Upload Products and Flourish</h3>
-              <p className="onboarding_text" style={{marginLeft:'-2rem'}}>
+              <span
+                className="onboarding_number"
+                style={{ marginLeft: "-2rem" }}
+              >
+                03.
+              </span>
+              <h3 className="onboarding_title" style={{ marginLeft: "-2rem" }}>
+                Upload Products and Flourish
+              </h3>
+              <p className="onboarding_text" style={{ marginLeft: "-2rem" }}>
                 Upload your products and let your creativity shine! Reach fellow
                 students and staff with your unique offerings
               </p>
@@ -90,17 +117,16 @@ function Landing() {
       </div>
 
       <div className="frequestly_asked_questions">
-            <h1 id="frequently_asked_questions_title">
-            Frequently Asked Questions
-            </h1>
-            <Container>
-                <AccordionCompo />
-            </Container>
+        <h1 id="frequently_asked_questions_title">
+          Frequently Asked Questions
+        </h1>
+        <Container>
+          <AccordionCompo />
+        </Container>
       </div>
-
-      <footer>
-        
-      </footer>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
