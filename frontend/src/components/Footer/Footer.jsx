@@ -22,6 +22,12 @@ function Footer() {
             <FaInstagram color="#ffffff" size={20} />
             <FaLinkedin color="#ffffff" size={20} />
           </div>
+
+          <div className="footer_services">
+            <span id="footer_FAQ">FAQs</span>
+            <span id="footer_TOS">Terms of Service</span>
+            <span id="footer_PP">Privacy Policy</span>
+          </div>
         </div>
       </footer>
     </div>

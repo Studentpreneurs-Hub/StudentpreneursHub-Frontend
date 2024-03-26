@@ -36,5 +36,40 @@ footer {
 
 .footer_icons {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
+
+.footer_services {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#footer_FAQ {
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.9px;
+  text-align: left;
+  color: #ffffff;
+}
+
+#footer_TOS {
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.9px;
+  text-align: left;
+  color: #ffffff;
+}
+
+#footer_PP {
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.9px;
+  text-align: left;
+  color: #ffffff;
+}
+
+
