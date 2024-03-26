@@ -28,6 +28,24 @@ function Footer() {
             <span id="footer_TOS">Terms of Service</span>
             <span id="footer_PP">Privacy Policy</span>
           </div>
+
+          <hr style={{ width: "1040px", color: "#ffffff" }} />
+
+          <div>
+            <span className="footer_desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              euismod libero id ante malesuada, ac efficitur lorem mollis.
+              Phasellus vitae erat ut turpis posuere finibus ac nec sapien. Duis
+              sed sapien nec ipsum feugiat lacinia. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Nullam euismod libero id ante
+              malesuada, ac efficitur lorem mollis. Phasellus vitae erat ut
+              turpis posuere finibus ac nec sapien. Duis sed sapien nec ipsum
+            </span>
+          </div>
+
+          <div className="footer_copyright">
+            &copy; {new Date().getFullYear()} Student Entrpreneurship HUB. All rights reserved.
+          </div>
         </div>
       </footer>
     </div>
