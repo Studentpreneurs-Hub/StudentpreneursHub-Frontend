@@ -1,18 +1,31 @@
-/* * {
-  box-sizing: border-box;
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.footer {
+footer {
   width: 100%;
-  height: auto;
-  gap: 0px;
-  margin-top: 5rem;
+  height: 313px;
   background: #003a3a;
-  padding: 5rem;
-} */
+  padding: 3rem;
+  margin-bottom: -3rem;
+  margin-top: 3rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: left;
+  margin-bottom: 3rem;
+  /* margin-left: 36rem; */
+}
+
+.logo-text {
+  font-family: "Lufga";
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.875rem;
+  color: #ffffff !important;
+  text-align: left;
+}
+
+.logo-icon {
+  width: 1.625rem;
+  height: 1.625rem;
+}

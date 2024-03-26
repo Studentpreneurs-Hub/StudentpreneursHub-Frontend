@@ -29,9 +29,7 @@ function AccordionCompo() {
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
-          <Accordion.Header>
-            Where we are Located
-          </Accordion.Header>
+          <Accordion.Header>Where we are Located</Accordion.Header>
           <Accordion.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
