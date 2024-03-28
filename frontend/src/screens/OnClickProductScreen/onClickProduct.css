@@ -14,4 +14,12 @@
   font-size: 20px;
   cursor: pointer;
   color: #ffffff;
+  font-weight: bolder;
+}
+
+.thumbnails {
+  display: flex;
+  cursor: pointer;
+  margin-top: 1rem;
+  gap: 8px;
 }

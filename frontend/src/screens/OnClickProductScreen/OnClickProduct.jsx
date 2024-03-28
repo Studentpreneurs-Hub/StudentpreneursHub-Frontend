@@ -24,27 +24,39 @@ function OnClickProduct() {
 
   return (
     <div>
+      <div>
         <div>
-            <div>
-                <div className="product_img">
-                    <img
-                    src={images[currentImage]}
-                    alt=""
-                    style={{ width: "716px", height: "464px" }}
-                    />
-                    <div className="navigation">
-                    <button onClick={prevImage}>
-                        <SlArrowLeft />
-                    </button>
-                    <button onClick={nextImage}>
-                        <SlArrowRight />
-                    </button>
-                    </div>
-                </div>
-                <div className="thumbnails">{}</div>
+          <div className="product_img">
+            <img
+              src={images[currentImage]}
+              alt=""
+              style={{ width: "716px", height: "464px" }}
+            />
+            <div className="navigation">
+              <button onClick={prevImage}>
+                <SlArrowLeft />
+              </button>
+              <button onClick={nextImage}>
+                <SlArrowRight />
+              </button>
             </div>
-            <div>World</div>
+          </div>
+          <div className="thumbnails">
+            {images.map((image, index) => (
+              <img 
+              key={index}
+              src={image} 
+              alt={`thumbnail ${index}`} 
+              width={182.43}
+              height={141.42}
+              onClick={() => changeImage(index)}
+              className={index === currentImage ? 'active' : ''}
+              />
+            ))}
+          </div>
         </div>
+        <div>World</div>
+      </div>
     </div>
   );
 }
