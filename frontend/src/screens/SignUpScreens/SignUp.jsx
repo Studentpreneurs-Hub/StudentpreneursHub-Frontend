@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Row, Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
-import './signup.css';
+import { Link } from "react-router-dom";
+import "./signup.css";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const SignUp = () => {
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
-  }
+  };
 
   const handleSubmit = (e) => {
     // Validation code
@@ -25,7 +26,7 @@ const SignUp = () => {
     <div>
       <Container className="signup">
         <div>
-          <img src={logo} className="signup__logo" alt="logo"/>
+          <img src={logo} className="signup__logo" alt="logo" />
 
           <div className="signup__header">
             <div className="signup__header__title">Get Started</div>
@@ -63,19 +64,24 @@ const SignUp = () => {
               <label className="signup__form__label">Password</label>
               <div>
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   className="signup__input"
                   id="password"
                   placeholder="Your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <img src={show} className="showIcon" onClick={handleTogglePassword} alt="show/hide password img" />
+                <img
+                  src={show}
+                  className="showIcon"
+                  onClick={handleTogglePassword}
+                  alt="show/hide password img"
+                />
               </div>
             </Form>
 
             <Button className="signup__btn" onClick={handleSubmit}>
-                Create Account
+              Create Account
             </Button>
           </div>
 
@@ -85,7 +91,10 @@ const SignUp = () => {
               <a href="/#">Terms of Service & Privacy Policy</a>
             </p>
             <p className="signup__info__login">
-              Already have an account? <a href="/#">Log in</a>
+              Already have an account?{" "}
+              <Link to="/Login" style={{ color: "#00A6A6" }}>
+                Log in
+              </Link>
             </p>
           </div>
         </div>
