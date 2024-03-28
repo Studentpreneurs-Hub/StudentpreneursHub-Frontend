@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import {BrowserRouter as Routes, Route, Router} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import FogotPasswordScreen from './screens/ForgotPasswordScreens/FogotPasswordScreen';
 import SetNewPasswordScreen from './screens/SetNewPasswordScreen/SetNewPasswordScreen';
 import SignUp from './screens/SignUpScreens/SignUp';
@@ -11,19 +11,24 @@ import OnClickProfile from './screens/OnClickProfile/OnClickProfile';
 
 function App() {
   return (
-    <div>
+    <Router>
       <main className='py-3'>
-        {/* <Container> */}
-          {/* <Header /> */}
-          <Landing />
+        <Routes>
+          <Route path='/' Component={Landing} exact/>
+          <Route path='/forgotPassword' Component={FogotPasswordScreen} />
+          <Route path='/setnewPassword' Component={SetNewPasswordScreen} />
+          <Route path='/signUp' Component={SignUp} />
+          <Route path='/otp' Component={OTPScreen} />
+          <Route path='/onClickProfile' Component={OnClickProfile} />
+          {/* <Landing /> */}
           {/* <FogotPasswordScreen /> */}
           {/* <SetNewPasswordScreen />  */}
           {/* <SignUp /> */}
           {/* <OTPScreen /> */}
           {/* <OnClickProfile /> */}
-        {/* </Container> */}
+        </Routes>
       </main>
-    </div>
+    </Router>
   );
 }
 
