@@ -23,3 +23,21 @@
   margin-top: 1rem;
   gap: 8px;
 }
+
+.product_details_main_div {
+  display: flex;
+  gap: 2rem;
+}
+
+.personal_card {
+  margin-top: 2.3rem;
+  width: 330px;
+  height: 223px;
+  top: 278px;
+  left: 1002px;
+  padding: 38px 19px 37.71px 18px;
+  gap: 0px;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  opacity: 0px;
+}
