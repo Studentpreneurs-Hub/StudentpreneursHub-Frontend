@@ -11,9 +11,9 @@ function Footer() {
     <div>
       <footer>
         <div className="footer_sub_div">
-          <div className="logo">
-            <BiSolidShoppingBags color="#00A6A6" className="logo-icon" />
-            <span className="logo-text">Studentpreneurs HUB.</span>
+          <div className="footer_logo">
+            <BiSolidShoppingBags color="#00A6A6" className="footer_logo-icon" />
+            <span className="footer_logo-text">Studentpreneurs HUB.</span>
           </div>
 
           <div className="footer_icons">
@@ -44,7 +44,8 @@ function Footer() {
           </div>
 
           <div className="footer_copyright">
-            &copy; {new Date().getFullYear()} Student Entrpreneurship HUB. All rights reserved.
+            &copy; {new Date().getFullYear()} Student Entrpreneurship HUB. All
+            rights reserved.
           </div>
         </div>
       </footer>

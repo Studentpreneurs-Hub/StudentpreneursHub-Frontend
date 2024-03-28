@@ -14,7 +14,7 @@ footer {
   margin-left: 6rem;
 }
 
-.logo {
+.footer_logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -23,7 +23,7 @@ footer {
   /* margin-left: 6rem; */
 }
 
-.logo-text {
+.footer_logo-text {
   font-family: "Lufga";
   font-size: 1rem;
   font-weight: 800;
@@ -32,7 +32,7 @@ footer {
   text-align: left;
 }
 
-.logo-icon {
+.footer_logo-icon {
   width: 1.625rem;
   height: 1.625rem;
 }
