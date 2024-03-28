@@ -26,12 +26,22 @@ function OnClickProduct() {
     <div>
         <div>
             <div>
-                <div>
-                    <img src={images[currentImage]} alt="" style={{width:'716px'}}/>
+                <div className="product_img">
+                    <img
+                    src={images[currentImage]}
+                    alt=""
+                    style={{ width: "716px", height: "464px" }}
+                    />
+                    <div className="navigation">
+                    <button onClick={prevImage}>
+                        <SlArrowLeft />
+                    </button>
+                    <button onClick={nextImage}>
+                        <SlArrowRight />
+                    </button>
+                    </div>
                 </div>
-                <div>
-                    {}
-                </div>
+                <div className="thumbnails">{}</div>
             </div>
             <div>World</div>
         </div>
