@@ -6,10 +6,12 @@ import arrowRight from "../../assets/arrowRight.jpeg";
 import Thousand from "../../assets/thousand.jpeg";
 import AccordionCompo from "../../components/Accordion/AccordionCompo";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Navbar/Header";
 
 function Landing() {
   return (
     <div>
+      <Header />
       <div className="langingImage_container">
         <img src={landingImage} alt="uu" className="landingImage" />
       </div>
