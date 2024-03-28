@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { BiSolidShoppingBags } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styles from "./Forgotpassword.module.css";
@@ -49,7 +49,13 @@ function FogotPasswordScreen() {
           </div>
           <div className={styles.rememberpasswordQuestionRow}>
             <span className={styles.rememberpasswordQuestion}>
-              Remember your password? <Link to='/Login' style={{color: '#00A6A6'}}>Login</Link>
+              Remember your password?{" "}
+              <Link
+                to="/Login"
+                style={{ color: "#00A6A6", fontWeight: "bolder" }}
+              >
+                Login
+              </Link>
             </span>
           </div>
         </div>
