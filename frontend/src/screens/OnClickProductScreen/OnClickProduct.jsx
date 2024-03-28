@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import "./onClickProduct.css";
-import back  from "../../assets/iphone12-bk.jpg";
+import back from "../../assets/iphone12-bk.jpg";
 import front from "../../assets/iphone12-fr.jpg";
 import side from "../../assets/iphone12-sd.jpg";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 function OnClickProduct() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -23,16 +24,21 @@ function OnClickProduct() {
   return (
     <div>
       <Row>
+        <h2>Iphone 12 Pro Max</h2>
         <Col>
-          <div className="slider" style={{ width: "100px" }}>
+          <div className="slider">
             <img
               src={images[currentImage]}
               alt={`Slide ${currentImage}`}
-              style={{ width: "100px" }}
+              style={{ width: "700px" }}
             />
             <div className="navigation">
-              <button onClick={prevImage}>&lt;</button>
-              <button onClick={nextImage}>&gt;</button>
+              <button onClick={prevImage}>
+                <SlArrowLeft />
+              </button>
+              <button onClick={nextImage}>
+                <SlArrowRight />
+              </button>
             </div>
           </div>
           <div className="thumbnails">
