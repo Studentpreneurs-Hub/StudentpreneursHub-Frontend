@@ -34,7 +34,7 @@ function OnClickProduct() {
             <img
               src={images[currentImage]}
               alt=""
-              style={{ width: "600px", height: "335px" }}
+              style={{ width: "590px", height: "365px" }}
             />
             <div className="navigation">
               <button onClick={prevImage}>
