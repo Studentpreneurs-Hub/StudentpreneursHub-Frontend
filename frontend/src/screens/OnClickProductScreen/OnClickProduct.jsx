@@ -83,6 +83,26 @@ function OnClickProduct() {
           </div>
         </div>
       </div>
+      <div className="product_text_details">
+        <h5>Description</h5>
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          euismod libero id ante malesuada, ac efficitur lorem mollis. Phasellus
+          vitae erat ut turpis posuere finibus ac nec sapien. Duis sed sapien
+          nec ipsum feugiat lacinia. Vestibulum at convallis mauris. Fusce ut
+          ante vitae nisl hendrerit scelerisque. Suspendisse potenti. Integer
+          auctor justo nec augue vehicula, at varius nisl
+        </span>
+
+        <h5>Price</h5>
+        <span>GHC 5,000,000.00</span>
+
+        <h5>Category</h5>
+        <span>Electronics</span>
+
+        <h5>Condition</h5>
+        <span>Used</span>
+      </div>
       <Footer />
     </div>
   );
