@@ -1,57 +1,54 @@
-@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import url("https://fonts.cdnfonts.com/css/satoshi");
 
+.navbar {
+  margin-top: -2rem;
+}
 
-  .navbar {
-    
-  }
-  
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    gap: 1rem;
-  }
-  
-  .navbar-nav .nav-item {
-    margin: 0 1rem; 
-  }
-  
-  .nav-text {
-    font-family: satoshi;
-    color: #000000 !important;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: 0em;
-    padding-left: -30rem; 
-  }
-  
-  .dropdown-link .nav-link {
-    font-family: satoshi;
-    color: #000000 !important;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: 0em;
-    padding-left: -30rem; 
-  }
-  
-  .header-second {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-second .nav-link {
-    margin-right: 1rem; 
-  }
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  gap: 1rem;
+}
 
-  .start_selling_btn{
-    background: #00A6A6 !important;
-    width: Hug (133px);
-    height: Hug (42px);
-    padding: 10px, 23px, 10px, 23px;
-    border-radius: 42px;
-    gap: 10px;
+.navbar-nav .nav-item {
+  margin: 0 1rem;
+}
 
-  }
+.nav-text {
+  font-family: satoshi;
+  color: #000000 !important;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  padding-left: -30rem;
+}
 
+.dropdown-link .nav-link {
+  font-family: satoshi;
+  color: #000000 !important;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  padding-left: -30rem;
+}
+
+.header-second {
+  display: flex;
+  align-items: center;
+}
+
+.header-second .nav-link {
+  margin-right: 1rem;
+}
+
+.start_selling_btn {
+  background: #00a6a6 !important;
+  width: Hug (133px);
+  height: Hug (42px);
+  padding: 10px, 23px, 10px, 23px;
+  border-radius: 42px;
+  gap: 10px;
+}
