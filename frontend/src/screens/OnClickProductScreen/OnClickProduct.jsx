@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
 import "./onClickProduct.css";
 import back from "../../assets/iphone12-bk.jpg";
 import front from "../../assets/iphone12-fr.jpg";
