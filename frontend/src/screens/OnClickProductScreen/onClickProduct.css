@@ -1,11 +1,25 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/Lufga");
+
 .product_details_main_div {
   display: flex;
   gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.product_name {
+  font-family: Satoshi;
+  font-size: 30px;
+  font-weight: 700;
+  /* line-height: 75.6px; */
+  /* text-align: left; */
+  color: #000000;
 }
 
 .navigation {
   position: absolute;
-  top: 60%;
+  top: 23rem;
   transform: translateY(-50%);
   width: 589px;
   display: flex;
@@ -30,7 +44,7 @@
 }
 
 .personal_card {
-  margin-top: 2.3rem;
+  margin-top: 2.55rem;
   width: 330px;
   height: 223px;
   top: 278px;
@@ -44,6 +58,24 @@
 
 .contact_details_card {
   display: flex;
+}
+
+.store_name {
+  font-family: Satoshi;
+  font-size: 15px;
+  font-weight: 700;
+  /* line-height: 26.86px; */
+  text-align: left;
+  color: #000000;
+}
+
+.contact_name {
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.6px;
+  text-align: left;
+  color: #525866;
 }
 
 .social_icons {
