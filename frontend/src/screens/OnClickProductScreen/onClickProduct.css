@@ -1,8 +1,13 @@
+.product_details_main_div {
+  display: flex;
+  gap: 2rem;
+}
+
 .navigation {
   position: absolute;
-  top: 40%;
+  top: 60%;
   transform: translateY(-50%);
-  width: 715px;
+  width: 589px;
   display: flex;
   justify-content: space-between;
 }
@@ -24,11 +29,6 @@
   gap: 8px;
 }
 
-.product_details_main_div {
-  display: flex;
-  gap: 2rem;
-}
-
 .personal_card {
   margin-top: 2.3rem;
   width: 330px;
@@ -40,4 +40,14 @@
   border-radius: 12px;
   border: 1px solid #e1e1e1;
   opacity: 0px;
+}
+
+.contact_details_card {
+  display: flex;
+}
+
+.social_icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 1rem;
 }

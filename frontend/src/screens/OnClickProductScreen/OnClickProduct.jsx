@@ -7,6 +7,11 @@ import side from "../../assets/iphone12-sd.jpg";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
+import sheldon from '../../assets/sheldon.jpg'
+import { FaTwitter } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 function OnClickProduct() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -60,7 +65,20 @@ function OnClickProduct() {
           </div>
         </div>
         <div className="personal_card">
-          <div></div>
+          <div className="contact_details_card">
+                <img src={sheldon} alt="" style={{clipPath:'circle()', width:'57px'}}/>
+                <div>
+                    <h5>Maxine Apple Store</h5>
+                    <span>Gideon Maxi Appiah</span>
+                </div>
+          </div>
+          <div className="social_icons">
+          <FaTwitter  size={20} />
+            <FaFacebookF  size={20} />
+            <FaInstagram  size={20} />
+            <FaLinkedin  size={20} />
+
+          </div>
         </div>
       </div>
       <Footer />
