@@ -6,6 +6,7 @@ import OTPScreen from "./screens/OTPScreen/OTPScreen";
 import Landing from "./screens/LandingPage/Landing";
 import OnClickProfile from "./screens/OnClickProfile/OnClickProfile";
 import OnClickProduct from "./screens/OnClickProductScreen/OnClickProduct";
+import Login from "./screens/LoginScreen/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main className="py-3">
         <Routes>
           <Route path="/" Component={Landing} exact />
+          <Route path="/Login" Component={Login} />
           <Route path="/forgotPassword" Component={FogotPasswordScreen} />
           <Route path="/setnewPassword" Component={SetNewPasswordScreen} />
           <Route path="/signUp" Component={SignUp} />
