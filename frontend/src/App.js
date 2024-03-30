@@ -7,6 +7,7 @@ import Landing from "./screens/LandingPage/Landing";
 import OnClickProfile from "./screens/OnClickProfile/OnClickProfile";
 import OnClickProduct from "./screens/OnClickProductScreen/OnClickProduct";
 import Login from "./screens/LoginScreen/Login";
+import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/otp" Component={OTPScreen} />
           <Route path="/onClickProfile" Component={OnClickProfile} />
           <Route path="/onClickProduct" Component={OnClickProduct} />
+          <Route path="/registerBusiness" Component={RegisterBusiness} />
         </Routes>
       </main>
     </Router>
