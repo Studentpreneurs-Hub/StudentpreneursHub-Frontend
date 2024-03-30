@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import './registerbusiness.css'
 
 function RegisterBusiness() {
   const [storeName, setStoreName] = useState("");
@@ -9,16 +10,16 @@ function RegisterBusiness() {
   const [location, setLocation] = useState("");
 
   const handleGetStarted = () => {
-    if(storeName===""||contact===""||location===""){
+    if(storeName==="" || contact==="" || location===""){
         alert("Field(s) cannot empty")
     }
   }
 
   return (
     <div>
-      <Container className="login">
+      <Container className="register__business">
         <div>
-          <img src={logo} className="login__logo" alt="logo" />
+          <img src={logo} className="register__business__logo" alt="logo" />
 
           <div className="login__header">
             <div className="login__header__title">Let's Know you</div>

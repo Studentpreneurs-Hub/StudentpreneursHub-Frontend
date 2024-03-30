@@ -1,0 +1,150 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/Lufga");
+
+:root {
+  --primary-colour: #00a6a621 !important;
+  --secondary-colour: #191c1f;
+  --neutral-colour: #6f767e;
+  --primary-font: Lufga;
+  --secondary-font: Satoshi;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.register__business {
+  max-width: 50%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--primary-font);
+}
+
+.register__business__logo {
+  display: grid;
+  place-content: center;
+  margin: 1rem auto;
+}
+
+.login__header {
+  display: grid;
+  place-content: center;
+  margin-bottom: 1rem;
+}
+
+.login__header__title {
+  color: var(--secondary-colour);
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+
+.login__header__subtitle {
+  color: var(--neutral-colour);
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login__form {
+  display: grid;
+  place-content: center;
+  gap: 1.2rem;
+}
+
+.login__input {
+  width: 100%;
+  height: 2.8125rem;
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e4e4e4;
+  margin-top: 0.125rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.login__form > Form > div {
+  position: relative;
+}
+
+img.showIcon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.login__form__label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #000;
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login_btn {
+  font-family: Satoshi;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 42px;
+  border: none;
+  background: #00a6a6 !important;
+  display: flex;
+  width: 370px;
+  padding: 10px 22px;
+  margin-top: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.login__btn:hover {
+  opacity: 80%;
+}
+
+.login__info {
+  color: var(--neutral-colour);
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 500;
+  width: 363px;
+  height: 66px;
+  flex-shrink: 0;
+}
+
+.login__forgotpass__question {
+  margin: 0;
+}
+
+.login__forgotpass__question > a {
+  font-family: Satoshi !important;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 13rem;
+}
+
+.login__info__login > a {
+  color: #00a6a6 !important;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.login__info__terms > a:hover,
+.login__info__login > a:hover {
+  opacity: 80%;
+}
