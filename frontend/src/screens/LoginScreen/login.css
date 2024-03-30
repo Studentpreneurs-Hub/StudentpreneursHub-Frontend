@@ -138,7 +138,7 @@ img.showIcon {
 }
 
 .login__info__login > a {
-  color: var(--primary-colour) !important;
+  color: #00A6A6 !important;
   font-family: Satoshi;
   font-size: 16px;
   font-weight: 600;
