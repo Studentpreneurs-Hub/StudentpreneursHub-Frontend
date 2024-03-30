@@ -11,14 +11,14 @@ function Header() {
       <Navbar expand="lg" className="navbar">
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand>
               <img src={logo} className="signup__logo" alt="logo" />
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="navbar-nav mx-auto">
-              <LinkContainer to="/Signup">
+              <LinkContainer to="">
                 <Nav.Link href="#about-us" className="nav-text">
                   About Us
                 </Nav.Link>
@@ -33,7 +33,7 @@ function Header() {
                 id="basic-nav-dropdown"
                 className="dropdown-link"
               >
-                <LinkContainer to="/food&&beverages">
+                <LinkContainer to="/Food&&beverages">
                   <NavDropdown.Item>Food and Beverages</NavDropdown.Item>
                 </LinkContainer>
 
@@ -42,17 +42,15 @@ function Header() {
                 </LinkContainer>
 
                 <LinkContainer to="/Cosmetics&&Fashion">
-                  <NavDropdown.Item href="#action/3.3">
-                    Cosmetics and Fashion
-                  </NavDropdown.Item>
+                  <NavDropdown.Item>Cosmetics and Fashion</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
             </Nav>
             <Nav className="header-second ">
-              <LinkContainer to="/login">
+              <LinkContainer to="/Login">
                 <Nav.Link className="nav-text">Login</Nav.Link>
               </LinkContainer>
-              <Link to="/onClickProfile">
+              <Link to="">
                 <Button className="btn start_selling_btn">Start selling</Button>
               </Link>
             </Nav>
