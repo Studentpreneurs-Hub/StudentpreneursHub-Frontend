@@ -7,7 +7,11 @@ import styles from "./Forgotpassword.module.css";
 function FogotPasswordScreen() {
   const [email, setEmail] = useState();
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    if (email ==""){
+      alert("Field cannot be empty")
+    }
+  };
   return (
     <div>
       <Container className={styles.mainContainer}>
