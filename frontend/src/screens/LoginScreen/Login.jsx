@@ -1,39 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
+import "./login.css";
 
 function Login() {
-    const[email, setEmail] = useState('')
-    const[password, setPassword] = useState('')
-    const[showPassword, setShowPassword] = useState(false)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-    const handleTogglePassword = () =>{
-        setShowPassword(!showPassword)
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleLogin = () => {
+    if (email === "" || password === "") {
+      alert("Field(s) cannot be empty");
     }
-
+  };
 
   return (
     <div>
-        <Container className="signup">
+      <Container className="login">
         <div>
-          <img src={logo} className="signup__logo" alt="logo" />
+          <img src={logo} className="login__logo" alt="logo" />
 
-          <div className="signup__header">
-            <div className="signup__header__title">Login</div>
-            <div className="signup__header__subtitle">
-                Welcome back! Please enter your details
+          <div className="login__header">
+            <div className="login__header__title">Login</div>
+            <div className="login__header__subtitle">
+              Welcome back! Please enter your details
             </div>
           </div>
 
-          <div className="signup__form">
-
+          <div className="login__form">
             <Form>
-              <label className="signup__form__label">Email</label>
+              <label className="login__form__label">Email</label>
               <input
                 type="email"
-                className="signup__input"
+                className="login__input"
                 id="email"
                 placeholder="name@example.com"
                 value={email}
@@ -42,11 +47,11 @@ function Login() {
             </Form>
 
             <Form>
-              <label className="signup__form__label">Password</label>
+              <label className="login__form__label">Password</label>
               <div>
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="signup__input"
+                  className="login__input"
                   id="password"
                   placeholder="Your password"
                   value={password}
@@ -60,28 +65,29 @@ function Login() {
                 />
               </div>
             </Form>
-            
-              <Button className="signup__btn" onClick={handleSubmit}>
-                Create Account
-              </Button>
+
+            <Button className="login_btn" onClick={handleLogin}>
+              Login
+            </Button>
           </div>
 
-          <div className="signup__info">
-            <p className="signup__info__terms">
-              By signing up, you agree to our{" "}
-              <a href="/#">Terms of Service & Privacy Policy</a>
+          <div className="login__info">
+            <p className="login__info__terms">
+              <Link to="/forgotpassword" style={{ color: "#00A6A6" }}>
+                Forgot Password?
+              </Link>
             </p>
-            <p className="signup__info__login">
-              Already have an account?{" "}
-              <Link to="/Login" style={{ color: "#00A6A6" }}>
-                Log in
+            <p className="login__info__login">
+              Don’t have an account yet?{" "}
+              <Link to="/signup" style={{ color: "#00A6A6" }}>
+                Sign Up
               </Link>
             </p>
           </div>
         </div>
       </Container>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

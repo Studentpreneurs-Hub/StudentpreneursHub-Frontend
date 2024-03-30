@@ -106,7 +106,7 @@ img.showIcon {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    var(--primary-colour) !important;
+    #00A6A6 !important;
   display: flex;
   width: 370px;
   padding: 10px 22px;
