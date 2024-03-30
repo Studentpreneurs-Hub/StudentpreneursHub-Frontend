@@ -72,7 +72,7 @@ function Login() {
           </div>
 
           <div className="login__info">
-            <p className="login__info__terms">
+            <p className="login__forgotpass__question">
               <Link to="/forgotpassword" style={{ color: "#00A6A6" }}>
                 Forgot Password?
               </Link>
