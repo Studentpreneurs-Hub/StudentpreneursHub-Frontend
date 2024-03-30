@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/Satoshi");
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
 .product_details_main_div {
@@ -12,8 +12,6 @@
   font-family: Satoshi;
   font-size: 30px;
   font-weight: 700;
-  /* line-height: 75.6px; */
-  /* text-align: left; */
   color: #000000;
 }
 
@@ -87,4 +85,31 @@
 
 .product_text_details {
   margin-top: 2rem;
+  width: 50%;
+  margin-left: 9.53rem;
+  justify-content: center;
+}
+
+.desc_heading {
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  color: #000000;
+  padding-top: 1rem;
+}
+
+.desc_text_div {
+  justify-content: center;
+}
+
+.desc_text {
+  font-family: satoshi;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: justify;
+  color: #525866;
+  width: 664px;
+  height: 96px;
 }
