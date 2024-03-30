@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import logo from "../../assets/logo.png";
-import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 
 function RegisterBusiness() {
@@ -30,61 +29,46 @@ function RegisterBusiness() {
 
           <div className="login__form">
             <Form>
-              <label className="login__form__label">Email</label>
+              <label className="login__form__label">Store Name</label>
               <input
                 type="text"
                 className="login__input"
                 id="storeName"
-                placeholder="name@example.com"
+                placeholder="Maxinne Apple Shop"
                 value={storeName}
                 onChange={(e) => setStoreName(e.target.value)}
               />
             </Form>
 
             <Form>
-              <label className="login__form__label">Email</label>
+              <label className="login__form__label">Contact</label>
               <input
-                type="email"
+                type="tel"
                 className="login__input"
                 id="contact"
-                placeholder="name@example.com"
+                placeholder="0000000000"
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
               />
             </Form>
 
             <Form>
-              <label className="login__form__label">Password</label>
+              <label className="login__form__label">Location</label>
               <div>
                 <input
                   type="text"
                   className="login__input"
                   id="location"
-                  placeholder="Your password"
+                  placeholder="Jean Nelson"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                 />
                 
               </div>
             </Form>
-
             <Button className="login_btn" onClick={handleGetStarted}>
               Get Started
             </Button>
-          </div>
-
-          <div className="login__info">
-            <p className="login__forgotpass__question">
-              <Link to="/forgotpassword" style={{ color: "#00A6A6" }}>
-                Forgot Password?
-              </Link>
-            </p>
-            <p className="login__info__login">
-              Don’t have an account yet?{" "}
-              <Link to="/signup" style={{ color: "#00A6A6" }}>
-                Sign Up
-              </Link>
-            </p>
           </div>
         </div>
       </Container>
