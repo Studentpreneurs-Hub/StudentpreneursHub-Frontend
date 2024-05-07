@@ -1,13 +1,14 @@
 import { Container, Button, Dropdown, Tabs, Tab } from "react-bootstrap";
 import "../OnClickProfile/OnClickProfile.css";
 import pic from "../../assets/profile_picture.png";
+import product1 from "../../assets/bicycle.png";
 import {
   RiPhoneFill,
   RiWhatsappFill,
   RiInstagramFill,
   RiFacebookFill,
 } from "react-icons/ri";
-import ProductCard from "../../components/ProductCard/productcard"
+import ProductCard from "../../components/ProductCard/productcard";
 
 const OnClickProfile = () => {
   return (
@@ -56,12 +57,33 @@ const OnClickProfile = () => {
 
         <div className="Profile__tabs">
           <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey="active"
             id="uncontrolled-tab-example"
             className="mb-3"
           >
             <Tab eventKey="active" title="Active">
-              <ProductCard />
+              <div className="product__listings">
+                <ProductCard
+                  productImg={product1}
+                  productCardTitle="Women Bike for age 21"
+                  productPrice="300"
+                />
+                <ProductCard
+                  productImg={product1}
+                  productCardTitle="Women Bike for age 21"
+                  productPrice="300"
+                />
+                <ProductCard
+                  productImg={product1}
+                  productCardTitle="Women Bike for age 21"
+                  productPrice="300"
+                />
+                <ProductCard
+                  productImg={product1}
+                  productCardTitle="Women Bike for age 21"
+                  productPrice="300"
+                />
+              </div>
             </Tab>
             <Tab eventKey="pending" title="Pending">
               Tab content for Pending
@@ -76,8 +98,12 @@ const OnClickProfile = () => {
               Tab content for Profile
             </Tab>
           </Tabs>
-          <Dropdown>
-            <Dropdown.Toggle variant="outline-dark" className="profile__dropdown" id="dropdown-basic">
+          <Dropdown className="dropdown__custom">
+            <Dropdown.Toggle
+              variant="outline-dark"
+              className="profile__dropdown"
+              id="dropdown-basic"
+            >
               Dropdown Button
             </Dropdown.Toggle>
 
