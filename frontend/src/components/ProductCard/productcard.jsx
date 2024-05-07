@@ -1,16 +1,15 @@
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
+import "../ProductCard/productcard.css";
 
-function ProductCard () {
+
+function ProductCard({productImg, productCardTitle, productPrice}) {
   return (
-    <Card style={{ width: '18rem' }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
+    <Card className="product__card">
+      <Card.Img variant="top" src={productImg} />
+      <div className="product__card-description">
+        <p className="product__card-description-title">{productCardTitle}</p>
+        <p className="product__card-description-price">Price: <span>GHS {productPrice}</span></p>
+      </div>
     </Card>
   );
 }

@@ -1,0 +1,39 @@
+.product__card.card {
+  width: 208.759px;
+  height: 268.305px;
+  border-radius: 16.112px;
+  border: 0.701px solid #d2d2d2;
+}
+
+.product__card-description {
+  font-family: Satoshi;
+  margin-left: 2rem;
+}
+
+.product__card-description-title {
+  color: #101828;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.product__card-description-price {
+  color: #667085;
+  font-family: Satoshi;
+  font-size: 9.807px;
+  font-weight: 400;
+}
+
+.product__card-description-price span {
+  display: block;
+  color: #101828;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card-img-top {
+  margin: 1rem auto;
+  width: 138.706px !important;
+  height: 138.706px !important;
+}
