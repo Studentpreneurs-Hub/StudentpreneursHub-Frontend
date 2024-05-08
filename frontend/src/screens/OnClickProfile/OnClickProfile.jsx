@@ -9,6 +9,7 @@ import {
   RiFacebookFill,
 } from "react-icons/ri";
 import ProductCard from "../../components/ProductCard/productcard";
+import Footer from "../../components/Footer/Footer";
 
 const OnClickProfile = () => {
   return (
@@ -115,6 +116,7 @@ const OnClickProfile = () => {
           </Dropdown>
         </div>
       </Container>
+      <Footer />
     </>
   );
 };
