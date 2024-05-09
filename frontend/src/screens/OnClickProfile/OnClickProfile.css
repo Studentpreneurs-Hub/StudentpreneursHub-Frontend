@@ -84,6 +84,10 @@ div.dropdown-menu.show {
 
 }
 
+.tab-content{
+  width: 930px;
+}
+
 .product__listings{
   display: flex;
   gap: 1.3rem;

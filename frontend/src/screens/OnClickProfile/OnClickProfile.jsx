@@ -96,7 +96,32 @@ const OnClickProfile = () => {
               Tab content for Draft
             </Tab>
             <Tab eventKey="profile" title="Profile">
-              Tab content for Profile
+              <div>
+                <p>Store Description</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam euismod libero id ante malesuada, ac efficitur lorem
+                  mollis. Phasellus vitae erat ut turpis posuere finibus ac nec
+                  sapien. Duis sed sapien nec ipsum feugiat lacinia. Vestibulum
+                  at convallis mauris. Fusce ut ante vitae nisl hendrerit
+                  scelerisque. Suspendisse potenti. Integer auctor justo nec
+                  augue vehicula, at varius nisl
+                </p>
+              </div>
+
+              <div>
+                <p>Share Store Profile</p>
+              </div>
+
+              <div>
+                <p>Contact Information</p>
+                <ul>
+                  <li> <RiPhoneFill /> Call</li>
+                  <li> <RiWhatsappFill /> WhatsApp</li>
+                  <li> <RiInstagramFill /> Instagram</li>
+                  <li> <RiFacebookFill /> Facebook</li>
+                </ul>
+              </div>
             </Tab>
           </Tabs>
           <Dropdown className="dropdown__custom">
