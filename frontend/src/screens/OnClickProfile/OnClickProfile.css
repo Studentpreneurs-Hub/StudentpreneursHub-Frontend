@@ -62,7 +62,7 @@
   border-radius: 4px;
 }
 
-.Profile__tabs{
+.Profile__tabs {
   position: relative;
 }
 
@@ -77,18 +77,35 @@ div.dropdown-menu.show {
   box-shadow: 0px 4px 43.3px 0px rgba(0, 0, 0, 0.06);
 }
 
-.dropdown__custom{
+.dropdown__custom {
   position: absolute !important;
   top: -18px;
   left: 80%;
-
 }
 
-.tab-content{
+.tab-content {
   width: 930px;
 }
 
-.product__listings{
+.product__listings {
   display: flex;
   gap: 1.3rem;
+}
+
+.Store-profile {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.Store__description {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.Store-socials {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.Store-contact {
+  grid-area: 2 / 1 / 3 / 2;
 }
