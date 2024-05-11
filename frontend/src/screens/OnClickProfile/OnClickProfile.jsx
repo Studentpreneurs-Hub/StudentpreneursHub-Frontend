@@ -7,7 +7,10 @@ import {
   RiWhatsappFill,
   RiInstagramFill,
   RiFacebookFill,
+  RiTwitterFill,
 } from "react-icons/ri";
+import { BsPerson } from "react-icons/bs";
+import { CiLocationOn } from "react-icons/ci";
 import ProductCard from "../../components/ProductCard/productcard";
 import Footer from "../../components/Footer/Footer";
 
@@ -96,31 +99,88 @@ const OnClickProfile = () => {
               Tab content for Draft
             </Tab>
             <Tab eventKey="profile" title="Profile">
-              <div>
-                <p>Store Description</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam euismod libero id ante malesuada, ac efficitur lorem
-                  mollis. Phasellus vitae erat ut turpis posuere finibus ac nec
-                  sapien. Duis sed sapien nec ipsum feugiat lacinia. Vestibulum
-                  at convallis mauris. Fusce ut ante vitae nisl hendrerit
-                  scelerisque. Suspendisse potenti. Integer auctor justo nec
-                  augue vehicula, at varius nisl
-                </p>
-              </div>
+              <div className="Store-profile">
+                <div className="Store">
+                  <p className="Store__heading">Store Description</p>
+                  <p className="Store__description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam euismod libero id ante malesuada, ac efficitur lorem
+                    mollis. Phasellus vitae erat ut turpis posuere finibus ac
+                    nec sapien. Duis sed sapien nec ipsum feugiat lacinia.
+                    Vestibulum at convallis mauris. Fusce ut ante vitae nisl
+                    hendrerit scelerisque. Suspendisse potenti. Integer auctor
+                    justo nec augue vehicula, at varius nisl
+                  </p>
+                </div>
 
-              <div>
-                <p>Share Store Profile</p>
-              </div>
+                <div className="Store-socials">
+                  <p className="Store-socials__heading">Share Store Profile</p>
+                  <ul className="Store-social__list">
+                    <li className="Store-social__list__item">
+                      <a href="">
+                        <RiPhoneFill />
+                      </a>
+                    </li>
+                    <li className="Store-social__list__item">
+                      <a href="">
+                        <RiTwitterFill />
+                      </a>
+                    </li>
+                    <li className="Store-social__list__item">
+                      <a href="">
+                        <RiFacebookFill />
+                      </a>
+                    </li>
+                    <li className="Store-social__list__item">
+                      <a href="">
+                        <RiInstagramFill />
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="Store-location">
+                    <p>
+                      <CiLocationOn /> Jean Nelson Hall
+                    </p>
+                    <p>
+                      <BsPerson />
+                      Member since Nov 2023
+                    </p>
+                  </div>
+                </div>
 
-              <div>
-                <p>Contact Information</p>
-                <ul>
-                  <li> <RiPhoneFill /> Call</li>
-                  <li> <RiWhatsappFill /> WhatsApp</li>
-                  <li> <RiInstagramFill /> Instagram</li>
-                  <li> <RiFacebookFill /> Facebook</li>
-                </ul>
+                <div className="Store-contact">
+                  <p className="Store-contact__heading">Contact Information</p>
+                  <ul className="Store-contact__list">
+                    <li className="Store-contact__list__items">
+                      {" "}
+                      <span>
+                        <RiPhoneFill />
+                      </span>{" "}
+                      <a href="tel:+">Call</a>
+                    </li>
+                    <li className="Store-contact__list__items">
+                      {" "}
+                      <span>
+                        <RiWhatsappFill />{" "}
+                      </span>
+                      <a href="">WhatsApp</a>
+                    </li>
+                    <li className="Store-contact__list__items">
+                      {" "}
+                      <span>
+                        <RiInstagramFill />
+                      </span>{" "}
+                      <a href="">Instagram</a>
+                    </li>
+                    <li className="Store-contact__list__items">
+                      {" "}
+                      <span>
+                        <RiFacebookFill />
+                      </span>{" "}
+                      <a href="">Facebook</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </Tab>
           </Tabs>
