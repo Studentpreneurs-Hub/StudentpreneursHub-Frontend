@@ -1,7 +1,9 @@
 .Edit {
   display: grid;
+  margin: 5rem 0;
+  width: 426px !important;
   place-content: center;
-  padding: 27px 29px 55.333px 29px;
+  padding: 27px 29px 55.333px 29px !important;
   border-radius: 12px;
   border: 1px solid #e1e1e1;
 }
