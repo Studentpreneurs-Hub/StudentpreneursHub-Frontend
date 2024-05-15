@@ -1,0 +1,36 @@
+.Edit {
+  display: grid;
+  place-content: center;
+  padding: 27px 29px 55.333px 29px;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+}
+
+.edit--img {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+}
+
+.profile-img{
+    width: 124px;
+height: 124px;
+border-radius: 124px;
+}
+
+.edit--btns {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.edit-btn {
+  background-color: white;
+  border-radius: 42px;
+  border: 1px solid var(--Secondary, #525866) !important;
+  padding: 10px 22px;
+  font-family: Satoshi;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}

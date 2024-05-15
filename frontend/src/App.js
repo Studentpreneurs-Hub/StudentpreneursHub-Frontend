@@ -8,6 +8,7 @@ import OnClickProfile from "./screens/OnClickProfile/OnClickProfile";
 import OnClickProduct from "./screens/OnClickProductScreen/OnClickProduct";
 import Login from "./screens/LoginScreen/Login";
 import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness";
+import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileScreen";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/onClickProfile" Component={OnClickProfile} />
           <Route path="/onClickProduct" Component={OnClickProduct} />
           <Route path="/registerBusiness" Component={RegisterBusiness} />
+          <Route path="/EditingProfileScreen" Component={EditingProfileScreen} />
         </Routes>
       </main>
     </Router>
