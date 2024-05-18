@@ -1,8 +1,8 @@
 .Edit {
   display: grid;
-  margin: 5rem 0;
-  width: 426px !important;
   place-content: center;
+  margin: 5rem auto;
+  width: 550px !important;
   padding: 27px 29px 55.333px 29px !important;
   border-radius: 12px;
   border: 1px solid #e1e1e1;
@@ -14,10 +14,10 @@
   gap: 29px;
 }
 
-.profile-img{
-    width: 124px;
-height: 124px;
-border-radius: 124px;
+.profile-img {
+  width: 124px;
+  height: 124px;
+  border-radius: 124px;
 }
 
 .edit--btns {
@@ -35,4 +35,59 @@ border-radius: 124px;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+}
+
+.info--heading {
+  color: #000;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.form--name {
+  color: #000;
+  text-align: center;
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20.094px;
+  letter-spacing: -0.373px;
+}
+
+.contact--form {
+  width: 80% !important;
+  margin-left: 3.5rem;
+}
+
+.form-control {
+  border-radius: 12px !important;
+  border: 1px solid #e4e4e4 !important;
+  background: #fff !important;
+}
+
+.update--btn {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+}
+
+.update--btn--save {
+  border-radius: 42px;
+  background: #00a6a6 !important;
+}
+
+.update--btn-cancel {
+  color: #525866 !important;
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 42px;
+  border: 1px solid #d7d7d7 !important;
+  background-color: white !important;
+}
+
+.update--btn-cancel:hover,
+.update--btn--save:hover {
+  opacity: 0.8;
 }

@@ -22,31 +22,31 @@ const EditingProfileScreen = () => {
       </div>
 
       <div className="personal--info mt-5">
-        <p>Personal Information</p>
+        <p className="info--heading">Personal Information</p>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Name</Form.Label>
+            <Form.Label className="form--name">Name</Form.Label>
             <Form.Control type="text" placeholder="Maxwell Ansah" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Store Name</Form.Label>
+            <Form.Label className="form--name">Store Name</Form.Label>
             <Form.Control type="text" placeholder="Maxmine Apple Deals" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Location</Form.Label>
+            <Form.Label className="form--name">Location</Form.Label>
             <Form.Control type="text" placeholder="Jean Nelson Hall" />
           </Form.Group>
         </Form>
       </div>
 
       <div className="contact--info mt-3">
-        <p>Contact Information</p>
+        <p className="info--heading">Contact Information</p>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
           <Form.Label column sm="2">
             Contact
           </Form.Label>
           <Col sm="10">
-            <Form.Control type="tel" placeholder="Phone Number" />
+            <Form.Control className="contact--form" type="tel" placeholder="Phone Number" />
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -54,7 +54,7 @@ const EditingProfileScreen = () => {
             Whatsapp
           </Form.Label>
           <Col sm="10">
-            <Form.Control type="tel" placeholder="Phone Number" />
+            <Form.Control className="contact--form" type="tel" placeholder="Phone Number" />
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -62,7 +62,7 @@ const EditingProfileScreen = () => {
           Instagram
           </Form.Label>
           <Col sm="10">
-            <Form.Control type="tel" placeholder="Phone Number" />
+            <Form.Control className="contact--form" type="tel" placeholder="User Name" />
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -70,9 +70,14 @@ const EditingProfileScreen = () => {
             Facebook
           </Form.Label>
           <Col sm="10">
-            <Form.Control type="tel" placeholder="Phone Number" />
+            <Form.Control className="contact--form" type="tel" placeholder="User Name" />
           </Col>
         </Form.Group>
+      </div>
+
+      <div className="update--btn">
+        <Button className="update--btn--save">Save Profile</Button>
+        <Button className="update--btn-cancel">Cancel</Button>
       </div>
     </Container>
   );
