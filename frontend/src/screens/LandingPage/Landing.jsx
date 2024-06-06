@@ -2,7 +2,7 @@ import React from "react";
 import landingImage from "../../assets/landingImage.jpeg";
 import "./landing.css";
 import { Button, Container } from "react-bootstrap";
-import arrowRight from "../../assets/arrowRight.jpeg";
+import arrowRight from "../../assets/arrowRight.png";
 import Thousand from "../../assets/thousand.jpeg";
 import AccordionCompo from "../../components/Accordion/AccordionCompo";
 import Footer from "../../components/Footer/Footer";
