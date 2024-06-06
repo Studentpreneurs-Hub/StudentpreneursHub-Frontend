@@ -1,6 +1,5 @@
 import React from "react";
 import "./footer.css";
-import { BiSolidShoppingBags } from "react-icons/bi";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -13,7 +12,7 @@ function Footer() {
       <footer>
         <div className="footer_sub_div">
           <div className="footer_logo">
-            <img src={logo} />
+            <img src={logo} alt="Logo"/>
           </div>
 
           <div className="footer_icons">
