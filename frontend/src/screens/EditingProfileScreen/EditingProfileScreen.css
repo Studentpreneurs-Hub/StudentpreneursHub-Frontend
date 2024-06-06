@@ -74,7 +74,7 @@
 
 .update--btn--save {
   border-radius: 42px;
-  background: #00a6a6 !important;
+  background: var(--secondary-colour) !important;
 }
 
 .update--btn-cancel {

@@ -5,6 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import logo from "../../assets/logo__withwhite.png"
 
 function Footer() {
   return (
@@ -12,8 +13,7 @@ function Footer() {
       <footer>
         <div className="footer_sub_div">
           <div className="footer_logo">
-            <BiSolidShoppingBags color="#00A6A6" className="footer_logo-icon" />
-            <span className="footer_logo-text">Studentpreneurs HUB.</span>
+            <img src={logo} />
           </div>
 
           <div className="footer_icons">

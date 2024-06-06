@@ -8,7 +8,7 @@ function FogotPasswordScreen() {
   const [email, setEmail] = useState();
 
   const handleSubmit = () => {
-    if (email ==""){
+    if (email === ""){
       alert("Field cannot be empty")
     }
   };
@@ -56,7 +56,7 @@ function FogotPasswordScreen() {
               Remember your password?{" "}
               <Link
                 to="/Login"
-                style={{ color: "#00A6A6", fontWeight: "bolder" }}
+                style={{ color: "#B6975D", fontWeight: "bolder" }}
               >
                 Login
               </Link>
