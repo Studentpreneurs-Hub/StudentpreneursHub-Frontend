@@ -45,10 +45,15 @@
 }
 
 .start_selling_btn {
-  background: #00a6a6 !important;
+  background: #B6975D !important;
   width: Hug (133px);
   height: Hug (42px);
   padding: 10px, 23px, 10px, 23px;
   border-radius: 42px;
   gap: 10px;
+  font-weight: bolder;
 }
+
+/* Button{
+  background: #B6975D !important;
+} */
