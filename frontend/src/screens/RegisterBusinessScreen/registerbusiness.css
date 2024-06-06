@@ -2,9 +2,9 @@
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
 :root {
-  --primary-colour: #00a6a621 !important;
-  --secondary-colour: #191c1f;
-  --neutral-colour: #6f767e;
+  --primary-colour: #153D6E !important;
+  --secondary-colour: #B6975D !important;
+  --neutral-colour: #6f767e !important;
   --primary-font: Lufga;
   --secondary-font: Satoshi;
 }
@@ -101,7 +101,7 @@ img.showIcon {
   font-weight: 500;
   border-radius: 42px;
   border: none;
-  background: #00a6a6 !important;
+  background: var(--secondary-colour) !important;
   display: flex;
   width: 370px;
   padding: 10px 22px;
@@ -138,7 +138,7 @@ img.showIcon {
 }
 
 .login__info__login > a {
-  color: #00a6a6 !important;
+  color: var(--secondary-colour) !important;
   font-family: Satoshi;
   font-size: 16px;
   font-weight: 600;

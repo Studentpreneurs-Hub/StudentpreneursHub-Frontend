@@ -92,7 +92,7 @@ const SignUp = () => {
             </p>
             <p className="signup__info__login">
               Already have an account?{" "}
-              <Link to="/Login" style={{ color: "#00A6A6" }}>
+              <Link to="/Login">
                 Log in
               </Link>
             </p>

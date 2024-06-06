@@ -2,9 +2,9 @@
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
 :root {
-  --primary-colour: #00a6a621;
-  --secondary-colour: #191c1f;
-  --neutral-colour: #6f767e;
+  --primary-colour: #153D6E !important;
+  --secondary-colour: #B6975D !important;
+  --neutral-colour: #6f767e !important;
   --primary-font: Lufga;
   --secondary-font: Satoshi;
 }
@@ -43,7 +43,7 @@
 }
 
 .signup__header__title {
-  color: var(--secondary-colour);
+  color: #191C1F;
   font-weight: 700;
   font-size: 30px;
   text-align: center;
@@ -101,12 +101,7 @@ img.showIcon {
   font-weight: 500;
   border-radius: 42px;
   border: none;
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%
-    ),
-    #00A6A6 !important;
+  background: var(--secondary-colour) !important;
   display: flex;
   width: 370px;
   padding: 10px 22px;
@@ -143,7 +138,7 @@ img.showIcon {
 }
 
 .signup__info__login > a {
-  color: var(--primary-colour);
+  color: var(--secondary-colour);
   font-family: Satoshi;
   font-size: 16px;
   font-weight: 600;

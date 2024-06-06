@@ -1,13 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/satoshi");
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
-:root {
-  --primary-colour: #00a6a6;
-  --secondary-colour: #191c1f;
-  --neutral-colour: #6f767e;
-  --primary-font: Lufga;
-  --secondary-font: Satoshi;
-}
 
 *,
 *::before,
@@ -22,7 +15,7 @@
 
 .verify {
   max-width: 50%;
-  margin: 5rem auto;
+  margin: 4rem auto;
   padding: 0.5rem 2rem;
   display: flex;
   justify-content: center;
@@ -43,7 +36,7 @@
 }
 
 .verify__header__title {
-  color: var(--secondary-colour);
+  color: #191C1F;
   font-weight: 700;
   font-size: 30px;
   text-align: center;
@@ -59,7 +52,7 @@
 }
 
 .verify__header__subtitle > span {
-  color: var(--primary-colour);
+  color: var(--secondary-colour);
 }
 
 .verify__form__boxes {
@@ -94,7 +87,7 @@
 }
 
 .verify__info__resend > a {
-  color: var(--primary-colour);
+  color: var(--secondary-colour);
   font-weight: 600;
   text-decoration: none;
 }
@@ -110,12 +103,7 @@
   font-weight: 500;
   border-radius: 42px;
   border: none;
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 100%
-    ),
-    var(--primary-colour) !important;
+  background-color: var(--secondary-colour) !important;
   width: 370px;
   padding: 10px 22px;
   cursor: pointer;
