@@ -9,6 +9,7 @@ import OnClickProduct from "./screens/OnClickProductScreen/OnClickProduct";
 import Login from "./screens/LoginScreen/Login";
 import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness";
 import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileScreen";
+import AboutUs from "./screens/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/onClickProduct" Component={OnClickProduct} />
           <Route path="/registerBusiness" Component={RegisterBusiness} />
           <Route path="/EditingProfileScreen" Component={EditingProfileScreen} />
+          <Route path="/AboutUs" Component={AboutUs} />
         </Routes>
       </main>
     </Router>
