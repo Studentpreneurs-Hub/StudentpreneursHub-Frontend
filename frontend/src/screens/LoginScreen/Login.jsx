@@ -21,8 +21,8 @@ function Login() {
   };
 
   return (
-    <div>
-      <Container className="login">
+    <div className="body">
+      <div className="login">
         <div>
           <img src={logo} className="login__logo" alt="logo" />
 
@@ -85,7 +85,7 @@ function Login() {
             </p>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }
