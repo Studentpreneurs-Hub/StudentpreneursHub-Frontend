@@ -18,7 +18,7 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="navbar-nav mx-auto">
-              <LinkContainer to="">
+              <LinkContainer to="/AboutUs">
                 <Nav.Link href="#about-us" className="nav-text">
                   About Us
                 </Nav.Link>
@@ -28,23 +28,11 @@ function Header() {
                 <Nav.Link className="nav-text">FAQs</Nav.Link>
               </LinkContainer>
 
-              <NavDropdown
-                title="Categories"
-                id="basic-nav-dropdown"
-                className="dropdown-link"
-              >
-                <LinkContainer to="/Food&&beverages">
-                  <NavDropdown.Item>Food and Beverages</NavDropdown.Item>
-                </LinkContainer>
+              <LinkContainer to="/help">
+                <Nav.Link className="nav-text">Help</Nav.Link>
+              </LinkContainer>
 
-                <LinkContainer to="/Device&&Accessories">
-                  <NavDropdown.Item>Devices and Accessories</NavDropdown.Item>
-                </LinkContainer>
-
-                <LinkContainer to="/Cosmetics&&Fashion">
-                  <NavDropdown.Item>Cosmetics and Fashion</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
+              
             </Nav>
             <Nav className="header-second ">
               <LinkContainer to="/Login">
