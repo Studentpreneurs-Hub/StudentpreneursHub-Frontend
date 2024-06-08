@@ -16,28 +16,27 @@
   box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
 
 .body{
   background-image: url('../../assets/gradient_background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh; /* Ensure it covers the full height */
+  height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: ;
-}
-
-* {
   margin: 0;
-  padding: 0;
 }
 
 .login {
   background: #FFFFFF;
   max-width: 34%;
-  /* margin: 0.5rem auto; */
+  margin: 0.5rem auto;
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: center;

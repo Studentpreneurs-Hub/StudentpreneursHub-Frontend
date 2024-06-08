@@ -14,7 +14,7 @@ import AboutUs from "./screens/AboutUs/AboutUs";
 function App() {
   return (
     <Router>
-      <main className="py-3">
+      <main>
         <Routes>
           <Route path="/" Component={Landing} exact />
           <Route path="/Login" Component={Login} />

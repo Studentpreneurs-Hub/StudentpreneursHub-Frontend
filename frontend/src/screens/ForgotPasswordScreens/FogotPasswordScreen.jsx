@@ -3,6 +3,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { BiSolidShoppingBags } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styles from "./Forgotpassword.module.css";
+import logo from '../../assets/logo.png';
 
 function FogotPasswordScreen() {
   const [email, setEmail] = useState();
@@ -13,12 +14,11 @@ function FogotPasswordScreen() {
     }
   };
   return (
-    <div>
-      <Container className={styles.mainContainer}>
+    <div className={styles.body}>
+      <div className={styles.mainContainer}>
         <div className={styles.firstRow}>
           <div className="logo">
-            <BiSolidShoppingBags color="#00A6A6" className={styles.logoIcon} />
-            <span className={styles.logoText}>Studentpreneurs HUB</span>
+          <img src={logo} className="login__logo" alt="logo" />
           </div>
 
           <div className={styles.forgotpasswordText}>
@@ -63,7 +63,7 @@ function FogotPasswordScreen() {
             </span>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }
