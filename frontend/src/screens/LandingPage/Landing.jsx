@@ -10,7 +10,7 @@ import Header from "../../components/Navbar/Header";
 
 function Landing() {
   return (
-    <div>
+    <>
       <Header />
       <div className="langingImage_container">
         <img src={landingImage} alt="uu" className="landingImage" />
@@ -129,7 +129,7 @@ function Landing() {
       <div>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
 
