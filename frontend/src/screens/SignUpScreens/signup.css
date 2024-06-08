@@ -20,20 +20,35 @@
   padding: 0;
 }
 
+.body{
+  background-image: url('../../assets/gradient_background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
 .signup {
   max-width: 50%;
   margin: 0.5rem auto;
-  padding: 0.5rem 2rem;
+  padding: 1.4rem 2rem;
+  /* height: 10%; */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--primary-font);
+  background: #FFFFFF;
+  border-radius: 32px;
 }
 
 .signup__logo {
   display: grid;
   place-content: center;
-  margin: 1rem auto;
+  margin: 0.2rem auto;
 }
 
 .signup__header {

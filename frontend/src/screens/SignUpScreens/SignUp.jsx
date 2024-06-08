@@ -23,11 +23,11 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <Container className="signup">
+    <div className="body">
+      <div className="signup">
         <div>
           <img src={logo} className="signup__logo" alt="logo" />
-
+          
           <div className="signup__header">
             <div className="signup__header__title">Get Started</div>
             <div className="signup__header__subtitle">
@@ -98,7 +98,7 @@ const SignUp = () => {
             </p>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };
