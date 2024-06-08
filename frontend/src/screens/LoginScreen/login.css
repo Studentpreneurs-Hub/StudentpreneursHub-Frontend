@@ -1,6 +1,7 @@
 @import url("https://fonts.cdnfonts.com/css/satoshi");
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
+
 :root {
   --primary-colour: #153D6E !important;
   --secondary-colour: #B6975D !important;
@@ -13,6 +14,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body{
+  background-image: url('../../assets/gradient_background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {
