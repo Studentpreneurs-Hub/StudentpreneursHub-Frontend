@@ -21,7 +21,7 @@ function Login() {
   };
 
   return (
-    <div id="body">
+    <div>
       <Container className="login">
         <div>
           <img src={logo} className="login__logo" alt="logo" />

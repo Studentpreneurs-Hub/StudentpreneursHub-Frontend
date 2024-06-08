@@ -16,8 +16,11 @@
   box-sizing: border-box;
 }
 
-#body{
-  background-image: url('../../assets/gradient_background.png')
+body{
+  background-image: url('../../assets/gradient_background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {
