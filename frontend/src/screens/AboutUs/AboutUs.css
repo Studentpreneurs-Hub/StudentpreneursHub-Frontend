@@ -1,0 +1,75 @@
+.hero__section {
+  margin: 80px 117px;
+}
+
+.hero__section__heading {
+  color: #000;
+  text-align: center;
+  font-family: Lufga;
+  text-transform: none;
+  font-size: 42px;
+  font-weight: 700;
+  width: 662px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.hero__section__paragraph {
+  color: #5d5d5d;
+  text-align: center;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.why__section {
+  background: #f2f8ff;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 117px;
+  align-items: center;
+}
+
+.why__section__heading {
+  color: #000;
+  text-align: center;
+  font-family: Lufga;
+  text-transform: none;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.why__section__reasons {
+  display: flex;
+  align-items: center;
+  gap: 61px;
+}
+
+.reasons__numbering {
+  color: #717171;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.reasons__heading {
+  color: #000;
+  text-transform: none;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 150% */
+}
+
+.reasons__paragraph {
+  color: #717171;
+  font-family: Satoshi;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
