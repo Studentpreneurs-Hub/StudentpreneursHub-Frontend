@@ -24,7 +24,7 @@ function App() {
           <Route path="/otp" Component={OTPScreen} />
           <Route path="/onClickProfile" Component={OnClickProfile} />
           <Route path="/onClickProduct" Component={OnClickProduct} />
-          <Route path="/registerBusiness" Component={RegisterBusiness} />
+          <Route path="/getstarted" Component={RegisterBusiness} />
           <Route path="/EditingProfileScreen" Component={EditingProfileScreen} />
           <Route path="/AboutUs" Component={AboutUs} />
         </Routes>

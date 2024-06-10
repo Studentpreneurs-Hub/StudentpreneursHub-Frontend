@@ -38,8 +38,8 @@ function Header() {
               <LinkContainer to="/Login">
                 <Nav.Link className="nav-text">Login</Nav.Link>
               </LinkContainer>
-              <Link to="">
-                <Button className="btn start_selling_btn">Start selling</Button>
+              <Link to="/getstarted">
+                <Button className="btn start_selling_btn">Get Started</Button>
               </Link>
             </Nav>
           </Navbar.Collapse>
