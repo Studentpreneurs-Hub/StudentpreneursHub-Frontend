@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Row, Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "./otp.css";
+import Design from "../../components/Design/Design";
 
 const OTPScreen = () => {
   const [number1, setNumber1] = useState("");
@@ -31,8 +32,9 @@ const OTPScreen = () => {
   };
 
   return (
-    <>
-      <Container className="verify">
+    <div className="body">
+      <Design />
+      <div className="verify">
         <div>
           <img src={logo} alt="logo" className="verify__logo" />
 
@@ -117,8 +119,8 @@ const OTPScreen = () => {
             </Button>
           </div>
         </div>
-      </Container>
-    </>
+      </div>
+    </div>
   );
 };
 
