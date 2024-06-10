@@ -4,6 +4,7 @@ import { BiSolidShoppingBags } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styles from "./Forgotpassword.module.css";
 import logo from '../../assets/logo.png';
+import Design from '../../components/Design/Design'
 
 function FogotPasswordScreen() {
   const [email, setEmail] = useState();
@@ -15,6 +16,7 @@ function FogotPasswordScreen() {
   };
   return (
     <div className={styles.body}>
+      <Design />
       <div className={styles.mainContainer}>
         <div className={styles.firstRow}>
           <div className="logo">

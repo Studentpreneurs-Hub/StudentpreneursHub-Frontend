@@ -5,6 +5,8 @@ import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 import "./signup.css";
 
+import Design from '../../components/Design/Design'
+
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,6 +26,7 @@ const SignUp = () => {
 
   return (
     <div className="body">
+      <Design />
       <div className="signup">
         <div>
           <img src={logo} className="signup__logo" alt="logo" />

@@ -3,6 +3,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import './registerbusiness.css'
+import Design from '../../components/Design/Design'
 
 function RegisterBusiness() {
   const [storeName, setStoreName] = useState("");
@@ -16,8 +17,9 @@ function RegisterBusiness() {
   }
 
   return (
-    <div>
-      <Container className="register__business">
+    <div className="body">
+      <Design />
+      <div className="register__business">
         <div>
           <img src={logo} className="register__business__logo" alt="logo" />
 
@@ -72,7 +74,7 @@ function RegisterBusiness() {
             </Button>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }

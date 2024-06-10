@@ -3,6 +3,8 @@ import { Button, Container, Form } from "react-bootstrap";
 import { BiSolidShoppingBags } from "react-icons/bi";
 import show from "../../assets/Show.png";
 import "./setnewpassword.css";
+import logo from '../../assets/logo.png'
+import Design from "../../components/Design/Design";
 
 const SetNewPasswordScreen = () => {
   const [otpCode, setOtpCode] = useState("");
@@ -29,6 +31,7 @@ const SetNewPasswordScreen = () => {
 
   return (
     <div className="body">
+      <Design />
       <div
         className="main-container-new-password"
         sm={12}
@@ -38,10 +41,8 @@ const SetNewPasswordScreen = () => {
       >
         <div className="firstRow">
           <div className="logo">
-            <BiSolidShoppingBags color="#00A6A6" className="logo-icon" />
-            <span className="logo-text">Studentpreneurs HUB.</span>
+          <img src={logo} className="login__logo" alt="logo" />
           </div>
-
           <div className="forgotpassword-text">
             <span className="forgotpassword-question">Set a new password</span>
             <div className="new-password-row">
@@ -54,8 +55,8 @@ const SetNewPasswordScreen = () => {
 
           <div className="center">
             <div className="otp-textbox">
-              <span className="otp-text">OTP-Code</span>
-              <Form className="form">
+              <span className="text-class">OTP-Code</span>
+              <Form >
                 <input
                   type="email"
                   id="otp"
@@ -68,8 +69,8 @@ const SetNewPasswordScreen = () => {
             </div>
 
             <div className="new-password-textbox">
-              <span className="newpass-text">New Password</span>
-              <Form className="form">
+              <span className="text-class">New Password</span>
+              <Form>
                 <input
                   type={showPassword ? "text" : "password"}
                   id="newPassword"
@@ -88,8 +89,9 @@ const SetNewPasswordScreen = () => {
             </div>
 
             <div className="confirm-password-textbox">
-              <span className="confirmpass-text">Confirm Password</span>
-              <Form className="form">
+              <span className="text-class">Confirm Password</span>
+
+              <Form>
                 <input
                   type={confirmShowPass ? "text" : "password"}
                   id="confirmPassword"
@@ -98,6 +100,7 @@ const SetNewPasswordScreen = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   // onChange={setEmail}
                 />
+
                 <img
                   src={show}
                   className="showPassIcon"
