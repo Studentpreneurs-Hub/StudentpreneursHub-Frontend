@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header>
-      <Navbar expand="lg" className="navbar">
+    <header className="py-3">
+      <Navbar expand="lg" py-3 className="navbar">
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>

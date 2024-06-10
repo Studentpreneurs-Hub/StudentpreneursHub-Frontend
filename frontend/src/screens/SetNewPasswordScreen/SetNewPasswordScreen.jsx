@@ -28,8 +28,8 @@ const SetNewPasswordScreen = () => {
   }
 
   return (
-    <div>
-      <Container
+    <div className="body">
+      <div
         className="main-container-new-password"
         sm={12}
         lg={4}
@@ -54,7 +54,7 @@ const SetNewPasswordScreen = () => {
 
           <div className="center">
             <div className="otp-textbox">
-              <span className="email-text">OTP-Code</span>
+              <span className="otp-text">OTP-Code</span>
               <Form className="form">
                 <input
                   type="email"
@@ -68,7 +68,7 @@ const SetNewPasswordScreen = () => {
             </div>
 
             <div className="new-password-textbox">
-              <span className="email-text">New Password</span>
+              <span className="newpass-text">New Password</span>
               <Form className="form">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -88,7 +88,7 @@ const SetNewPasswordScreen = () => {
             </div>
 
             <div className="confirm-password-textbox">
-              <span className="email-text">Confirm Password</span>
+              <span className="confirmpass-text">Confirm Password</span>
               <Form className="form">
                 <input
                   type={confirmShowPass ? "text" : "password"}
@@ -114,7 +114,7 @@ const SetNewPasswordScreen = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

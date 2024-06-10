@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 import "./login.css";
+import Design from "../../components/Design/Design";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,6 +23,7 @@ function Login() {
 
   return (
     <div className="body">
+      <Design />
       <div className="login">
         <div>
           <img src={logo} className="login__logo" alt="logo" />
