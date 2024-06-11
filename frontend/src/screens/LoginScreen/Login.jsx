@@ -26,7 +26,9 @@ function Login() {
       <Design />
       <div className="login">
         <div>
-          <img src={logo} className="login__logo" alt="logo" />
+          <Link to="/">
+            <img src={logo} className="login__logo" alt="logo" />
+          </Link>
 
           <div className="login__header">
             <div className="login__header__title">Login</div>
@@ -80,10 +82,7 @@ function Login() {
               </Link>
             </p>
             <p className="login__info__login">
-              Don’t have an account yet?{" "}
-              <Link to="/signup">
-                Sign Up
-              </Link>
+              Don’t have an account yet? <Link to="/signup">Sign Up</Link>
             </p>
           </div>
         </div>

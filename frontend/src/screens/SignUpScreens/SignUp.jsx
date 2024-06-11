@@ -5,7 +5,7 @@ import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 import "./signup.css";
 
-import Design from '../../components/Design/Design'
+import Design from "../../components/Design/Design";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -29,8 +29,10 @@ const SignUp = () => {
       <Design />
       <div className="signup">
         <div>
-          <img src={logo} className="signup__logo" alt="logo" />
-          
+          <Link to="/">
+            <img src={logo} className="signup__logo" alt="logo" />
+          </Link>
+
           <div className="signup__header">
             <div className="signup__header__title">Get Started</div>
             <div className="signup__header__subtitle">
@@ -82,10 +84,10 @@ const SignUp = () => {
                 />
               </div>
             </Form>
-            
-              <Button className="signup__btn" onClick={handleSubmit}>
-                Create Account
-              </Button>
+
+            <Button className="signup__btn" onClick={handleSubmit}>
+              Create Account
+            </Button>
           </div>
 
           <div className="signup__info">
@@ -94,10 +96,7 @@ const SignUp = () => {
               <a href="/#">Terms of Service & Privacy Policy</a>
             </p>
             <p className="signup__info__login">
-              Already have an account?{" "}
-              <Link to="/Login">
-                Log in
-              </Link>
+              Already have an account? <Link to="/Login">Log in</Link>
             </p>
           </div>
         </div>
