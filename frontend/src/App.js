@@ -10,6 +10,7 @@ import Login from "./screens/LoginScreen/Login";
 import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness";
 import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileScreen";
 import AboutUs from "./screens/AboutUs/AboutUs";
+import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/getstarted" Component={RegisterBusiness} />
           <Route path="/EditingProfileScreen" Component={EditingProfileScreen} />
           <Route path="/AboutUs" Component={AboutUs} />
+          <Route path="/SellerOrBuyer" Component={SellerOrBuyer} />
         </Routes>
       </main>
     </Router>
