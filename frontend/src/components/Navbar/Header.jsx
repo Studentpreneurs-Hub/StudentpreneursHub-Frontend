@@ -38,7 +38,7 @@ function Header() {
               <LinkContainer to="/Login">
                 <Nav.Link className="nav-text">Login</Nav.Link>
               </LinkContainer>
-              <Link to="/getstarted">
+              <Link to="/signup">
                 <Button className="btn start_selling_btn">Get Started</Button>
               </Link>
             </Nav>

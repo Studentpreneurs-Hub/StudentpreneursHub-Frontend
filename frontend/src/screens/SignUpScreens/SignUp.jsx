@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
-import { Link } from "react-router-dom";
-
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import "./signup.css";
-
 import Design from "../../components/Design/Design";
 
 const SignUp = () => {
@@ -19,7 +15,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [showErrorModal, setShowErrorModal] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -28,11 +24,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     // Validation code
     if (!name || !email || !password) {
-    if (!email || !password || !name) {
-
       setError("Field(s) cannot be empty.");
       setShowErrorModal(true);
       return;
@@ -47,11 +40,11 @@ const SignUp = () => {
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/auth/register/", {
         full_name: name,
-        email_address: email,  // Ensure the backend expects this key
+        email_address: email,
         password: password
       });
       localStorage.setItem("token", response.data.token); // Assuming the token is in response.data.token
-      console.log('loggedIn');
+      alert("check your mail for verification code")
       navigate('/otp');
     } catch (err) {
       setError("Invalid credentials");
@@ -90,6 +83,7 @@ const SignUp = () => {
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </Form>
 
@@ -102,6 +96,7 @@ const SignUp = () => {
                 placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </Form>
 
@@ -115,12 +110,13 @@ const SignUp = () => {
                   placeholder="Your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <img
                   src={show}
                   className="showIcon"
                   onClick={handleTogglePassword}
-                  alt="show/hide password img"
+                  alt="show/hide password"
                 />
               </div>
             </Form>
@@ -156,6 +152,5 @@ const SignUp = () => {
     </div>
   );
 };
-}
 
 export default SignUp;
