@@ -23,26 +23,36 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     // Validation code
     e.preventDefault();
-    if (name === "" || email === "" || password === "") {
+    if (!email || !password) {
       setError("Field(s) cannot be empty.");
       setShowErrorModal(true);
-    } else {
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:8000/api/auth/register/",
-          {
-            full_name: name,
-            email: email,
-            password: password,
-          }
-        );
-        localStorage.setItem("token", response.data.key);
-        // Should navigate to another page or change state to reflect login
-      } catch (err) {
-        setError("Invalid credentials");
-        setShowErrorModal(true);
-      }
+      return;
     }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      setShowErrorModal(true);
+      return;
+    }
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/auth/register/",
+        {
+          full_name: name,
+          email: email,
+          password: password,
+        }
+      );
+      localStorage.setItem("token", response.data.key);
+      // Should navigate to another page or change state to reflect login
+    } catch (err) {
+      setError("Invalid credentials");
+      setShowErrorModal(true);
+    }
+
+    setName("");
+    setEmail("");
+    setPassword("");
   };
 
   const handleCloseModal = () => {
