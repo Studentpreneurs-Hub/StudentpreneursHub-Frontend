@@ -3,6 +3,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./signup.css";
 
 import Design from "../../components/Design/Design";
@@ -13,12 +14,15 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate()
+
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   const handleSubmit = (e) => {
     // Validation code
+    navigate('/otp')
     if (name === "" || email === "" || password === "") {
       alert("Field(s) cannot be blank");
     }

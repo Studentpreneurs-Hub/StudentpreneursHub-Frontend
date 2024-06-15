@@ -5,20 +5,24 @@ import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 import "./login.css";
 import Design from "../../components/Design/Design";
+import axios from 'axios'
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('')
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   const handleLogin = () => {
-    if (email === "" || password === "") {
-      alert("Field(s) cannot be empty");
-    }
+    
+      if (email === "" || password === "") {
+        alert("Field(s) cannot be empty");
+      }
+      
   };
 
   return (

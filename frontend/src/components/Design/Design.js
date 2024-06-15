@@ -25,14 +25,14 @@ function Design() {
     options={{
         autoPlay: true,
         background: {
-            // color: {
-            //     value: "#0d47a1"
-            // },
-            // image: "",
-            // position: "",
-            // repeat: "",
-            // size: "",
-            // opacity: 1
+            color: {
+                value: "#0d47a1"
+            },
+            image: "",
+            position: "",
+            repeat: "",
+            size: "",
+            opacity: 1
         },
         backgroundMask: {
             composite: "destination-out",
