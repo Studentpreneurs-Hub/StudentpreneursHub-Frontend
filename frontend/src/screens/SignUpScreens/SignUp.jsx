@@ -23,7 +23,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     // Validation code
     e.preventDefault();
-    if (!email || !password) {
+    if (!email || !password || name) {
       setError("Field(s) cannot be empty.");
       setShowErrorModal(true);
       return;
