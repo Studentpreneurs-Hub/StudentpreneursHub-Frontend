@@ -1,4 +1,7 @@
 import Design from "../../components/Design/Design";
+import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
+
 
 const SellerOrBuyer = () => {
   return (
@@ -6,7 +9,10 @@ const SellerOrBuyer = () => {
       <div className="body">
         <Design />
 
-        <div className="signup">
+        <div className="">
+        <Link to="/">
+            <img src={logo} className="signup__logo" alt="logo" />
+          </Link>
           <div>
             <h1 className="here__heading">Why are you here?</h1>
             <p className="here__paragraph">We want to know you more</p>
@@ -149,6 +155,7 @@ const SellerOrBuyer = () => {
               <p>I’m here to search a seller</p>
             </button>
           </div>
+          <button>Get Started</button>
         </div>
       </div>
     </>
