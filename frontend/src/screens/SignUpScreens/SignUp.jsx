@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import "./signup.css";
 
 import Design from "../../components/Design/Design";
@@ -13,6 +16,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const navigate = useNavigate()
 
@@ -20,12 +25,40 @@ const SignUp = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     // Validation code
-    navigate('/otp')
-    if (name === "" || email === "" || password === "") {
-      alert("Field(s) cannot be blank");
+    if (!name || !email || !password) {
+      setError("Field(s) cannot be empty.");
+      setShowErrorModal(true);
+      return;
     }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      setShowErrorModal(true);
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/auth/register/", {
+        full_name: name,
+        email_address: email,  // Ensure the backend expects this key
+        password: password
+      });
+      localStorage.setItem("token", response.data.token); // Assuming the token is in response.data.token
+      console.log('loggedIn');
+      navigate('/otp');
+    } catch (err) {
+      setError("Invalid credentials");
+      setShowErrorModal(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowErrorModal(false);
+    setError("");
   };
 
   return (
@@ -88,6 +121,18 @@ const SignUp = () => {
                 />
               </div>
             </Form>
+
+            <Modal show={showErrorModal} onHide={handleCloseModal}>
+              <Modal.Header closeButton>
+                <Modal.Title>Error</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>{error}</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleCloseModal}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
 
             <Button className="signup__btn" onClick={handleSubmit}>
               Create Account

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Row, Button, Container, Form } from "react-bootstrap";
+import { Row, Button, Form } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "./otp.css";
 import Design from "../../components/Design/Design";
+import { useNavigate } from "react-router-dom";
 
 const OTPScreen = () => {
   const [number1, setNumber1] = useState("");
@@ -11,6 +12,7 @@ const OTPScreen = () => {
   const [number4, setNumber4] = useState("");
   const [number5, setNumber5] = useState("");
   const [number6, setNumber6] = useState("");
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     // Validation code
@@ -29,6 +31,7 @@ const OTPScreen = () => {
         `${number1} ${number2} ${number3} ${number4} ${number5} ${number6}`
       );
     }
+    navigate('/home')
   };
 
   return (
