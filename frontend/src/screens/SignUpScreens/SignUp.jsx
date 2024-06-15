@@ -28,8 +28,11 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     // Validation code
     if (!name || !email || !password) {
+    if (!email || !password || !name) {
+
       setError("Field(s) cannot be empty.");
       setShowErrorModal(true);
       return;
@@ -153,5 +156,6 @@ const SignUp = () => {
     </div>
   );
 };
+}
 
 export default SignUp;
