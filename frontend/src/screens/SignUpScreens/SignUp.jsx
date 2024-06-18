@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./signup.css";
 import Design from "../../components/Design/Design";
+import { BASE_API_URI } from "../../utils/constants";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -13,7 +14,13 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  
+
+  console.log(successMessage)
+  
 
   const navigate = useNavigate();
 
@@ -38,16 +45,20 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/auth/register/", {
+      const response = await axios.post(`${BASE_API_URI}/api/auth/register/`, {
         full_name: name,
         email_address: email,
         password: password
       });
-      localStorage.setItem("token", response.data.token); // Assuming the token is in response.data.token
-      alert("check your mail for verification code")
-      navigate('/otp');
+      console.log(response)
+      if (response?.data?.status==="success") {
+        setSuccessMessage(response?.data);
+        setError(successMessage?.detail)
+        navigate('/otp');
+      }      
     } catch (err) {
-      setError("Invalid credentials");
+      setErrorMessage(err.response.data);
+      setError(errorMessage?.detail)
       setShowErrorModal(true);
     }
   };
