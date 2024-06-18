@@ -11,6 +11,7 @@ import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness"
 import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileScreen";
 import AboutUs from "./screens/AboutUs/AboutUs";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
+import PageNotFound from "./screens/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="/EditingProfileScreen" Component={EditingProfileScreen} />
           <Route path="/AboutUs" Component={AboutUs} />
           <Route path="/SellerOrBuyer" Component={SellerOrBuyer} />
+          <Route path="*" Component={PageNotFound} />
+
         </Routes>
       </main>
     </Router>
