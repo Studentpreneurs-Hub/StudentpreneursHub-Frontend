@@ -12,6 +12,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
@@ -40,6 +41,12 @@ const SignUp = () => {
 
     if (password.length < 8) {
       setError("Password must be at least 8 characters long.");
+      setShowErrorModal(true);
+      return;
+    }
+
+    if(password != confirmedPassword){
+      setError("Passwords don't match!");
       setShowErrorModal(true);
       return;
     }
@@ -128,6 +135,21 @@ const SignUp = () => {
                   className="showIcon"
                   onClick={handleTogglePassword}
                   alt="show/hide password"
+                />
+              </div>
+            </Form>
+
+            <Form>
+              <label className="signup__form__label">Confirm Password</label>
+              <div>
+                <input
+                  type="password"
+                  className="signup__input"
+                  id="password"
+                  placeholder="Confirm password"
+                  value={confirmedPassword}
+                  onChange={(e) => setConfirmedPassword(e.target.value)}
+                  required
                 />
               </div>
             </Form>
