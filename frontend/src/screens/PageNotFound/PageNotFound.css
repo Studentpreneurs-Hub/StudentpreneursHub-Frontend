@@ -1,0 +1,16 @@
+.notfound{
+    margin: 0.5rem auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notfound h1{
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.notfound img {
+    width: 70%;
+}
