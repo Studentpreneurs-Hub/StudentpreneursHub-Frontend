@@ -12,6 +12,7 @@ import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileS
 import AboutUs from "./screens/AboutUs/AboutUs";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 import PageNotFound from "./screens/PageNotFound/PageNotFound";
+import Home from "./screens/HomePage/Home";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <Route path="/AboutUs" Component={AboutUs} />
           <Route path="/SellerOrBuyer" Component={SellerOrBuyer} />
           <Route path="*" Component={PageNotFound} />
-
+          <Route path='/home' Component={Home} />
         </Routes>
       </main>
     </Router>
