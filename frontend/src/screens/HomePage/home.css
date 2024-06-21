@@ -1,0 +1,33 @@
+.home {
+  padding: 0 117px;
+}
+
+.home__heading {
+  text-transform: none;
+  color: #000;
+
+  font-family: Satoshi;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.home__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.home__btn {
+  color: #b6975d;
+  font-family: Satoshi;
+  font-size: 14px;
+  background-color: #ffffff;
+  display: flex;
+  padding: 5px 22px;
+  margin: 50px auto;
+  border-radius: 42px;
+  border: 1px solid #b6975d;
+}
