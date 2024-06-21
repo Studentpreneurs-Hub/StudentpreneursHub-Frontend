@@ -16,13 +16,13 @@ function Landing() {
       <Header />
       <div className="langingImage_container">
         <Carousel>
-          <Carousel.Item interval={1000}>
+          <Carousel.Item interval={3000}>
             <img src={landingImage_1} alt="uu" className="landingImage" />
           </Carousel.Item>
-          <Carousel.Item interval={500}>
+          <Carousel.Item interval={3000}>
             <img src={landingImage_2} alt="uu" className="landingImage" />
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item interval={3000}>
             <img src={landingImage_3} alt="uu" className="landingImage" />
           </Carousel.Item>
         </Carousel>
