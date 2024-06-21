@@ -21,7 +21,7 @@ function RegisterBusiness() {
       <Design />
       <div className="register__business">
         <div>
-          <img src={logo} className="register__business__logo" alt="logo" />
+          <Link to="/"><img src={logo} className="register__business__logo" alt="logo" /></Link>
 
           <div className="login__header">
             <div className="login__header__title">Let's Know you</div>
