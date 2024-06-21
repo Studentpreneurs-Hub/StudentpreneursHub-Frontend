@@ -48,32 +48,20 @@ footer {
   margin-top: 1rem;
 }
 
-#footer_FAQ {
+.footer_links {
   font-family: Satoshi;
   font-size: 14px;
   font-weight: 400;
+  text-decoration: none;
   line-height: 18.9px;
   text-align: left;
   color: #ffffff;
 }
 
-#footer_TOS {
-  font-family: Satoshi;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18.9px;
-  text-align: left;
-  color: #ffffff;
+.footer_links:hover{
+  text-decoration: underline;
 }
 
-#footer_PP {
-  font-family: Satoshi;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18.9px;
-  text-align: left;
-  color: #ffffff;
-}
 
 .footer_desc {
   font-family: Satoshi;
