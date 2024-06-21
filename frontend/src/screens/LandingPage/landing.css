@@ -8,12 +8,15 @@
   overflow-x: hidden;
 } */
 
+.langingImage_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .landingImage {
   width: 1152px;
-  height: 453.22px;
-  top: 159px;
-  justify-content: center;
-  padding-left: 5.8rem;
+  height: 453.218px;
 }
 
 .sell_faster_text {
@@ -40,7 +43,7 @@
   padding: 10px 23px;
   border-radius: 42px;
   gap: 10px;
-  background: #B6975D !important; 
+  background: #b6975d !important;
 }
 
 .arrow_div {
@@ -59,7 +62,7 @@ div > p {
 
 .campus_creativity_main_div {
   width: 100%;
-  background: #F2F8FF;
+  background: #f2f8ff;
   height: auto;
   padding: 2rem;
   margin-top: 4rem;

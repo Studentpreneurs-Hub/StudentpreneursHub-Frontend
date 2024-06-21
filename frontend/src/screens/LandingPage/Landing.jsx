@@ -1,24 +1,36 @@
 import React from "react";
-import landingImage from "../../assets/landingImage.jpeg";
 import "./landing.css";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Carousel } from "react-bootstrap";
 import arrowRight from "../../assets/arrowRight.png";
 import Thousand from "../../assets/thousand.jpeg";
 import AccordionCompo from "../../components/Accordion/AccordionCompo";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Navbar/Header";
+import landingImage_1 from "../../assets/landingImage_1.jpeg";
+import landingImage_2 from "../../assets/landingImage_2.jpg";
+import landingImage_3 from "../../assets/landingImage_3.jpg";
 
 function Landing() {
   return (
     <>
       <Header />
       <div className="langingImage_container">
-        <img src={landingImage} alt="uu" className="landingImage" />
+        <Carousel>
+          <Carousel.Item interval={1000}>
+            <img src={landingImage_1} alt="uu" className="landingImage" />
+          </Carousel.Item>
+          <Carousel.Item interval={500}>
+            <img src={landingImage_2} alt="uu" className="landingImage" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={landingImage_3} alt="uu" className="landingImage" />
+          </Carousel.Item>
+        </Carousel>
       </div>
 
       <div className="sell_Faster_main_div">
         <div className="sell_faster_div">
-          <span className="sell_faster_text">Sell faster today.</span>
+          <span className="sell_faster_text">Sell faster today</span>
           <br />
           <Button className="start_selling">Start Selling</Button>
         </div>
@@ -32,7 +44,6 @@ function Landing() {
           </p>
         </div>
       </div>
-
       <div className="campus_creativity_main_div">
         <div className="campus_creativity_heading">
           <section style={{ paddingLeft: "3rem" }}>
@@ -100,7 +111,6 @@ function Landing() {
           </div>
         </div>
       </div>
-
       <div className="reach_thousand_main_div">
         <div className="reach_thousand_title_div">
           <p className="reach_thousand_title">
@@ -117,7 +127,6 @@ function Landing() {
           <img src={Thousand} alt="oop" className="reach_thousand_img" />
         </div>
       </div>
-
       <div className="frequestly_asked_questions">
         <h1 id="frequently_asked_questions_title">
           Frequently Asked Questions
