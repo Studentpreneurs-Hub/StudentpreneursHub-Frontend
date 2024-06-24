@@ -5,24 +5,33 @@ import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 import "./login.css";
 import Design from "../../components/Design/Design";
-import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../utils/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('')
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = () => {
-    
-      if (email === "" || password === "") {
-        alert("Field(s) cannot be empty");
-      }
-      
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (email === "" || password === "") {
+      alert("Field(s) cannot be empty");
+    }
+
+    try {
+      await login(email, password);
+      navigate.push("/home");
+    } catch (err) {
+      alert("Failed to log in");
+      console.log(err)
+    }
   };
 
   return (

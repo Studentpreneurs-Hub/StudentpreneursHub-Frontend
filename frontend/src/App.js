@@ -13,29 +13,40 @@ import AboutUs from "./screens/AboutUs/AboutUs";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 import PageNotFound from "./screens/PageNotFound/PageNotFound";
 import Home from "./screens/HomePage/Home";
+import ProtectedRoute from "./components/ProtectedRoutes/ProjectedRoutes";
+import { AuthProvider } from "./utils/AuthContext";
 
 function App() {
   return (
-    <Router>
-      <main>
-        <Routes>
-          <Route path="/" Component={Landing} exact />
-          <Route path="/Login" Component={Login} />
-          <Route path="/forgotPassword" Component={FogotPasswordScreen} />
-          <Route path="/setnewPassword" Component={SetNewPasswordScreen} />
-          <Route path="/signUp" Component={SignUp} />
-          <Route path="/otp" Component={OTPScreen} />
-          <Route path="/onClickProfile" Component={OnClickProfile} />
-          <Route path="/onClickProduct" Component={OnClickProduct} />
-          <Route path="/getstarted" Component={RegisterBusiness} />
-          <Route path="/EditingProfileScreen" Component={EditingProfileScreen} />
-          <Route path="/AboutUs" Component={AboutUs} />
-          <Route path="/SellerOrBuyer" Component={SellerOrBuyer} />
-          <Route path="*" Component={PageNotFound} />
-          <Route path='/home' Component={Home} />
-        </Routes>
-      </main>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <main>
+          <Routes>
+            <Route path="/" element={<Landing />} exact />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgotPassword" element={<FogotPasswordScreen />} />
+            <Route path="/setnewPassword" element={<SetNewPasswordScreen />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/otp" element={<OTPScreen />} />
+            <Route path="/onClickProfile" element={<OnClickProfile />} />
+            <Route path="/onClickProduct" element={<OnClickProduct />} />
+            <Route path="/getstarted" element={<RegisterBusiness />} />
+            <Route path="/EditingProfileScreen" element={<EditingProfileScreen />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/SellerOrBuyer" element={<SellerOrBuyer />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </main>
+      </Router>
+    </AuthProvider>
   );
 }
 
