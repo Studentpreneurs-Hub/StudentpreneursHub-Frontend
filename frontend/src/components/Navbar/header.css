@@ -17,7 +17,7 @@
 
 .nav-text {
   font-family: satoshi;
-  color: #153D6E !important;
+  color: #153d6e !important;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
@@ -27,7 +27,7 @@
 
 .dropdown-link .nav-link {
   font-family: satoshi;
-  color: #000000 !important;
+  color: #153d6e !important;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
@@ -38,22 +38,49 @@
 .header-second {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .header-second .nav-link {
   margin-right: 1rem;
 }
 
-.start_selling_btn {
-  background: #B6975D !important;
-  width: Hug (133px);
-  height: Hug (42px);
-  padding: 10px, 23px, 10px, 23px;
-  border-radius: 42px;
-  gap: 10px;
-  font-weight: bolder;
+.search.form-control {
+  border-radius: 93px !important;
 }
 
-/* Button{
-  background: #B6975D !important;
-} */
+.search-container {
+  position: relative !important;
+  margin-right: 20px;
+}
+
+.glass {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+}
+
+.start_selling_btn {
+  color: #b6975d !important;
+  font-size: 14px;
+  background: white !important;
+  display: flex;
+  width: 140px !important;
+  padding: 10px 22px !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 42px;
+  border: 1px solid #b6975d !important;
+}
+
+.start_btn {
+  color: #fff !important;
+  font-size: 14px;
+  background: #b6975d !important;
+  display: flex;
+  width: 140px !important;
+  padding: 10px 22px !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 42px;
+}
