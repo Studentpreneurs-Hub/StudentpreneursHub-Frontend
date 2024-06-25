@@ -15,19 +15,25 @@ export const AuthProvider = ({ children }) => {
   const [isVerified, setIsVerified] = useState(false);
 
   const login = async (email_address, password) => {
-    const response = await axios.post(`${BASE_API_URI}/api/auth/login/`,{ 
-      email_address,
-      password}
-    );
-    setAuthTokens(response.data);
-    localStorage.setItem("tokens", JSON.stringify(response.data));
+    try {
+      const response = await axios.post(`${BASE_API_URI}/api/auth/login/`, { 
+        email_address,
+        password
+      });
+      setAuthTokens(response.data);
+      localStorage.setItem("tokens", JSON.stringify(response.data));
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   };
 
   const verifyEmail = async (code) => {
-    const response = await axios.post(`${BASE_API_URI}/api/auth/verify/`, {
-      code,
-    });
-    setIsVerified(true);
+    try {
+      await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
+      setIsVerified(true);
+    } catch (error) {
+      console.error('Email verification failed:', error);
+    }
   };
 
   const logout = () => {

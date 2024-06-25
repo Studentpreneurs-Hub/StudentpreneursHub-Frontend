@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import "./otp.css";
 import Design from "../../components/Design/Design";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../utils/AuthContext";
 
 const OTPScreen = () => {
   const [number1, setNumber1] = useState("");
@@ -12,9 +13,10 @@ const OTPScreen = () => {
   const [number4, setNumber4] = useState("");
   const [number5, setNumber5] = useState("");
   const [number6, setNumber6] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { verifyEmail } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // Validation code
 
     if (
@@ -26,12 +28,18 @@ const OTPScreen = () => {
       number6 === ""
     ) {
       alert("Field(s) can't be blank");
-    } else {
-      alert(
-        `${number1} ${number2} ${number3} ${number4} ${number5} ${number6}`
-      );
     }
-    navigate('/home')
+
+    try {
+      const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
+      console.log(code)
+      await verifyEmail(code);
+      navigate("/login");
+    } catch (err) {
+      alert("Verification Error");
+      console.log(err);
+    }
+    navigate("/login");
   };
 
   return (

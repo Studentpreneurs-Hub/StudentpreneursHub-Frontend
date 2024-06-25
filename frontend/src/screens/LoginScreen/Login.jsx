@@ -27,7 +27,7 @@ function Login() {
 
     try {
       await login(email, password);
-      navigate.push("/home");
+      navigate("/home");
     } catch (err) {
       alert("Failed to log in");
       console.log(err)
