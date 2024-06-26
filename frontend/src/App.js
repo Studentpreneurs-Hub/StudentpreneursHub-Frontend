@@ -33,7 +33,7 @@ function App() {
             <Route path="/getstarted" element={<RegisterBusiness />} />
             <Route path="/EditingProfileScreen" element={<EditingProfileScreen />} />
             <Route path="/AboutUs" element={<AboutUs />} />
-            <Route path="/SellerOrBuyer" element={<SellerOrBuyer />} />
+            <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
             <Route
               path="/home"
               element={
