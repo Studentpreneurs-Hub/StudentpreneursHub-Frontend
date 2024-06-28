@@ -1,27 +1,33 @@
 import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-import './registerbusiness.css'
-import Design from '../../components/Design/Design'
+import "./registerbusiness.css";
+import Design from "../../components/Design/Design";
+import { useNavigate } from "react-router-dom";
 
 function RegisterBusiness() {
   const [storeName, setStoreName] = useState("");
   const [contact, setContact] = useState("");
   const [location, setLocation] = useState("");
+  const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    if(storeName==="" || contact==="" || location===""){
-        alert("Field(s) cannot empty")
+    if (storeName === "" || contact === "" || location === "") {
+      alert("Field(s) cannot empty");
+    } else {
+      navigate("/signup");
     }
-  }
+  };
 
   return (
     <div className="body">
       <Design />
       <div className="register__business">
         <div>
-          <Link to="/"><img src={logo} className="register__business__logo" alt="logo" /></Link>
+          <Link to="/">
+            <img src={logo} className="register__business__logo" alt="logo" />
+          </Link>
 
           <div className="login__header">
             <div className="login__header__title">Let's Know you</div>
@@ -66,7 +72,6 @@ function RegisterBusiness() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                 />
-                
               </div>
             </Form>
             <Button className="login_btn" onClick={handleGetStarted}>
