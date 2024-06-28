@@ -26,11 +26,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgotPassword" element={<FogotPasswordScreen />} />
             <Route path="/setnewPassword" element={<SetNewPasswordScreen />} />
-            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/otp" element={<OTPScreen />} />
             <Route path="/onClickProfile" element={<OnClickProfile />} />
             <Route path="/onClickProduct" element={<OnClickProduct />} />
-            <Route path="/getstarted" element={<RegisterBusiness />} />
+            <Route path="/register_bussiness" element={<RegisterBusiness />} />
             <Route path="/EditingProfileScreen" element={<EditingProfileScreen />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />

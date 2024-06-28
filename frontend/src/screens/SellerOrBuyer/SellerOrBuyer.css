@@ -38,8 +38,20 @@
   border: 2.258px solid #d0d5dd;
 }
 
-.here__btn:hover {
+.here__btn.active {
   border: 2.258px solid #b6975d;
+}
+
+.here__btn:not(.active) {
+  border: 2.258px solid #d0d5dd;
+}
+
+.here__btn .checkmark {
+  visibility: hidden;
+}
+
+.here__btn.active .checkmark {
+  visibility: visible;
 }
 
 .here__btn__paragraph {
@@ -50,4 +62,9 @@
   font-size: 15.803px;
   font-weight: 500;
   margin-top: 10px;
+}
+
+.signup__btn:disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
 }

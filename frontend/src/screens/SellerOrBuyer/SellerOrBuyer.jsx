@@ -1,9 +1,25 @@
+import { useState } from "react";
 import Design from "../../components/Design/Design";
 import logo from "../../assets/logo.png";
 import "./SellerOrBuyer.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SellerOrBuyer = () => {
+  const [selection, setSelection] = useState(null);
+  const navigate = useNavigate();
+
+  const handleSelection = (choice) => {
+    setSelection(choice);
+  };
+
+  const handleGetStarted = () => {
+    if (selection === "sell") {
+      navigate("/register_bussiness");
+    } else if (selection === "buy") {
+      navigate("/signup");
+    }
+  };
+
   return (
     <>
       <div className="body">
@@ -17,7 +33,10 @@ const SellerOrBuyer = () => {
           <p className="here__paragraph">We want to know you more</p>
 
           <div className="here__btns">
-            <button className="here__btn">
+            <button
+              className={`here__btn ${selection === "sell" ? "active" : ""}`}
+              onClick={() => handleSelection("sell")}
+            >
               <div
                 style={{
                   display: "flex",
@@ -117,27 +136,35 @@ const SellerOrBuyer = () => {
                     </clipPath>
                   </defs>
                 </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.6414 24.0411C14.9755 24.0411 16.2965 23.7784 17.529 23.2678C18.7616 22.7573 19.8815 22.009 20.8248 21.0657C21.7681 20.1223 22.5164 19.0024 23.027 17.7699C23.5375 16.5373 23.8003 15.2163 23.8003 13.8822C23.8003 12.5481 23.5375 11.2271 23.027 9.99458C22.5164 8.76205 21.7681 7.64214 20.8248 6.6988C19.8815 5.75546 18.7616 5.00716 17.529 4.49663C16.2965 3.9861 14.9755 3.72333 13.6414 3.72333C10.9471 3.72333 8.36312 4.79364 6.45796 6.6988C4.55279 8.60396 3.48248 11.1879 3.48248 13.8822C3.48248 16.5765 4.55279 19.1605 6.45796 21.0657C8.36312 22.9708 10.9471 24.0411 13.6414 24.0411ZM13.3795 17.9909L19.0233 11.2183L17.2896 9.77352L12.4359 15.5968L9.92435 13.0842L8.32828 14.6803L11.7146 18.0666L12.5882 18.9402L13.3795 17.9909Z"
-                    fill="#B6975D"
-                  />
-                </svg>
+
+                {selection === "sell" && (
+                  <span className="checkmark">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M13.6414 24.0411C14.9755 24.0411 16.2965 23.7784 17.529 23.2678C18.7616 22.7573 19.8815 22.009 20.8248 21.0657C21.7681 20.1223 22.5164 19.0024 23.027 17.7699C23.5375 16.5373 23.8003 15.2163 23.8003 13.8822C23.8003 12.5481 23.5375 11.2271 23.027 9.99458C22.5164 8.76205 21.7681 7.64214 20.8248 6.6988C19.8815 5.75546 18.7616 5.00716 17.529 4.49663C16.2965 3.9861 14.9755 3.72333 13.6414 3.72333C10.9471 3.72333 8.36312 4.79364 6.45796 6.6988C4.55279 8.60396 3.48248 11.1879 3.48248 13.8822C3.48248 16.5765 4.55279 19.1605 6.45796 21.0657C8.36312 22.9708 10.9471 24.0411 13.6414 24.0411ZM13.3795 17.9909L19.0233 11.2183L17.2896 9.77352L12.4359 15.5968L9.92435 13.0842L8.32828 14.6803L11.7146 18.0666L12.5882 18.9402L13.3795 17.9909Z"
+                        fill="#B6975D"
+                      />
+                    </svg>
+                  </span>
+                )}
               </div>
               <p className="here__btn__paragraph">
                 I’m here to sell my products
               </p>
             </button>
 
-            <button className="here__btn">
+            <button
+              className={`here__btn ${selection === "buy" ? "active" : ""}`}
+              onClick={() => handleSelection("buy")}
+            >
               <div
                 style={{
                   display: "flex",
@@ -237,27 +264,37 @@ const SellerOrBuyer = () => {
                     </clipPath>
                   </defs>
                 </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.6414 24.0411C14.9755 24.0411 16.2965 23.7784 17.529 23.2678C18.7616 22.7573 19.8815 22.009 20.8248 21.0657C21.7681 20.1223 22.5164 19.0024 23.027 17.7699C23.5375 16.5373 23.8003 15.2163 23.8003 13.8822C23.8003 12.5481 23.5375 11.2271 23.027 9.99458C22.5164 8.76205 21.7681 7.64214 20.8248 6.6988C19.8815 5.75546 18.7616 5.00716 17.529 4.49663C16.2965 3.9861 14.9755 3.72333 13.6414 3.72333C10.9471 3.72333 8.36312 4.79364 6.45796 6.6988C4.55279 8.60396 3.48248 11.1879 3.48248 13.8822C3.48248 16.5765 4.55279 19.1605 6.45796 21.0657C8.36312 22.9708 10.9471 24.0411 13.6414 24.0411ZM13.3795 17.9909L19.0233 11.2183L17.2896 9.77352L12.4359 15.5968L9.92435 13.0842L8.32828 14.6803L11.7146 18.0666L12.5882 18.9402L13.3795 17.9909Z"
-                    fill="#B6975D"
-                  />
-                </svg>
+                {selection === "buy" && (
+                  <span className="checkmark">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M13.6414 24.0411C14.9755 24.0411 16.2965 23.7784 17.529 23.2678C18.7616 22.7573 19.8815 22.009 20.8248 21.0657C21.7681 20.1223 22.5164 19.0024 23.027 17.7699C23.5375 16.5373 23.8003 15.2163 23.8003 13.8822C23.8003 12.5481 23.5375 11.2271 23.027 9.99458C22.5164 8.76205 21.7681 7.64214 20.8248 6.6988C19.8815 5.75546 18.7616 5.00716 17.529 4.49663C16.2965 3.9861 14.9755 3.72333 13.6414 3.72333C10.9471 3.72333 8.36312 4.79364 6.45796 6.6988C4.55279 8.60396 3.48248 11.1879 3.48248 13.8822C3.48248 16.5765 4.55279 19.1605 6.45796 21.0657C8.36312 22.9708 10.9471 24.0411 13.6414 24.0411ZM13.3795 17.9909L19.0233 11.2183L17.2896 9.77352L12.4359 15.5968L9.92435 13.0842L8.32828 14.6803L11.7146 18.0666L12.5882 18.9402L13.3795 17.9909Z"
+                        fill="#B6975D"
+                      />
+                    </svg>
+                  </span>
+                )}
               </div>
               <p className="here__btn__paragraph">
                 I’m here to search a seller
               </p>
             </button>
           </div>
-          <button className="signup__btn">Get Started</button>
+          <button
+            className="signup__btn"
+            onClick={handleGetStarted}
+            disabled={!selection}
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </>
