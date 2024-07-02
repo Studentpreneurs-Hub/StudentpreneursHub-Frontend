@@ -35,7 +35,7 @@ function Login() {
   };
 
   return (
-    <div className="body">
+    <div className="login_body">
       <Design />
       <div className="login">
         <div>
