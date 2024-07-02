@@ -39,7 +39,7 @@ const OTPScreen = () => {
       alert("Verification Error");
       console.log(err);
     }
-    navigate("/login");
+    // navigate("/login");
   };
 
   return (
