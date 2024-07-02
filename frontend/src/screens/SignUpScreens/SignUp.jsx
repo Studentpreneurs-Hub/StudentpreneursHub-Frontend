@@ -16,6 +16,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isValid, setIsValid] = useState(true);
   const [successMessage, setSuccessMessage] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
   
@@ -24,6 +25,16 @@ const SignUp = () => {
   
 
   const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+    setIsValid(validateEmail(e.target.value));
+  };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -50,6 +61,7 @@ const SignUp = () => {
       setShowErrorModal(true);
       return;
     }
+
 
     try {
       const response = await axios.post(`${BASE_API_URI}/api/auth/register/`, {
@@ -113,9 +125,10 @@ const SignUp = () => {
                 id="email"
                 placeholder="name@example.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
                 required
               />
+               {!isValid && <p style={{ color: 'red' }}>Invalid email address</p>}
             </Form>
 
             <Form>
