@@ -1,12 +1,10 @@
-
-
 .here__container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 457px;
-  padding: 4rem 3rem;
+  padding: 3rem;
   border-radius: 32px;
   background: #fff;
 }

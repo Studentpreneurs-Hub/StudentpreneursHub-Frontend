@@ -24,7 +24,6 @@ const SellerOrBuyer = () => {
     <>
       <div className="login_body">
         <Design />
-
         <div className="here__container">
           <Link to="/">
             <img src={logo} className="signup__logo" alt="logo" />

@@ -29,7 +29,7 @@
   z-index: -1; /* Ensure particles are behind other content */
 }
 
-.body{
+.get_started_body{
   background-image: url('../../assets/gradient_background.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 70px 0;
+  /* margin: 70px 0; */
   position: relative;
   z-index: 1;
 }
