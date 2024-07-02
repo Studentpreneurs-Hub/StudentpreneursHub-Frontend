@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
       await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
       setIsVerified(true);
     } catch (error) {
+      alert("Email verification failed")
       console.error('Email verification failed:', error);
     }
   };

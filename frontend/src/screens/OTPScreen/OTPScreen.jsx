@@ -28,7 +28,18 @@ const OTPScreen = () => {
       number6 === ""
     ) {
       alert("Field(s) can't be blank");
+    } else {
+      try {
+        const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
+        console.log(code);
+        await verifyEmail(code);
+        navigate("/login");
+      } catch (err) {
+        alert("Verification Error");
+        console.log(err);
+      }
     }
+
 
     try {
       const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
