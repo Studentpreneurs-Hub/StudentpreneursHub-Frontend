@@ -22,7 +22,7 @@ const SellerOrBuyer = () => {
 
   return (
     <>
-      <div className="body">
+      <div className="login_body">
         <Design />
 
         <div className="here__container">
