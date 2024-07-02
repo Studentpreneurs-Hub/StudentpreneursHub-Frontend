@@ -45,7 +45,6 @@ const OTPScreen = () => {
       const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
       console.log(code)
       await verifyEmail(code);
-      navigate("/login");
     } catch (err) {
       alert("Verification Error");
       console.log(err);
