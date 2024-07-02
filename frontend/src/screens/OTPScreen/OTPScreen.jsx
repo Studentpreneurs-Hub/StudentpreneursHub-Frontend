@@ -53,7 +53,7 @@ const OTPScreen = () => {
   };
 
   return (
-    <div className="body">
+    <div className="otp_body">
       <Design />
       <div className="verify">
         <div>
