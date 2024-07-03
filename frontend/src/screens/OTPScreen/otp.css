@@ -22,7 +22,7 @@
   z-index: -1; /* Ensure particles are behind other content */
 }
 
-.body{
+.otp_body{
   background-image: url('../../assets/gradient_background.png');
   background-size: cover;
   background-repeat: no-repeat;

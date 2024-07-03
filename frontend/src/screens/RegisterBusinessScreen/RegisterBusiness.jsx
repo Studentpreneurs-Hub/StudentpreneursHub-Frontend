@@ -21,7 +21,7 @@ function RegisterBusiness() {
   };
 
   return (
-    <div className="body">
+    <div className="get_started_body">
       <Design />
       <div className="register__business">
         <div>

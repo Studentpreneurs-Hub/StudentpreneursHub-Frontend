@@ -49,10 +49,21 @@ const OTPScreen = () => {
         return;
       }
     }
+
+
+    try {
+      const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
+      console.log(code)
+      await verifyEmail(code);
+    } catch (err) {
+      alert("Verification Error");
+      console.log(err);
+    }
+    // navigate("/login");
   };
 
   return (
-    <div className="body">
+    <div className="otp_body">
       <Design />
       <div className="verify">
         <div>
