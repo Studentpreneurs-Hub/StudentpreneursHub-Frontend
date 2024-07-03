@@ -1,12 +1,22 @@
 import React, { createContext, useState, useContext } from "react";
 import { BASE_API_URI } from "../utils/constants";
 import axios from "axios";
+import CustomModal from "../components/CustomModal/CustomModal";
+import { FaFileDownload } from "react-icons/fa";
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleCloseModal = () => {
+    setShowErrorModal(false);
+    setError("");
+  };
+
   const [authTokens, setAuthTokens] = useState(
     localStorage.getItem("tokens")
       ? JSON.parse(localStorage.getItem("tokens"))
@@ -16,24 +26,40 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email_address, password) => {
     try {
-      const response = await axios.post(`${BASE_API_URI}/api/auth/login/`, { 
+      const response = await axios.post(`${BASE_API_URI}/api/auth/login/`, {
         email_address,
-        password
+        password,
       });
       setAuthTokens(response.data);
       localStorage.setItem("tokens", JSON.stringify(response.data));
     } catch (error) {
-      console.error('Login failed:', error);
+      setError("Login Failed. Please Try Again");
+      setShowErrorModal(true);
+      console.error("Login Failed:", error)
     }
   };
 
+  // const verifyEmail = async (code) => {
+  //   try {
+  //     await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
+  //     setIsVerified(true);
+  //   } catch (error) {
+  //     setError("Email verification failed");
+  //     setShowErrorModal(true);
+  //     console.error("Email verification failed:", error);
+  //   }
+  // };
+
   const verifyEmail = async (code) => {
     try {
-      await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
-      setIsVerified(true);
+      const response = await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
+      if (response.status === 200) {
+        setIsVerified(true);
+      } else {
+        throw new Error("Verification failed");
+      }
     } catch (error) {
-      alert("Email verification failed")
-      console.error('Email verification failed:', error);
+      throw new Error("Verification failed");
     }
   };
 
@@ -50,5 +76,14 @@ export const AuthProvider = ({ children }) => {
     logout,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+      <CustomModal
+        error={error}
+        showErrorModal={showErrorModal}
+        handleCloseModal={handleCloseModal}
+      />
+    </AuthContext.Provider>
+  );
 };

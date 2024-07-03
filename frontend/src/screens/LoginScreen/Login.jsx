@@ -7,11 +7,14 @@ import "./login.css";
 import Design from "../../components/Design/Design";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../utils/AuthContext";
+import CustomModal from "../../components/CustomModal/CustomModal";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -19,10 +22,17 @@ function Login() {
     setShowPassword(!showPassword);
   };
 
+  const handleCloseModal = () => {
+    setShowErrorModal(false);
+    setError("");
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
-      alert("Field(s) cannot be empty");
+      setError("Field(s) cannot be empty.");
+      setShowErrorModal(true);
+      return;
     }
 
     try {
@@ -87,6 +97,12 @@ function Login() {
               Login
             </Button>
           </div>
+
+          <CustomModal
+              error={error}
+              showErrorModal={showErrorModal}
+              handleCloseModal={handleCloseModal}
+            />
 
           <div className="login__info">
             <p className="login__forgotpass__question">

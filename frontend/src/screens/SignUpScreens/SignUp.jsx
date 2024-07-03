@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
+import CustomModal from "../../components/CustomModal/CustomModal";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,15 +15,11 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
   const [isValid, setIsValid] = useState(true);
   const [successMessage, setSuccessMessage] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
-  
-
-  console.log(successMessage)
-  
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,6 +35,11 @@ const SignUp = () => {
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleCloseModal = () => {
+    setShowErrorModal(false);
+    setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -56,35 +58,29 @@ const SignUp = () => {
       return;
     }
 
-    if(password != confirmedPassword){
+    if (password != confirmedPassword) {
       setError("Passwords don't match!");
       setShowErrorModal(true);
       return;
     }
 
-
     try {
       const response = await axios.post(`${BASE_API_URI}/api/auth/register/`, {
         full_name: name,
         email_address: email,
-        password: password
+        password: password,
       });
-      console.log(response)
-      if (response?.data?.status==="success") {
+      console.log(response);
+      if (response?.data?.status === "success") {
         setSuccessMessage(response?.data);
-        setError(successMessage?.detail)
-        navigate('/otp');
-      }      
+        setError(successMessage?.detail);
+        navigate("/otp");
+      }
     } catch (err) {
       setErrorMessage(err.response.data);
-      setError(errorMessage?.detail)
+      setError(errorMessage?.detail);
       setShowErrorModal(true);
     }
-  };
-
-  const handleCloseModal = () => {
-    setShowErrorModal(false);
-    setError("");
   };
 
   return (
@@ -128,7 +124,9 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
               />
-               {!isValid && <p style={{ color: 'red' }}>Invalid email address</p>}
+              {!isValid && (
+                <p style={{ color: "red" }}>Invalid email address</p>
+              )}
             </Form>
 
             <Form>
@@ -166,18 +164,12 @@ const SignUp = () => {
                 />
               </div>
             </Form>
-
-            <Modal show={showErrorModal} onHide={handleCloseModal}>
-              <Modal.Header closeButton>
-                <Modal.Title>Error</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>{error}</Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseModal}>
-                  Close
-                </Button>
-              </Modal.Footer>
-            </Modal>
+            
+            <CustomModal
+              error={error}
+              showErrorModal={showErrorModal}
+              handleCloseModal={handleCloseModal}
+            />
 
             <Button className="signup__btn" onClick={handleSubmit}>
               Create Account
