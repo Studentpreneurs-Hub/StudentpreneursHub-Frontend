@@ -2,7 +2,6 @@ import React, { createContext, useState, useContext } from "react";
 import { BASE_API_URI } from "../utils/constants";
 import axios from "axios";
 import CustomModal from "../components/CustomModal/CustomModal";
-import { FaFileDownload } from "react-icons/fa";
 
 const AuthContext = createContext();
 
@@ -39,16 +38,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // const verifyEmail = async (code) => {
-  //   try {
-  //     await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
-  //     setIsVerified(true);
-  //   } catch (error) {
-  //     setError("Email verification failed");
-  //     setShowErrorModal(true);
-  //     console.error("Email verification failed:", error);
-  //   }
-  // };
 
   const verifyEmail = async (code) => {
     try {

@@ -4,19 +4,46 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import "./registerbusiness.css";
 import Design from "../../components/Design/Design";
+import { BASE_API_URI } from "../../utils/constants";
+import CustomModal from "../../components/CustomModal/CustomModal";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function RegisterBusiness() {
   const [storeName, setStoreName] = useState("");
   const [contact, setContact] = useState("");
   const [location, setLocation] = useState("");
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleGetStarted = () => {
+  const handleCloseModal = () => {
+    setShowErrorModal(false);
+    setError("");
+  };
+
+  const handleGetStarted = async () => {
     if (storeName === "" || contact === "" || location === "") {
-      alert("Field(s) cannot empty");
+      setError("Field(s) cannot be empty.");
+      setShowErrorModal(true);
+      return;
     } else {
-      navigate("/signup");
+      try {
+        const response = await axios.post(`${BASE_API_URI}/api/vendors/`, {
+          phone_number: contact,
+          location: location,
+          store_name: storeName,
+        });
+        console.log("Response:", response.data);
+        navigate("/signup");
+      } catch (error) {
+        console.error("Error:", error);
+        setError(
+          "There was an error registering your business. Please try again."
+        );
+        setShowErrorModal(true);
+        return;
+      }
     }
   };
 
@@ -77,6 +104,12 @@ function RegisterBusiness() {
             <Button className="login_btn" onClick={handleGetStarted}>
               Get Started
             </Button>
+
+            <CustomModal
+              error={error}
+              showErrorModal={showErrorModal}
+              handleCloseModal={handleCloseModal}
+            />
           </div>
         </div>
       </div>
