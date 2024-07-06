@@ -1,4 +1,4 @@
-import "../HomePage/Home.css";
+import "../HomePage/home.css";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
 import homeImage_1 from "../../assets/homeImage_1.png";
