@@ -56,7 +56,7 @@ const OTPScreen = () => {
       console.log(code)
       await verifyEmail(code);
     } catch (err) {
-      alert("Verification Error");
+      // alert("Verification Error");
       console.log(err);
     }
     // navigate("/login");
