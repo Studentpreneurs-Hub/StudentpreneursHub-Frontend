@@ -111,7 +111,7 @@ function Login() {
               </Link>
             </p>
             <p className="login__info__login">
-              Don’t have an account yet? <Link to="/seller_or_buyer">Sign Up</Link>
+              Don’t have an account yet? <Link to="/signup">Sign Up</Link>
             </p>
           </div>
         </div>

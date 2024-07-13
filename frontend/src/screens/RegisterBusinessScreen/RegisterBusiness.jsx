@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -15,7 +15,15 @@ function RegisterBusiness() {
   const [location, setLocation] = useState("");
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
+  const [accessToken, setAccessToken] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setAccessToken(JSON.parse(token));
+    }
+  }, []);
 
   const handleCloseModal = () => {
     setShowErrorModal(false);
@@ -29,13 +37,21 @@ function RegisterBusiness() {
       return;
     } else {
       try {
-        const response = await axios.post(`${BASE_API_URI}/api/vendors/`, {
-          phone_number: contact,
-          location: location,
-          store_name: storeName,
-        });
+        const response = await axios.post(
+          `${BASE_API_URI}/api/vendors/`,
+          {
+            phone_number: contact,
+            location: location,
+            store_name: storeName,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
         console.log("Response:", response.data);
-        navigate("/signup");
+        navigate("/login");
       } catch (error) {
         console.error("Error:", error);
         setError(

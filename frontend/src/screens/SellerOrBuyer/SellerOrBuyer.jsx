@@ -16,7 +16,7 @@ const SellerOrBuyer = () => {
     if (selection === "sell") {
       navigate("/register_bussiness");
     } else if (selection === "buy") {
-      navigate("/signup");
+      navigate("/login");
     }
   };
 

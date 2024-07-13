@@ -34,15 +34,17 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setError("Login Failed. Please Try Again");
       setShowErrorModal(true);
-      console.error("Login Failed:", error)
+      console.error("Login Failed:", error);
     }
   };
 
-
   const verifyEmail = async (code) => {
     try {
-      const response = await axios.post(`${BASE_API_URI}/api/auth/verify/`, { code });
+      const response = await axios.post(`${BASE_API_URI}/api/auth/verify/`, {
+        code,
+      });
       if (response.status === 200) {
+        localStorage.setItem("accessToken", JSON.stringify(response.data.token));
         setIsVerified(true);
       } else {
         throw new Error("Verification failed");

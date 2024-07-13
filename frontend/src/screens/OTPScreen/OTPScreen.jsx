@@ -42,7 +42,7 @@ const OTPScreen = () => {
       try {
         const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
         await verifyEmail(code);
-        navigate("/login");
+        navigate("/seller_or_buyer");
       } catch (err) {
         setError("Invalid or Wrong Code Entered");
         setShowErrorModal(true);

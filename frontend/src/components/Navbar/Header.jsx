@@ -81,7 +81,7 @@ function Header() {
                   <LinkContainer to="/login">
                     <Nav.Link className="nav-text">Login</Nav.Link>
                   </LinkContainer>
-                  <Link to="/seller_or_buyer">
+                  <Link to="/signup">
                     <Button className="btn start_btn">
                       Get Started
                     </Button>
