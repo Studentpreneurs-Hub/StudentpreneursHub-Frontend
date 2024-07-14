@@ -70,7 +70,7 @@ function Header() {
                     /> 
                     </span>
                     
-                    <Button className="start_selling_btn">+ Start Selling </Button>
+                    <Link to='/register_bussiness'><Button className="start_selling_btn">+ Start Selling </Button></Link>
                   </Form>
                   <Nav.Link className="nav-text" onClick={logout}>
                     Logout
