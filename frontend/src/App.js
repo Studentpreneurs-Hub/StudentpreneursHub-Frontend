@@ -10,6 +10,7 @@ import Login from "./screens/LoginScreen/Login";
 import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness";
 import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileScreen";
 import AboutUs from "./screens/AboutUs/AboutUs";
+import OnClickStartSelling from "./screens/OnClickStartSelling/OnClickStartSelling";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 import PageNotFound from "./screens/PageNotFound/PageNotFound";
 import Home from "./screens/HomePage/Home";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/onClickProduct" element={<OnClickProduct />} />
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
             <Route path="/EditingProfileScreen" element={<EditingProfileScreen />} />
+            <Route path="/OnClickStartSelling" element={<OnClickStartSelling />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
             <Route
