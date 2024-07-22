@@ -95,7 +95,7 @@ const OnClickProfile = () => {
             <Tab eventKey="declined" title="Declined">
               Tab content for Declined
             </Tab>
-            <Tab eventKey="Draft" title="Draft">
+            <Tab eventKey="Draft" title="Products">
               Tab content for Draft
             </Tab>
             <Tab eventKey="profile" title="Profile">
