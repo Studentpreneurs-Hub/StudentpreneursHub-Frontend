@@ -1,0 +1,111 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
+.dashboard {
+    display: flex;
+    font-family: satoshi;
+}
+  
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+  
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.sidebar-nav li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+  
+.sidebar-nav li.active {
+    font-weight: bold;
+}
+
+.sidebar-nav li a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from the parent */
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center align icon and text */
+}
+  
+.sidebar-footer .profile {
+    display: flex;
+    align-items: center;
+}
+  
+.sidebar-footer img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+  
+.overview-header {
+    margin-bottom: 20px;
+}
+  
+.overview-header h1 {
+    margin: 0;
+}
+  
+.overview-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+  
+.stat-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+    flex: 1;
+    margin: 0 6px;
+}
+  
+.stat-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    color: #282828;
+}
+  
+.stat-card p {
+    margin: 0;
+    font-weight: 800;
+    color: var(--primary-colour);
+}
+  
+.stat-change {
+    color: green;
+    font-size: 0.8em;
+}
+  
+.products-approved {
+    margin-top: 20px;
+}
+  
+.products-approved h2 {
+    margin-bottom: 17px;
+}
+  
+.products-approved img {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

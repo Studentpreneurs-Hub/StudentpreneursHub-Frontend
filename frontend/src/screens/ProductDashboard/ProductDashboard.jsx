@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { IoSearchOutline } from "react-icons/io5";
 import { IoFilter } from "react-icons/io5";
@@ -8,11 +7,9 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { HiOutlineChartBarSquare } from "react-icons/hi2";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import logo from "../../assets/logo.png";
 import Header from '../../components/Navbar/Header';
 import Footer from '../../components/Footer/Footer';
+import { Link } from "react-router-dom";
 import '../ProductDashboard/ProductDashboard.css';
 
 const students = [
@@ -68,9 +65,21 @@ const ProductDashboard = () => {
           <aside className="sidebar">
             <nav className="sidebar-nav">
               <ul>
-                <li><HiOutlineChartBarSquare className="fs-3 me-2" />Overview</li>
-                <li className="active"><IoPersonCircleSharp className="fs-3 me-2" />Studentpreneurs</li>
-                <li><RiShoppingBag3Line className="fs-3 me-2" />Products</li>
+                <li className="sidebar-links">
+                    <Link to="/OverviewDashboard">
+                        <HiOutlineChartBarSquare className="fs-3 me-2" />Overview
+                    </Link>
+                  </li>
+                  <li className="active sidebar-links">
+                    <Link to="/ProductDashboard">
+                        <IoPersonCircleSharp className="fs-3 me-2" />Studentpreneurs
+                    </Link>
+                  </li>
+                  <li className="sidebar-links">
+                    <Link to="/VendorDashboard">
+                        <RiShoppingBag3Line className="fs-3 me-2" />Products
+                    </Link>   
+                  </li>
               </ul>
             </nav>
 

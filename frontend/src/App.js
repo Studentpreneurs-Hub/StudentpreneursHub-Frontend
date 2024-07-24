@@ -12,6 +12,8 @@ import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileS
 import AboutUs from "./screens/AboutUs/AboutUs";
 import OnClickStartSelling from "./screens/OnClickStartSelling/OnClickStartSelling";
 import ProductDashboard from "./screens/ProductDashboard/ProductDashboard";
+import OverviewDashboard from "./screens/OverviewDashboard/OverviewDashboard";
+import VendorDashboard from "./screens/VendorDashboard/VendorDashboard";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 import PageNotFound from "./screens/PageNotFound/PageNotFound";
 import Home from "./screens/HomePage/Home";
@@ -34,10 +36,13 @@ function App() {
             <Route path="/onClickProduct" element={<OnClickProduct />} />
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
             <Route path="/EditingProfileScreen" element={<EditingProfileScreen />} />
-            <Route path="/OnClickStartSelling" element={<OnClickStartSelling />} />
-            <Route path="/ProductDashboard" element={<ProductDashboard />} />
             <Route path="/AboutUs" element={<AboutUs />} /> 
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
+            <Route path="/OnClickStartSelling" element={<OnClickStartSelling />} />
+            <Route path="/ProductDashboard" element={<ProductDashboard />} />
+            <Route path="/OverviewDashboard" element={<OverviewDashboard />} />
+            <Route path="/VendorDashboard" element={<VendorDashboard />} />
+      
             <Route
               path="/home"
               element={
