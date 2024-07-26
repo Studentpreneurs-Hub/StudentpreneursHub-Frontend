@@ -1,14 +1,69 @@
-import React from "react";
-import { Navbar, Nav, Container, NavDropdown, Button, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  Navbar,
+  Nav,
+  Container,
+  NavDropdown,
+  Button,
+  Form,
+} from "react-bootstrap";
 import { IoSearchOutline } from "react-icons/io5";
 import "./header.css";
 import logo from "../../assets/logo.png";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
+import { BASE_API_URI } from "../../utils/constants";
 
 function Header() {
   const { authTokens, logout } = useAuth();
+  const [accessToken, setAccessToken] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userStatus, setUserStatus] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("tokens");
+    if (token) {
+      setAccessToken(JSON.parse(token));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (authTokens && authTokens.user) {
+      setUserEmail(authTokens.user.email_address); // Assuming authTokens.user contains user info
+    }
+  }, [authTokens]);
+
+  useEffect(() => {
+    const fetchVendors = async () => {
+      if (!accessToken) return;
+
+      try {
+        const response = await axios.get(`${BASE_API_URI}/api/vendors/`, {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        });
+
+        const vendors = response.data.detail[0].user // The problem is here. I have to find a way to get the email of the user to get the vendor status 
+        const currentUser = vendors.find(vendor => vendor.user.email_address === userEmail);
+
+        if (currentUser) {
+          setUserStatus(currentUser.user.vendor_status);
+        } else {
+          setError("User not found");
+        }
+
+      } catch (err) {
+        console.log(err);
+        setError("Error fetching vendors");
+      }
+    };
+
+    fetchVendors();
+  }, [accessToken, userEmail]);
 
   return (
     <header className="py-3">
@@ -25,35 +80,19 @@ function Header() {
               <LinkContainer to="/AboutUs">
                 <Nav.Link className="nav-text">About Us</Nav.Link>
               </LinkContainer>
-
               <LinkContainer to="/faqs">
                 <Nav.Link className="nav-text">FAQs</Nav.Link>
               </LinkContainer>
-
               {authTokens ? (
-                <>
-                  <NavDropdown
-                    title="Categories"
-                    id="basic-nav-dropdown"
-                    className="dropdown-link"
-                  >
-                    <NavDropdown.Item href="#action/3.1">
-                      Electronics
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Fashion
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Stationary
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </>
+                <NavDropdown title="Categories" id="basic-nav-dropdown" className="dropdown-link">
+                  <NavDropdown.Item href="#action/3.1">Electronics</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">Fashion</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Stationary</NavDropdown.Item>
+                </NavDropdown>
               ) : (
-                <>
-                  <LinkContainer to="/help">
-                    <Nav.Link className="nav-text">Help</Nav.Link>
-                  </LinkContainer>
-                </>
+                <LinkContainer to="/help">
+                  <Nav.Link className="nav-text">Help</Nav.Link>
+                </LinkContainer>
               )}
             </Nav>
             <Nav className="header-second">
@@ -61,16 +100,17 @@ function Header() {
                 <>
                   <Form className="d-flex">
                     <span className="search-container">
-                    <IoSearchOutline className="glass" />
-                    <Form.Control
-                      type="search"
-                      placeholder="Search..."
-                      className="search"
-                      aria-label="Search"
-                    /> 
+                      <IoSearchOutline className="glass" />
+                      <Form.Control
+                        type="search"
+                        placeholder="Search..."
+                        className="search"
+                        aria-label="Search"
+                      />
                     </span>
-                    
-                    <Link to='/register_bussiness'><Button className="start_selling_btn">+ Start Selling </Button></Link>
+                    <Link to="/register_bussiness">
+                      <Button className="start_selling_btn">+ Start Selling </Button>
+                    </Link>
                   </Form>
                   <Nav.Link className="nav-text" onClick={logout}>
                     Logout
@@ -82,9 +122,7 @@ function Header() {
                     <Nav.Link className="nav-text">Login</Nav.Link>
                   </LinkContainer>
                   <Link to="/signup">
-                    <Button className="btn start_btn">
-                      Get Started
-                    </Button>
+                    <Button className="btn start_btn">Get Started</Button>
                   </Link>
                 </>
               )}
@@ -92,6 +130,8 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {error && <p className="error">{error}</p>}
+      {userStatus !== null && <p className="status">Vendor Status: {userStatus ? "Active" : "Inactive"}</p>}
     </header>
   );
 }
