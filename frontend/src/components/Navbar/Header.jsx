@@ -21,7 +21,6 @@ function Header() {
   const [accessToken, setAccessToken] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userStatus, setUserStatus] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -38,27 +37,18 @@ function Header() {
 
   useEffect(() => {
     const fetchVendors = async () => {
-      if (!accessToken) return;
-
       try {
-        const response = await axios.get(`${BASE_API_URI}/api/vendors/`, {
-          headers: {
-            Authorization: `Bearer ${accessToken.token}`,
-          },
-        });
-
-        const vendors = response.data.detail[0].user // The problem is here. I have to find a way to get the email of the user to get the vendor status 
-        const currentUser = vendors.find(vendor => vendor.user.email_address === userEmail);
-
-        if (currentUser) {
-          setUserStatus(currentUser.user.vendor_status);
-        } else {
-          setError("User not found");
-        }
-
+        const response = await axios.get(
+          `${BASE_API_URI}/api/vendor/${userEmail}`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken.token}`,
+            },
+          }
+        );
+        setUserStatus(response.data.detail.vendor_status);
       } catch (err) {
         console.log(err);
-        setError("Error fetching vendors");
       }
     };
 
@@ -69,7 +59,7 @@ function Header() {
     <header className="py-3">
       <Navbar expand="lg" className="navbar">
         <Container>
-          <LinkContainer to="/">
+          <LinkContainer to={authTokens ? "/home" : "/"}>
             <Navbar.Brand>
               <img src={logo} className="signup__logo" alt="logo" />
             </Navbar.Brand>
@@ -84,10 +74,20 @@ function Header() {
                 <Nav.Link className="nav-text">FAQs</Nav.Link>
               </LinkContainer>
               {authTokens ? (
-                <NavDropdown title="Categories" id="basic-nav-dropdown" className="dropdown-link">
-                  <NavDropdown.Item href="#action/3.1">Electronics</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">Fashion</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Stationary</NavDropdown.Item>
+                <NavDropdown
+                  title="Categories"
+                  id="basic-nav-dropdown"
+                  className="dropdown-link"
+                >
+                  <NavDropdown.Item href="#action/3.1">
+                    Electronics
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Fashion
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Stationary
+                  </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/help">
@@ -108,8 +108,16 @@ function Header() {
                         aria-label="Search"
                       />
                     </span>
-                    <Link to="/register_bussiness">
-                      <Button className="start_selling_btn">+ Start Selling </Button>
+                    <Link
+                      to={
+                        userStatus
+                          ? "/OnClickStartSelling"
+                          : "/register_bussiness"
+                      }
+                    >
+                      <Button className="start_selling_btn">
+                        + Start Selling{" "}
+                      </Button>
                     </Link>
                   </Form>
                   <Nav.Link className="nav-text" onClick={logout}>
@@ -130,8 +138,6 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {error && <p className="error">{error}</p>}
-      {userStatus !== null && <p className="status">Vendor Status: {userStatus ? "Active" : "Inactive"}</p>}
     </header>
   );
 }
