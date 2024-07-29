@@ -13,6 +13,7 @@ import { BsPerson } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import ProductCard from "../../components/ProductCard/productcard";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const OnClickProfile = () => {
   return (
@@ -51,9 +52,11 @@ const OnClickProfile = () => {
                 </a>
               </li>
               <li>
-                <Button variant="outline-dark" className="profile__edit__btn">
-                  Edit Profile
-                </Button>
+                <Link to='/EditingProfileScreen'>
+                  <Button variant="outline-dark" className="profile__edit__btn">
+                    Edit Profile
+                  </Button>
+                </Link>
               </li>
             </ul>
           </div>
