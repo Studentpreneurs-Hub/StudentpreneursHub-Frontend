@@ -84,3 +84,15 @@
   align-items: center;
   border-radius: 42px;
 }
+
+.dropdown-toggle-custom {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.profile-img-header {
+  width: 39px;
+  height: 39px;
+  border-radius: 2rem;
+}

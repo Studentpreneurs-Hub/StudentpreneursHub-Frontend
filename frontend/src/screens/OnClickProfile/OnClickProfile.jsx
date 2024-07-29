@@ -12,12 +12,26 @@ import {
 import { BsPerson } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import ProductCard from "../../components/ProductCard/productcard";
+import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { useAuth } from "../../utils/AuthContext";
+import { useNavigate } from "react-router-dom";
+>>>>>>> 76c81fcdf0c86e979a177fc8604a8077a63db160
 
 const OnClickProfile = () => {
+  const { authTokens, logout } = useAuth();
+  const navigate = useNavigate()
+
+  const toEditProfile = () => {
+      navigate("/EditingProfileScreen")
+  }
+
   return (
     <>
+      <Header />
       <Container className="profile">
         <div className="profile__header">
           <img
@@ -27,7 +41,7 @@ const OnClickProfile = () => {
           />
           <div className="profile__header__info">
             <h2 className="profile__header__info__company">
-              Maxmine Apple Deals
+              {authTokens.user.full_name}
             </h2>
             <p className="profile__header__info__name">Gideon Maxi Appiah</p>
             <ul className="profile__header__info_socials">
@@ -36,27 +50,22 @@ const OnClickProfile = () => {
                   <RiPhoneFill />
                 </a>
               </li>
-              <li className="socials">
-                <a href="#">
-                  <RiWhatsappFill />
-                </a>
-              </li>
-              <li className="socials">
-                <a href="#">
-                  <RiInstagramFill />
-                </a>
-              </li>
-              <li className="socials">
-                <a href="#">
-                  <RiFacebookFill />
-                </a>
-              </li>
               <li>
+<<<<<<< HEAD
                 <Link to='/EditingProfileScreen'>
                   <Button variant="outline-dark" className="profile__edit__btn">
                     Edit Profile
                   </Button>
                 </Link>
+=======
+                <Button
+                  variant="outline-dark"
+                  className="profile__edit__btn"
+                  onClick={toEditProfile}
+                >
+                  Edit Profile
+                </Button>
+>>>>>>> 76c81fcdf0c86e979a177fc8604a8077a63db160
               </li>
             </ul>
           </div>

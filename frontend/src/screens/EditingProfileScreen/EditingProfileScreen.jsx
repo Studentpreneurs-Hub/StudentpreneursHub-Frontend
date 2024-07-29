@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
 import profileImg from "../../assets/profile_picture.png";
 
@@ -25,6 +26,7 @@ const EditingProfileScreen = () => {
 
   return (
     <>
+      <Header />
       <Container className="Edit">
         <div className="edit--img">
           <img className="profile-img" src={profileImg} alt="Profile Img" />

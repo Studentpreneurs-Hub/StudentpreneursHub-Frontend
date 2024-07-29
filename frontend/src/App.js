@@ -11,6 +11,9 @@ import RegisterBusiness from "./screens/RegisterBusinessScreen/RegisterBusiness"
 import EditingProfileScreen from "./screens/EditingProfileScreen/EditingProfileScreen";
 import AboutUs from "./screens/AboutUs/AboutUs";
 import OnClickStartSelling from "./screens/OnClickStartSelling/OnClickStartSelling";
+import ProductDashboard from "./screens/ProductDashboard/ProductDashboard";
+import OverviewDashboard from "./screens/OverviewDashboard/OverviewDashboard";
+import VendorDashboard from "./screens/VendorDashboard/VendorDashboard";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 import PageNotFound from "./screens/PageNotFound/PageNotFound";
 import Home from "./screens/HomePage/Home";
@@ -29,13 +32,14 @@ function App() {
             <Route path="/setnewPassword" element={<SetNewPasswordScreen />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/otp" element={<OTPScreen />} />
-            <Route path="/onClickProfile" element={<OnClickProfile />} />
             <Route path="/onClickProduct" element={<OnClickProduct />} />
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
-            <Route path="/EditingProfileScreen" element={<EditingProfileScreen />} />
-            <Route path="/OnClickStartSelling" element={<OnClickStartSelling />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
+            <Route path="/ProductDashboard" element={<ProductDashboard />} />
+            <Route path="/OverviewDashboard" element={<OverviewDashboard />} />
+            <Route path="/VendorDashboard" element={<VendorDashboard />} />
+
             <Route
               path="/home"
               element={
@@ -44,6 +48,31 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/OnClickStartSelling"
+              element={
+                <ProtectedRoute>
+                  <OnClickStartSelling />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/onClickProfile"
+              element={
+                <ProtectedRoute>
+                  <OnClickProfile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/EditingProfileScreen"
+              element={
+                <ProtectedRoute>
+                  <EditingProfileScreen />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>

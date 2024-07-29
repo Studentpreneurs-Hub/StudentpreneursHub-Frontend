@@ -1,0 +1,87 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
+.dashboard {
+    display: flex;
+    font-family: satoshi;
+}
+  
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+  
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.sidebar-nav li {
+    /* display: flex; */
+    /* align-items: center; */
+    padding: 10px 0;
+    cursor: pointer;
+}
+  
+.sidebar-nav li.active {
+    font-weight: bold;
+}
+
+.sidebar-nav li a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from the parent */
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center align icon and text */
+}
+  
+/* .sidebar-footer .profile {
+    display: flex;
+    align-items: center;
+} */
+  
+/* .sidebar-footer img {
+    border-radius: 50%;
+    margin-right: 10px;
+} */
+  
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 200px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-card p {
+  font-size: 1em;
+  color: #6c757d;
+}

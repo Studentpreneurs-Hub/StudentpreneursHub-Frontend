@@ -1,0 +1,171 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+
+.dashboard {
+    display: flex;
+    font-family: satoshi;
+  }
+
+  /* COMMENTED THE FOOTER PROFILE */
+  /* .profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-name {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .profile-email {
+    margin: 0;
+    color: gray;
+  } */
+  
+  .sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sidebar-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+  
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.sidebar-nav li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+  
+.sidebar-nav li.active {
+    font-weight: bold;
+}
+
+.sidebar-nav li a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from the parent */
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center align icon and text */
+}
+  
+  /* .sidebar-footer .profile {
+    display: flex;
+    align-items: justify;
+  }
+  
+  .sidebar-footer img {
+    border-radius: 50%;
+    margin-right: 10px;
+  } */
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-controls input {
+    padding: 5px;
+  }
+  
+  .table-controls button {
+    margin-left: 10px;
+    padding: 5px 10px;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #f1f1f1;
+  }
+
+  .pagination--btn {
+    margin-top: 25px;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: end; 
+  }
+
+  .pagination--fe {
+    border-radius: 25px;
+    background: var(--secondary-colour) !important;
+  }
+  
+  .pagination--pn {
+    border-radius: 42px;
+    background: var(--secondary-colour) !important;
+  }
+  
+  .pagination--fe:hover {
+    opacity: 0.8;
+  }
+
+  .pagination--pn:hover {
+    opacity: 0.8;
+  }
+
+  /* Table Row Hover Effect */
+.data-table tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Sidebar Active Indicator */
+  .sidebar-nav li.active {
+    background-color: #eee; /* Added a light background for active item */
+  }
+  
+  /* Table Header Row Hover */
+  .data-table thead tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Added media queries for responsiveness */
+  @media (max-width: 768px) {
+    .dashboard {
+      display: flex; /* Adjusted layout for smaller screens */
+      flex-direction: column; /* Stacks sidebar and main content vertically */
+    }
+  
+    .sidebar,
+    .main-content {
+      width: 100%; /* Makes sidebar and main content full width on small screens */
+    }
+  }
+

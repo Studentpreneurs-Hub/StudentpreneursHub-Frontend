@@ -6,7 +6,7 @@ import homeImage_2 from "../../assets/homeImage_2.png";
 import homeImage_3 from "../../assets/homeImage_3.png";
 import product_1 from "../../assets/elegant-smartphone-composition.jpg";
 import product_2 from "../../assets/graphic-woman-dress-trendy-design-white-background.jpg";
-import product_3 from "../../assets/headphones-audio-listen.jpg";
+import product_3 from "../../assets/headphones.jpg";
 import product_4 from "../../assets/laptop-with-colorful-screen-isolated-white-background-3d-illustration.jpg";
 import product_5 from "../../assets/rendering-smart-home-device.jpg";
 import { Carousel } from "react-bootstrap";

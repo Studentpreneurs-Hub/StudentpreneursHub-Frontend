@@ -1,20 +1,67 @@
-import React from "react";
-import { Navbar, Nav, Container, NavDropdown, Button, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  Navbar,
+  Nav,
+  Container,
+  NavDropdown,
+  Button,
+  Form,
+  Dropdown,
+} from "react-bootstrap";
 import { IoSearchOutline } from "react-icons/io5";
 import "./header.css";
 import logo from "../../assets/logo.png";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
+import { BASE_API_URI } from "../../utils/constants";
+import NoProfileImg from "../../assets/no-profile-picture.png";
 
 function Header() {
   const { authTokens, logout } = useAuth();
+  const [accessToken, setAccessToken] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userStatus, setUserStatus] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("tokens");
+    if (token) {
+      setAccessToken(JSON.parse(token));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (authTokens && authTokens.user) {
+      setUserEmail(authTokens.user.email_address); // Assuming authTokens.user contains user info
+    }
+  }, [authTokens]);
+
+  useEffect(() => {
+    const fetchVendors = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_API_URI}/api/vendor/${userEmail}`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken.token}`,
+            },
+          }
+        );
+        setUserStatus(response.data.detail.vendor_status);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchVendors();
+  }, [accessToken, userEmail]);
 
   return (
     <header className="py-3">
       <Navbar expand="lg" className="navbar">
         <Container>
-          <LinkContainer to="/">
+          <LinkContainer to={authTokens ? "/home" : "/"}>
             <Navbar.Brand>
               <img src={logo} className="signup__logo" alt="logo" />
             </Navbar.Brand>
@@ -25,35 +72,29 @@ function Header() {
               <LinkContainer to="/AboutUs">
                 <Nav.Link className="nav-text">About Us</Nav.Link>
               </LinkContainer>
-
               <LinkContainer to="/faqs">
                 <Nav.Link className="nav-text">FAQs</Nav.Link>
               </LinkContainer>
-
               {authTokens ? (
-                <>
-                  <NavDropdown
-                    title="Categories"
-                    id="basic-nav-dropdown"
-                    className="dropdown-link"
-                  >
-                    <NavDropdown.Item href="#action/3.1">
-                      Electronics
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Fashion
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Stationary
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </>
+                <NavDropdown
+                  title="Categories"
+                  id="basic-nav-dropdown"
+                  className="dropdown-link"
+                >
+                  <NavDropdown.Item href="#action/3.1">
+                    Electronics
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
+                    Fashion
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
+                    Stationary
+                  </NavDropdown.Item>
+                </NavDropdown>
               ) : (
-                <>
-                  <LinkContainer to="/help">
-                    <Nav.Link className="nav-text">Help</Nav.Link>
-                  </LinkContainer>
-                </>
+                <LinkContainer to="/help">
+                  <Nav.Link className="nav-text">Help</Nav.Link>
+                </LinkContainer>
               )}
             </Nav>
             <Nav className="header-second">
@@ -61,20 +102,45 @@ function Header() {
                 <>
                   <Form className="d-flex">
                     <span className="search-container">
-                    <IoSearchOutline className="glass" />
-                    <Form.Control
-                      type="search"
-                      placeholder="Search..."
-                      className="search"
-                      aria-label="Search"
-                    /> 
+                      <IoSearchOutline className="glass" />
+                      <Form.Control
+                        type="search"
+                        placeholder="Search..."
+                        className="search"
+                        aria-label="Search"
+                      />
                     </span>
-                    
-                    <Link to='/register_bussiness'><Button className="start_selling_btn">+ Start Selling </Button></Link>
+                    <Link
+                      to={
+                        userStatus
+                          ? "/OnClickStartSelling"
+                          : "/register_bussiness"
+                      }
+                    >
+                      <Button className="start_selling_btn">
+                        + Start Selling{" "}
+                      </Button>
+                    </Link>
                   </Form>
-                  <Nav.Link className="nav-text" onClick={logout}>
-                    Logout
-                  </Nav.Link>
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        id="dropdown-basic"
+                        className="dropdown-toggle-custom"
+                      >
+                        <img
+                          src={NoProfileImg}
+                          className="profile-img-header"
+                          alt="No Profile Image"
+                        />
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                        <Dropdown.Item href="/onClickProfile">
+                          Profile
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                 </>
               ) : (
                 <>
@@ -82,9 +148,7 @@ function Header() {
                     <Nav.Link className="nav-text">Login</Nav.Link>
                   </LinkContainer>
                   <Link to="/signup">
-                    <Button className="btn start_btn">
-                      Get Started
-                    </Button>
+                    <Button className="btn start_btn">Get Started</Button>
                   </Link>
                 </>
               )}
