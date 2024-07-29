@@ -7,6 +7,7 @@ import {
   NavDropdown,
   Button,
   Form,
+  Dropdown,
 } from "react-bootstrap";
 import { IoSearchOutline } from "react-icons/io5";
 import "./header.css";
@@ -15,6 +16,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
 import { BASE_API_URI } from "../../utils/constants";
+import NoProfileImg from "../../assets/no-profile-picture.png";
 
 function Header() {
   const { authTokens, logout } = useAuth();
@@ -120,9 +122,25 @@ function Header() {
                       </Button>
                     </Link>
                   </Form>
-                  <Nav.Link className="nav-text" onClick={logout}>
-                    Logout
-                  </Nav.Link>
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        id="dropdown-basic"
+                        className="dropdown-toggle-custom"
+                      >
+                        <img
+                          src={NoProfileImg}
+                          className="profile-img-header"
+                          alt="No Profile Image"
+                        />
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                        <Dropdown.Item href="/onClickProfile">
+                          Profile
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                 </>
               ) : (
                 <>
