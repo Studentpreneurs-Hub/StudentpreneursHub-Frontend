@@ -3,10 +3,12 @@ import Container from "react-bootstrap/Container";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
+import { BASE_API_URI } from "../../utils/constants";
+import CustomModal from "../../components/CustomModal/CustomModal";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const OnClickStartSelling = () => {
   const [updateProductName, SetUpdateProductName] = useState("");
@@ -14,6 +16,12 @@ const OnClickStartSelling = () => {
   const [updateDescription, SetUpdateDescription] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedCondition, setSelectedCondition] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(URL.createObjectURL(file));
+  };
 
   const updateInfo = () => {
     alert(updateProductName);
@@ -29,8 +37,8 @@ const OnClickStartSelling = () => {
         <div className="personal--info mt-3">
           <p className="info--heading">Product Details</p>
           <p className="info--subheading mb-4">
-            Provide insights about your product. This helps buyers understand the
-            product and its state better.
+            Provide insights about your product. This helps buyers understand
+            the product and its state better.
           </p>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -51,7 +59,10 @@ const OnClickStartSelling = () => {
                 onChange={(e) => SetUpdatePrice(e.target.value)}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
               <Form.Label className="form--name">Description</Form.Label>
               <Form.Control
                 type="text"
@@ -97,10 +108,34 @@ const OnClickStartSelling = () => {
             </Form.Group>
             {/* END OF CONDITION DROPDOWN */}
 
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label className="form--name">Product Image</Form.Label>
+              <Form.Control
+                type="file"
+                class="form-control"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="form-control"
+                id="formFile"
+              />
+            </Form.Group>
           </Form>
+          {selectedImage && (
+            <div>
+              <img
+                src={selectedImage}
+                alt="Selected"
+                className="img-thumbnail mt-3"
+                style={{ width: "50px", height: "50px", objectFit: "cover" }}
+              />
+            </div>
+          )}
         </div>
 
-        {/* APPROVAL BUTTON */} 
+        {/* APPROVAL BUTTON */}
         <div className="approval--btn mt-4">
           <Button className="approval--btn--save px-5" onClick={updateInfo}>
             Submit For Approval
