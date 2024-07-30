@@ -14,8 +14,12 @@ import { CiLocationOn } from "react-icons/ci";
 import ProductCard from "../../components/ProductCard/productcard";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
+<<<<<<< HEAD
+import { Link } from "react-router-dom";
+=======
 import { useAuth } from "../../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
+>>>>>>> 76c81fcdf0c86e979a177fc8604a8077a63db160
 
 const OnClickProfile = () => {
   const { authTokens, logout } = useAuth();
@@ -47,6 +51,13 @@ const OnClickProfile = () => {
                 </a>
               </li>
               <li>
+<<<<<<< HEAD
+                <Link to='/EditingProfileScreen'>
+                  <Button variant="outline-dark" className="profile__edit__btn">
+                    Edit Profile
+                  </Button>
+                </Link>
+=======
                 <Button
                   variant="outline-dark"
                   className="profile__edit__btn"
@@ -54,6 +65,7 @@ const OnClickProfile = () => {
                 >
                   Edit Profile
                 </Button>
+>>>>>>> 76c81fcdf0c86e979a177fc8604a8077a63db160
               </li>
             </ul>
           </div>
