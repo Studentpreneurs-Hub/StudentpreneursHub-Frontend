@@ -120,21 +120,6 @@ const OnClickProfile = () => {
                         <RiPhoneFill />
                       </a>
                     </li>
-                    <li className="Store-social__list__item">
-                      <a href="">
-                        <RiTwitterFill />
-                      </a>
-                    </li>
-                    <li className="Store-social__list__item">
-                      <a href="">
-                        <RiFacebookFill />
-                      </a>
-                    </li>
-                    <li className="Store-social__list__item">
-                      <a href="">
-                        <RiInstagramFill />
-                      </a>
-                    </li>
                   </ul>
                   <div className="Store-location">
                     <p>
