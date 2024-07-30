@@ -14,9 +14,6 @@ const EditingProfileScreen = () => {
   const [updateStoreName, SetUpdateStoreName] = useState("");
   const [updateLocation, SetUpdateLocation] = useState("");
   const [updateContact, SetUpdateContact] = useState("");
-  const [updateWhatsapp, SetUpdateWhatsapp] = useState("");
-  const [updateInstagram, SetUpdateInstagram] = useState("");
-  const [updateFacebook, SetUpdateFacebook] = useState("");
 
   const updateInfo = () => {
     alert(updateName);
@@ -95,48 +92,8 @@ const EditingProfileScreen = () => {
               />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-            <Form.Label column sm="2">
-              Whatsapp
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control
-                className="contact--form"
-                type="tel"
-                placeholder="Phone Number"
-                value={updateWhatsapp}
-                onChange={(e) => SetUpdateWhatsapp(e.target.value)}
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-            <Form.Label column sm="2">
-              Instagram
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control
-                className="contact--form"
-                type="tel"
-                placeholder="User Name"
-                value={updateInstagram}
-                onChange={(e) => SetUpdateInstagram(e.target.value)}
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-            <Form.Label column sm="2">
-              Facebook
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control
-                className="contact--form"
-                type="tel"
-                placeholder="User Name"
-                value={updateFacebook}
-                onChange={(e) => SetUpdateFacebook(e.target.value)}
-              />
-            </Col>
-          </Form.Group>
+          
+          
         </div>
 
         <div className="update--btn">
