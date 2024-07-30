@@ -1,6 +1,6 @@
 import "../OnClickStartSelling/OnClickStartSelling.css";
 import Container from "react-bootstrap/Container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../../components/Navbar/Header";
@@ -17,14 +17,70 @@ const OnClickStartSelling = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedCondition, setSelectedCondition] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [accessToken, setAccessToken] = useState("");
+  
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setAccessToken(JSON.parse(token));
+    }
+  }, []);
+
+  const navigate = useNavigate();
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    setSelectedImage(URL.createObjectURL(file));
+    setSelectedImage(file);
   };
 
-  const updateInfo = () => {
-    alert(updateProductName);
+  const validateForm = () => {
+    if (
+      !updateProductName ||
+      !updatePrice ||
+      !updateDescription ||
+      !selectedCategory ||
+      !selectedCondition ||
+      !selectedImage
+    ) {
+      alert("Please fill in all fields");
+      return false;
+    }
+    return true;
+  };
+
+  const updateInfo = async (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("product_name", updateProductName);
+    formData.append("product_desc", updateDescription);
+    formData.append("product_price", updatePrice);
+    formData.append("product_condition", selectedCondition);
+    formData.append("product_category", selectedCategory);
+    formData.append("product_image", selectedImage);
+
+    try {
+      const response = await axios.post(
+        `${BASE_API_URI}/api/products/`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      alert("Product submitted successfully!");
+      console.log("Response:", response.data);
+      navigate("/home");
+    } catch (error) {
+      console.error("There was an error uploading the product!", error);
+      alert("Failed to submit product.");
+    }
   };
 
   const categories = ["Electronics", "Fashion", "Cosmetics", "Stationeries"]; // Category options
@@ -40,7 +96,7 @@ const OnClickStartSelling = () => {
             Provide insights about your product. This helps buyers understand
             the product and its state better.
           </p>
-          <Form>
+          <Form onSubmit={updateInfo}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label className="form--name">Product Name</Form.Label>
               <Form.Control
@@ -115,7 +171,6 @@ const OnClickStartSelling = () => {
               <Form.Label className="form--name">Product Image</Form.Label>
               <Form.Control
                 type="file"
-                class="form-control"
                 accept="image/*"
                 onChange={handleImageChange}
                 className="form-control"
@@ -126,7 +181,7 @@ const OnClickStartSelling = () => {
           {selectedImage && (
             <div>
               <img
-                src={selectedImage}
+                src={URL.createObjectURL(selectedImage)}
                 alt="Selected"
                 className="img-thumbnail mt-3"
                 style={{ width: "50px", height: "50px", objectFit: "cover" }}
@@ -134,13 +189,9 @@ const OnClickStartSelling = () => {
             </div>
           )}
         </div>
-
-        {/* APPROVAL BUTTON */}
-        <div className="approval--btn mt-4">
-          <Button className="approval--btn--save px-5" onClick={updateInfo}>
-            Submit For Approval
-          </Button>
-        </div>
+        <Button onClick={updateInfo} className="approval--btn--save px-5">
+          Submit For Approval
+        </Button>
       </Container>
       <Footer />
     </>
