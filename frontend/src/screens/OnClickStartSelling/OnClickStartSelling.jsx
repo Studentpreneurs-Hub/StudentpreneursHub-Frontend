@@ -20,7 +20,7 @@ const OnClickStartSelling = () => {
   const [accessToken, setAccessToken] = useState("");
   
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("tokens");
     if (token) {
       setAccessToken(JSON.parse(token));
     }
@@ -62,6 +62,7 @@ const OnClickStartSelling = () => {
     formData.append("product_condition", selectedCondition);
     formData.append("product_category", selectedCategory);
     formData.append("product_image", selectedImage);
+    
 
     try {
       const response = await axios.post(
@@ -83,8 +84,8 @@ const OnClickStartSelling = () => {
     }
   };
 
-  const categories = ["Electronics", "Fashion", "Cosmetics", "Stationeries"]; // Category options
-  const conditions = ["Brand New", "Slightly Used"]; // Condition options
+  const categories = ["accessories", "food", "fashion"]; // Category options
+  const conditions = ["New", "Used"]; // Condition options
 
   return (
     <>
