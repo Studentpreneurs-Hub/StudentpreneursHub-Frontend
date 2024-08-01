@@ -56,10 +56,8 @@ const OTPScreen = () => {
       console.log(code)
       await verifyEmail(code);
     } catch (err) {
-      // alert("Verification Error");
       console.log(err);
     }
-    // navigate("/login");
   };
 
   return (
@@ -72,7 +70,7 @@ const OTPScreen = () => {
           <div className="verify__header">
             <div className="verify__header__title">Check your email</div>
             <div className="verify__header__subtitle">
-              Enter the 6 digit code sent to <span>nathan@gmail.com</span> to
+              Enter the 6 digit code sent to <span>your email</span> to
               verify your account.
             </div>
           </div>
