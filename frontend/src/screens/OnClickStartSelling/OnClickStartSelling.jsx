@@ -1,14 +1,14 @@
 import "../OnClickStartSelling/OnClickStartSelling.css";
 import Container from "react-bootstrap/Container";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
 import { BASE_API_URI } from "../../utils/constants";
-import CustomModal from "../../components/CustomModal/CustomModal";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FiTrash2 } from "react-icons/fi";
 
 const OnClickStartSelling = () => {
   const [updateProductName, SetUpdateProductName] = useState("");
@@ -18,9 +18,10 @@ const OnClickStartSelling = () => {
   const [selectedCondition, setSelectedCondition] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [accessToken, setAccessToken] = useState("");
-  
+  const fileInputRef = useRef(null);
+
   useEffect(() => {
-    const token = localStorage.getItem("tokens");
+    const token = localStorage.getItem("accessToken");
     if (token) {
       setAccessToken(JSON.parse(token));
     }
@@ -31,6 +32,13 @@ const OnClickStartSelling = () => {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
+  };
+
+  const handleImageRemove = () => {
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ""; // Clear the file input value
+    }
   };
 
   const validateForm = () => {
@@ -62,9 +70,9 @@ const OnClickStartSelling = () => {
     formData.append("product_condition", selectedCondition);
     formData.append("product_category", selectedCategory);
     formData.append("product_image", selectedImage);
-    
 
     try {
+      console.log("Token: ", accessToken);
       const response = await axios.post(
         `${BASE_API_URI}/api/products/`,
         formData,
@@ -80,6 +88,7 @@ const OnClickStartSelling = () => {
       navigate("/home");
     } catch (error) {
       console.error("There was an error uploading the product!", error);
+      console.log("Error details: ", error.response);
       alert("Failed to submit product.");
     }
   };
@@ -176,21 +185,23 @@ const OnClickStartSelling = () => {
                 onChange={handleImageChange}
                 className="form-control"
                 id="formFile"
+                ref={fileInputRef} 
               />
             </Form.Group>
           </Form>
           {selectedImage && (
-            <div>
+            <div className="image-preview-container">
               <img
                 src={URL.createObjectURL(selectedImage)}
                 alt="Selected"
                 className="img-thumbnail mt-3"
-                style={{ width: "50px", height: "50px", objectFit: "cover" }}
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
               />
+              <FiTrash2 className="delete-icon" onClick={handleImageRemove} />
             </div>
           )}
         </div>
-        <Button onClick={updateInfo} className="approval--btn--save px-5">
+        <Button type="submit" className="approval--btn--save px-5">
           Submit For Approval
         </Button>
       </Container>
