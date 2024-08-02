@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
+import CustomModal from "../../components/CustomModal/CustomModal";
 import { BASE_API_URI } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -19,15 +20,22 @@ const OnClickStartSelling = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [accessToken, setAccessToken] = useState("");
   const fileInputRef = useRef(null);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("tokens");
     if (token) {
       setAccessToken(JSON.parse(token));
     }
   }, []);
 
   const navigate = useNavigate();
+
+  const handleCloseModal = () => {
+    setShowErrorModal(false);
+    setError("");
+  };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -50,7 +58,8 @@ const OnClickStartSelling = () => {
       !selectedCondition ||
       !selectedImage
     ) {
-      alert("Please fill in all fields");
+      setError("Field(s) cannot be empty.");
+      setShowErrorModal(true);
       return false;
     }
     return true;
@@ -72,7 +81,6 @@ const OnClickStartSelling = () => {
     formData.append("product_image", selectedImage);
 
     try {
-      console.log("Token: ", accessToken);
       const response = await axios.post(
         `${BASE_API_URI}/api/products/`,
         formData,
@@ -83,13 +91,14 @@ const OnClickStartSelling = () => {
           },
         }
       );
-      alert("Product submitted successfully!");
+      alert("Product submitted successfully!")
       console.log("Response:", response.data);
       navigate("/home");
     } catch (error) {
       console.error("There was an error uploading the product!", error);
       console.log("Error details: ", error.response);
-      alert("Failed to submit product.");
+      setError("Failed to submit product.");
+      setShowErrorModal(true);
     }
   };
 
@@ -185,7 +194,7 @@ const OnClickStartSelling = () => {
                 onChange={handleImageChange}
                 className="form-control"
                 id="formFile"
-                ref={fileInputRef} 
+                ref={fileInputRef}
               />
             </Form.Group>
           </Form>
@@ -201,11 +210,20 @@ const OnClickStartSelling = () => {
             </div>
           )}
         </div>
-        <Button type="submit" className="approval--btn--save px-5">
+        <Button
+          type="submit"
+          onClick={updateInfo}
+          className="approval--btn--save px-5"
+        >
           Submit For Approval
         </Button>
       </Container>
       <Footer />
+      <CustomModal
+        error={error}
+        showErrorModal={showErrorModal}
+        handleCloseModal={handleCloseModal}
+      />
     </>
   );
 };
