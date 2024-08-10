@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Container, Button, Dropdown, Tabs, Tab } from "react-bootstrap";
 import "../OnClickProfile/OnClickProfile.css";
 import pic from "../../assets/profile_picture.png";
@@ -7,7 +8,6 @@ import {
   RiWhatsappFill,
   RiInstagramFill,
   RiFacebookFill,
-  RiTwitterFill,
 } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
@@ -17,14 +17,58 @@ import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { BASE_API_URI } from "../../utils/constants";
+import axios from "axios";
 
 const OnClickProfile = () => {
-  const { authTokens, logout } = useAuth();
-  const navigate = useNavigate()
+  const { authTokens } = useAuth();
+  const navigate = useNavigate();
+  const [accessToken, setAccessToken] = useState("");
+  const [allProducts, setAllProducts] = useState([]); // State to store all products
+  const [userProducts, setUserProducts] = useState([]); // State to store user's products
+
+  useEffect(() => {
+    const token = localStorage.getItem("tokens");
+    if (token) {
+      setAccessToken(JSON.parse(token));
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_API_URI}/api/product/pending/`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken.token}`,
+            },
+          }
+        );
+        setAllProducts(response.data.detail);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    if (accessToken) {
+      fetchAllProducts();
+    }
+  }, [accessToken]);
+
+  useEffect(() => {
+    if (allProducts.length > 0) {
+      const filteredProducts = allProducts.filter(
+        (product) =>
+          product.user.email_address === authTokens.user.email_address
+      );
+      setUserProducts(filteredProducts);
+    }
+  }, [allProducts, authTokens.user.email_address]);
 
   const toEditProfile = () => {
-      navigate("/EditingProfileScreen")
-  }
+    navigate("/EditingProfileScreen");
+  };
 
   return (
     <>
@@ -48,8 +92,12 @@ const OnClickProfile = () => {
                 </a>
               </li>
               <li>
-                <Link to='/EditingProfileScreen'>
-                  <Button variant="outline-dark" className="profile__edit__btn">
+                <Link to="/EditingProfileScreen">
+                  <Button
+                    variant="outline-dark"
+                    onClick={toEditProfile}
+                    className="profile__edit__btn"
+                  >
                     Edit Profile
                   </Button>
                 </Link>
@@ -76,26 +124,34 @@ const OnClickProfile = () => {
                   productCardTitle="Women Bike for age 21"
                   productPrice="300"
                 />
-                <ProductCard
-                  productImg={product1}
-                  productCardTitle="Women Bike for age 21"
-                  productPrice="300"
-                />
-                <ProductCard
-                  productImg={product1}
-                  productCardTitle="Women Bike for age 21"
-                  productPrice="300"
-                />
               </div>
             </Tab>
             <Tab eventKey="pending" title="Pending">
-              Tab content for Pending
+              <div className="product__listings">
+                {userProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    productImg={BASE_API_URI + product.product_image}
+                    productCardTitle={product.product_name}
+                    productPrice={product.product_price}
+                  />
+                ))}
+              </div>
             </Tab>
             <Tab eventKey="declined" title="Declined">
               Tab content for Declined
             </Tab>
             <Tab eventKey="Draft" title="Products">
-              Tab content for Draft
+              <div className="product__listings">
+                {userProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    productImg={BASE_API_URI + product.product_image}
+                    productCardTitle={product.product_name}
+                    productPrice={product.product_price}
+                  />
+                ))}
+              </div>
             </Tab>
             <Tab eventKey="profile" title="Profile">
               <div className="Store-profile">
