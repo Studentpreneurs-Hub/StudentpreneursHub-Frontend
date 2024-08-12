@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import { IoSearchOutline, IoFilter, IoPersonCircleSharp } from "react-icons/io5";
-import { BiExport } from "react-icons/bi";
+import { IoPersonCircleSharp } from "react-icons/io5";
 import { HiOutlineChartBarSquare } from "react-icons/hi2";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import Header from '../../components/Navbar/Header';

@@ -74,7 +74,7 @@ const OverviewDashboard = () => {
           <nav className="sidebar-nav">
             <ul>
               <li className="active sidebar-links">
-                <Link to="/OverviewDashboard">
+                <Link to="/admin-dashboard">
                     <HiOutlineChartBarSquare className="fs-3 me-2" />Overview
                 </Link>
               </li>
