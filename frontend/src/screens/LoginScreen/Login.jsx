@@ -5,7 +5,7 @@ import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
 import "./login.css";
 import Design from "../../components/Design/Design";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
 import CustomModal from "../../components/CustomModal/CustomModal";
 
@@ -36,11 +36,15 @@ function Login() {
     }
 
     try {
-      await login(email, password);
-      navigate("/home");
+      const permissions = await login(email, password);
+      if (permissions && permissions.length > 0) {
+        navigate("/admin-dashboard");
+      } else {
+        navigate("/home");
+      }
     } catch (err) {
       alert("Failed to log in");
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -99,10 +103,10 @@ function Login() {
           </div>
 
           <CustomModal
-              error={error}
-              showErrorModal={showErrorModal}
-              handleCloseModal={handleCloseModal}
-            />
+            error={error}
+            showErrorModal={showErrorModal}
+            handleCloseModal={handleCloseModal}
+          />
 
           <div className="login__info">
             <p className="login__forgotpass__question">

@@ -10,6 +10,8 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [permissions, setPermissions] = useState([]);
 
   const handleCloseModal = () => {
     setShowErrorModal(false);
@@ -21,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("tokens"))
       : null
   );
-  const [isVerified, setIsVerified] = useState(false);
+  
 
   const login = async (email_address, password) => {
     try {
@@ -29,8 +31,12 @@ export const AuthProvider = ({ children }) => {
         email_address,
         password,
       });
-      setAuthTokens(response.data);
+      const data = response.data
+      setAuthTokens(data);
+      setPermissions(data.permission);
       localStorage.setItem("tokens", JSON.stringify(response.data));
+      return data.permission;
+      
     } catch (error) {
       setError("Login Failed. Please Try Again");
       setShowErrorModal(true);
@@ -57,6 +63,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setAuthTokens(null);
     localStorage.removeItem("tokens");
+    setPermissions([]);
   };
 
   const value = {
@@ -65,6 +72,7 @@ export const AuthProvider = ({ children }) => {
     verifyEmail,
     isVerified,
     logout,
+    permissions,
   };
 
   return (
