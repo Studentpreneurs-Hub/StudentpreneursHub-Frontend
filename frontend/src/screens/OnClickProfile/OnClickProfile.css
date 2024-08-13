@@ -90,6 +90,7 @@ div.dropdown-menu.show {
 
 .product__listings {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.3rem;
 }
 

@@ -37,7 +37,6 @@ function App() {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
             <Route path="/ProductDashboard" element={<ProductDashboard />} />
-            <Route path="/admin-dashboard" element={<OverviewDashboard />} />
             <Route path="/VendorDashboard" element={<VendorDashboard />} />
 
             <Route
@@ -69,6 +68,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <EditingProfileScreen />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin-dashboard"
+              element={
+                <ProtectedRoute>
+                  <OverviewDashboard />
                 </ProtectedRoute>
               }
             />
