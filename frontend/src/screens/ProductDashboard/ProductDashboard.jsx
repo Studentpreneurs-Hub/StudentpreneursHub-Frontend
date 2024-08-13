@@ -12,6 +12,7 @@ import Footer from '../../components/Footer/Footer';
 import { Link } from "react-router-dom";
 import '../ProductDashboard/ProductDashboard.css';
 
+
 const students = [
   {
     signUpDate: '20th July, 2024',
@@ -66,7 +67,7 @@ const ProductDashboard = () => {
             <nav className="sidebar-nav">
               <ul>
                 <li className="sidebar-links">
-                    <Link to="/OverviewDashboard">
+                    <Link to="/admin-dashboard">
                         <HiOutlineChartBarSquare className="fs-3 me-2" />Overview
                     </Link>
                   </li>
@@ -83,17 +84,6 @@ const ProductDashboard = () => {
               </ul>
             </nav>
 
-            {/* COMMENTED THE FOOTER PROFILE OUT. 
-            FACING A LITTLE BIT OF PROBLEM HERE, SO WILL CONTINUE LATER!*/}
-            {/* <footer className="sidebar-footer">                            
-                <div className="profile">
-                    <img src="https://via.placeholder.com/40" alt="Kingsley Quarshie" className="profile-img" />
-                    <div className="profile-info">
-                        <p className="profile-name">Kingsley Quarshie</p>
-                        <small className="profile-email">admin@studentpreneurs.com</small>
-                    </div>
-                </div>
-            </footer> */}
           </aside>
           <main className="main-content mx-3">
             <h1 className="fs-1 mb-4">Product Dashboard</h1>    
@@ -150,7 +140,6 @@ const ProductDashboard = () => {
                     <Button className="pagination--pn">
                         Next
                     </Button> 
-                    {/* <p className='fs-5 pagination--pages'>Page 1 of 10</p> */}
                 </div>
           </main>
         </div>
