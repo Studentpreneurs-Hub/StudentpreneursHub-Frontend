@@ -13,6 +13,7 @@ function RegisterBusiness() {
   const [storeName, setStoreName] = useState("");
   const [contact, setContact] = useState("");
   const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
   const [accessToken, setAccessToken] = useState("");
@@ -31,7 +32,7 @@ function RegisterBusiness() {
   };
 
   const handleGetStarted = async () => {
-    if (storeName === "" || contact === "" || location === "") {
+    if (storeName === "" || contact === "" || location === "" || description === "") {
       setError("Field(s) cannot be empty.");
       setShowErrorModal(true);
       return;
@@ -43,6 +44,7 @@ function RegisterBusiness() {
             phone_number: contact,
             location: location,
             store_name: storeName,
+            store_desc: description,
           },
           {
             headers: {
@@ -89,6 +91,17 @@ function RegisterBusiness() {
                 placeholder="Maxinne Apple Shop"
                 value={storeName}
                 onChange={(e) => setStoreName(e.target.value)}
+              />
+            </Form>
+            <Form>
+              <label className="login__form__label">Store Description</label>
+              <input
+                type="text"
+                className="login__input"
+                id="storeDescription"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </Form>
 
