@@ -32,7 +32,6 @@ function App() {
             <Route path="/setnewPassword" element={<SetNewPasswordScreen />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/otp" element={<OTPScreen />} />
-            <Route path="/onClickProduct" element={<OnClickProduct />} />
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
@@ -77,6 +76,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <OverviewDashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/product/:id"
+              element={
+                <ProtectedRoute>
+                  <OnClickProduct />
                 </ProtectedRoute>
               }
             />
