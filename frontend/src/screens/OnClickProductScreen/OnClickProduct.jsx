@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./onClickProduct.css";
 import back from "../../assets/iphone12-bk.jpg";
 import front from "../../assets/iphone12-fr.jpg";
@@ -11,10 +11,16 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { BASE_API_URI } from "../../utils/constants";
 
 function OnClickProduct() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [back, front, side];
+  const { id } = useParams();
+  const [product, setProduct] = useState([]);
+  const [accessToken, setAccessToken] = useState("");
 
   const changeImage = (index) => {
     setCurrentImage(index);
@@ -28,16 +34,50 @@ function OnClickProduct() {
     setCurrentImage((currentImage - 1 + images.length) % images.length);
   };
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+  useEffect(() => {
+    const token = localStorage.getItem("tokens");
+    if (token) {
+      setAccessToken(JSON.parse(token));
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchProductDetails = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_API_URI}/api/products/pending/${id}/`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken.token}`,
+            },
+          }
+        );
+        setProduct(response.data.detail);
+        console.log(product);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchProductDetails();
+  }, [id, accessToken]);
+
+  // if (!product) return <div>Loading...</div>;
+
   return (
     <div>
       <Header />
       <div className="product_details_main_div">
         <div>
-          <h3 className="product_name">Iphone 12 pro max</h3>
+          <h3 className="product_name">{product.product_name}</h3>
           <div className="product_img">
             <img
               src={images[currentImage]}
-              alt=""
+              alt={product.product_name}
               style={{ width: "590px", height: "365px" }}
             />
             <div className="navigation">
@@ -72,7 +112,7 @@ function OnClickProduct() {
             />
             <div>
               <h5 className="store_name">Maxine Apple Store</h5>
-              <span className="contact_name">Gideon Maxi Appiah</span>
+              <span className="contact_name">{product.user.full_name}</span>
             </div>
           </div>
           <div className="social_icons">
@@ -86,23 +126,16 @@ function OnClickProduct() {
       <div className="product_text_details">
         <h5 className="desc_heading">Description</h5>
         <div className="desc_">
-          <span className="desc_text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            euismod libero id ante malesuada, ac efficitur lorem mollis.
-            Phasellus vitae erat ut turpis posuere finibus ac nec sapien. Duis
-            sed sapien nec ipsum feugiat lacinia. Vestibulum at convallis
-            mauris. Fusce ut ante vitae nisl hendrerit scelerisque. Suspendisse
-            potenti. Integer auctor justo nec augue vehicula, at varius nisl
-          </span>
+          <span className="desc_text">{product.product_desc}</span>
         </div>
         <h5 className="desc_heading">Price</h5>
-        <span className="desc_text">GHC 5,000,000.00</span>
+        <span className="desc_text">GHC {product.product_price}</span>
 
         <h5 className="desc_heading">Category</h5>
-        <span className="desc_text">Electronics</span>
+        <span className="desc_text">{capitalizeFirstLetter(product.product_category)}</span>
 
         <h5 className="desc_heading">Condition</h5>
-        <span className="desc_text">Used</span>
+        <span className="desc_text">{product.product_condition}</span>
       </div>
       <Footer />
     </div>

@@ -61,7 +61,6 @@ const products = [
 
 const VendorDashboard = () => {
   const [key, setKey] = useState("active");
-  const { authTokens } = useAuth();
   const [accessToken, setAccessToken] = useState("");
   const [allProducts, setAllProducts] = useState([]);
 
