@@ -65,6 +65,10 @@ const OnClickStartSelling = () => {
     return true;
   };
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const updateInfo = async (event) => {
     event.preventDefault();
 

@@ -19,7 +19,7 @@ function OnClickProduct() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [back, front, side];
   const { id } = useParams();
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState({});
   const [accessToken, setAccessToken] = useState("");
 
   const changeImage = (index) => {
@@ -34,9 +34,6 @@ function OnClickProduct() {
     setCurrentImage((currentImage - 1 + images.length) % images.length);
   };
 
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -66,7 +63,7 @@ function OnClickProduct() {
     fetchProductDetails();
   }, [id, accessToken]);
 
-  // if (!product) return <div>Loading...</div>;
+  if (!product) return <div>Loading...</div>;
 
   return (
     <div>
@@ -112,7 +109,7 @@ function OnClickProduct() {
             />
             <div>
               <h5 className="store_name">Maxine Apple Store</h5>
-              <span className="contact_name">{product.user.full_name}</span>
+              <span className="contact_name">{product.user?.full_name}</span>
             </div>
           </div>
           <div className="social_icons">
@@ -132,7 +129,9 @@ function OnClickProduct() {
         <span className="desc_text">GHC {product.product_price}</span>
 
         <h5 className="desc_heading">Category</h5>
-        <span className="desc_text">{capitalizeFirstLetter(product.product_category)}</span>
+        <span className="desc_text">
+          {product.product_category}
+        </span>
 
         <h5 className="desc_heading">Condition</h5>
         <span className="desc_text">{product.product_condition}</span>
