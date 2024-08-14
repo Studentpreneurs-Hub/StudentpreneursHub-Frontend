@@ -131,6 +131,7 @@ const OnClickProfile = () => {
                 {userProducts.map((product) => (
                   <ProductCard
                     key={product.id}
+                    productId={product.id}
                     productImg={BASE_API_URI + product.product_image}
                     productCardTitle={product.product_name}
                     productPrice={product.product_price}
