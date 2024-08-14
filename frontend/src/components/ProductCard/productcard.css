@@ -7,6 +7,10 @@
   transition: transform 1s;
 }
 
+.product__link{
+  text-decoration: none;
+}
+
 .product__card.card:hover {
     transform: scale(1.08)
 }
