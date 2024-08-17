@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Container, Button, Dropdown, Tabs, Tab } from "react-bootstrap";
 import "../OnClickProfile/OnClickProfile.css";
 import pic from "../../assets/profile_picture.png";
-import product1 from "../../assets/bicycle.png";
 import {
   RiPhoneFill,
   RiWhatsappFill,
@@ -24,7 +23,9 @@ const OnClickProfile = () => {
   const { authTokens } = useAuth();
   const navigate = useNavigate();
   const [accessToken, setAccessToken] = useState("");
-  const [allProducts, setAllProducts] = useState([]); // State to store all products
+  const [pendingProducts, setPendingProducts] = useState([]); // State to store pending products
+  const [activeProducts, setActiveProducts] = useState([]);  // State to store active products
+  const [declineProducts, setDeclineProducts] = useState([]);  // State to store active products
   const [userProducts, setUserProducts] = useState([]); // State to store user's products
 
   useEffect(() => {
@@ -34,37 +35,39 @@ const OnClickProfile = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchAllProducts = async () => {
-      try {
-        const response = await axios.get(
-          `${BASE_API_URI}/api/product/pending/`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken.token}`,
-            },
-          }
-        );
-        setAllProducts(response.data.detail);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  const fetchProducts = async (endpoint, setter) => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URI}/api/product/${endpoint}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      setter(response.data.detail);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
+  useEffect(() => {
     if (accessToken) {
-      fetchAllProducts();
+      fetchProducts("pending", setPendingProducts);
+      fetchProducts("active", setActiveProducts);
+      fetchProducts("declined", setDeclineProducts);
     }
   }, [accessToken]);
 
   useEffect(() => {
-    if (allProducts.length > 0) {
-      const filteredProducts = allProducts.filter(
+    if (pendingProducts.length > 0 || activeProducts.length > 0) {
+      const filteredProducts = [...pendingProducts, ...activeProducts].filter(
         (product) =>
           product.user.email_address === authTokens.user.email_address
       );
       setUserProducts(filteredProducts);
     }
-  }, [allProducts, authTokens.user.email_address]);
+  }, [pendingProducts, activeProducts, authTokens.user.email_address]);
 
   const toEditProfile = () => {
     navigate("/EditingProfileScreen");
@@ -107,28 +110,23 @@ const OnClickProfile = () => {
         </div>
 
         <div className="Profile__tabs">
-          <Tabs
-            defaultActiveKey="active"
-            id="uncontrolled-tab-example"
-            className="mb-3"
-          >
+          <Tabs defaultActiveKey="active" id="uncontrolled-tab-example" className="mb-3">
             <Tab eventKey="active" title="Active">
               <div className="product__listings">
-                <ProductCard
-                  productImg={product1}
-                  productCardTitle="Women Bike for age 21"
-                  productPrice="300"
-                />
-                <ProductCard
-                  productImg={product1}
-                  productCardTitle="Women Bike for age 21"
-                  productPrice="300"
-                />
+                {activeProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    productId={product.id}
+                    productImg={BASE_API_URI + product.product_image}
+                    productCardTitle={product.product_name}
+                    productPrice={product.product_price}
+                  />
+                ))}
               </div>
             </Tab>
             <Tab eventKey="pending" title="Pending">
               <div className="product__listings">
-                {userProducts.map((product) => (
+                {pendingProducts.map((product) => (
                   <ProductCard
                     key={product.id}
                     productId={product.id}
@@ -140,7 +138,17 @@ const OnClickProfile = () => {
               </div>
             </Tab>
             <Tab eventKey="declined" title="Declined">
-              Tab content for Declined
+            <div className="product__listings">
+                {declineProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    productId={product.id}
+                    productImg={BASE_API_URI + product.product_image}
+                    productCardTitle={product.product_name}
+                    productPrice={product.product_price}
+                  />
+                ))}
+              </div>
             </Tab>
             <Tab eventKey="Draft" title="Products">
               <div className="product__listings">
