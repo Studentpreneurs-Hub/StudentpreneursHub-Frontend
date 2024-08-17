@@ -113,3 +113,11 @@
   width: 664px;
   height: 96px;
 }
+
+.approval {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 6rem;
+}

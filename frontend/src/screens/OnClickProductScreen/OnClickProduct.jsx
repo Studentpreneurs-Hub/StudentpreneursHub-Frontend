@@ -14,6 +14,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_API_URI } from "../../utils/constants";
+import { useAuth } from "../../utils/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function OnClickProduct() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -21,6 +23,8 @@ function OnClickProduct() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [accessToken, setAccessToken] = useState("");
+  const { authTokens } = useAuth();
+  const navigate = useNavigate();
 
   const changeImage = (index) => {
     setCurrentImage(index);
@@ -33,7 +37,6 @@ function OnClickProduct() {
   const prevImage = () => {
     setCurrentImage((currentImage - 1 + images.length) % images.length);
   };
-
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -62,6 +65,52 @@ function OnClickProduct() {
 
     fetchProductDetails();
   }, [id, accessToken]);
+
+  const approveProduct = async (id) => {
+    try {
+      const response = await axios.post(
+        `${BASE_API_URI}/api/product/approve/`,
+        {
+          id: id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+
+      alert("Product has been approved successfully.");
+      console.log("Response:", response.data);
+      navigate("/admin-dashboard");
+    } catch (error) {
+      alert("Approval of product failed.");
+      console.error("Error approving product:", error.response.data);
+    }
+  };
+
+  const declineProduct = async (id) => {
+    try {
+      const response = await axios.post(
+        `${BASE_API_URI}/api/product/decline/`,
+        {
+          id: id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+
+      console.log("Response:", response.data);
+      alert("Product has been declined successfully.");
+      navigate("/admin-dashboard");
+
+    } catch (error) {
+      console.error("Error declining product:", error);
+    }
+  };
 
   if (!product) return <div>Loading...</div>;
 
@@ -129,13 +178,31 @@ function OnClickProduct() {
         <span className="desc_text">GHC {product.product_price}</span>
 
         <h5 className="desc_heading">Category</h5>
-        <span className="desc_text">
-          {product.product_category}
-        </span>
+        <span className="desc_text">{product.product_category}</span>
 
         <h5 className="desc_heading">Condition</h5>
         <span className="desc_text">{product.product_condition}</span>
+
+        <div>
+          {authTokens.user.email_address === "studentprenuer01@gmail.com" && (
+            <div className="approval">
+              <button
+                className="btn btn-success rounded-pill mr-2"
+                onClick={() => approveProduct(product.id)}
+              >
+                Approve
+              </button>
+              <button
+                className="btn btn-danger rounded-pill"
+                onClick={() => declineProduct(product.id)}
+              >
+                Decline
+              </button>
+            </div>
+          )}
+        </div>
       </div>
+
       <Footer />
     </div>
   );
