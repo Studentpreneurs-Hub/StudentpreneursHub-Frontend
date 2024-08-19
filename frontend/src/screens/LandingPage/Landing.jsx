@@ -33,7 +33,7 @@ function Landing() {
         <div className="sell_faster_div">
           <span className="sell_faster_text">Sell faster today</span>
           <br />
-          <Link to="/seller_or_buyer"><Button className="start_selling">Get started</Button></Link>
+          <Link to="/seller_or_buyer"><Button className="start_selling rounded-pill">Get started</Button></Link>
         </div>
 
         <div className="arrow_div">
@@ -56,7 +56,7 @@ function Landing() {
             trendy fashion, our student entrepreneurs have it all!
           </p>
           
-          <Link to='seller_or_buyer'><Button className="start_selling" style={{ marginLeft: "3rem" }}>
+          <Link to='seller_or_buyer'><Button className="start_selling rounded-pill" style={{ marginLeft: "3rem" }}>
             Get started
           </Button></Link>
           <hr style={{ width: "1030px", marginLeft: "3rem" }} />
@@ -123,7 +123,7 @@ function Landing() {
             University of Ghana. Connect with an engaged and dynamic community
             eager to explore and support student-run businesses.
           </p>
-          <Link to='seller_or_buyer'><Button className="start_selling">Get Started</Button></Link>
+          <Link to='seller_or_buyer'><Button className="start_selling rounded-pill">Get Started</Button></Link>
         </div>
         <div>
           <img src={Thousand} alt="oop" className="reach_thousand_img" />

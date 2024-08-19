@@ -148,7 +148,7 @@ function Header() {
                     <Nav.Link className="nav-text">Login</Nav.Link>
                   </LinkContainer>
                   <Link to="/signup">
-                    <Button className="btn start_btn">Get Started</Button>
+                    <Button className="btn start_btn rounded-pill">Get Started</Button>
                   </Link>
                 </>
               )}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Spinner } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
 import { Link } from "react-router-dom";
@@ -13,6 +13,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);  // Loader state
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
   const { login } = useAuth();
@@ -35,6 +36,8 @@ function Login() {
       return;
     }
 
+    setLoading(true);  // Start loading
+
     try {
       const permissions = await login(email, password);
       if (permissions && permissions.length > 0) {
@@ -45,6 +48,8 @@ function Login() {
     } catch (err) {
       alert("Failed to log in");
       console.log(err);
+    } finally {
+      setLoading(false);  // Stop loading
     }
   };
 
@@ -97,8 +102,22 @@ function Login() {
               </div>
             </Form>
 
-            <Button className="login_btn" onClick={handleLogin}>
-              Login
+            <Button
+              className="login_btn rounded-pill"
+              onClick={handleLogin}
+              disabled={loading}  // Disable the button while loading
+            >
+              {loading ? (  // Show spinner while loading
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              ) : (
+                "Login"
+              )}
             </Button>
           </div>
 

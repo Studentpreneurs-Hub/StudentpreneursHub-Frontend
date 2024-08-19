@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Button, Form } from "react-bootstrap";
+import { Row, Button, Form, Spinner } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "./otp.css";
 import Design from "../../components/Design/Design";
@@ -16,6 +16,7 @@ const OTPScreen = () => {
   const [number6, setNumber6] = useState("");
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);  // Loader state
   const navigate = useNavigate();
   const { verifyEmail } = useAuth();
 
@@ -25,8 +26,9 @@ const OTPScreen = () => {
   };
 
   const handleSubmit = async (e) => {
-    // Validation code
+    e.preventDefault();
 
+    // Validation code
     if (
       number1 === "" ||
       number2 === "" ||
@@ -38,25 +40,19 @@ const OTPScreen = () => {
       setError("Field(s) can't be blank");
       setShowErrorModal(true);
       return;
-    } else {
-      try {
-        const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
-        await verifyEmail(code);
-        navigate("/seller_or_buyer");
-      } catch (err) {
-        setError("Invalid or Wrong Code Entered");
-        setShowErrorModal(true);
-        return;
-      }
     }
 
+    setLoading(true);  // Start loading
 
     try {
       const code = `${number1}${number2}${number3}${number4}${number5}${number6}`;
-      console.log(code)
       await verifyEmail(code);
+      navigate("/seller_or_buyer");
     } catch (err) {
-      console.log(err);
+      setError("Invalid or Wrong Code Entered");
+      setShowErrorModal(true);
+    } finally {
+      setLoading(false);  // Stop loading
     }
   };
 
@@ -143,8 +139,22 @@ const OTPScreen = () => {
             <p className="verify__info__resend">
               OTP not received? <a href="#">Resend now</a>
             </p>
-            <Button className="verify__btn" onClick={handleSubmit}>
-              Verify
+            <Button
+              className="verify__btn rounded-pill"
+              onClick={handleSubmit}
+              disabled={loading}  // Disable the button while loading
+            >
+              {loading ? (  // Show spinner while loading
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              ) : (
+                "Verify"
+              )}
             </Button>
           </div>
 
