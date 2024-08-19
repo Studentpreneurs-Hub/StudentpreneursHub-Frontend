@@ -26,18 +26,6 @@ function OnClickProduct() {
   const { authTokens } = useAuth();
   const navigate = useNavigate();
 
-  const changeImage = (index) => {
-    setCurrentImage(index);
-  };
-
-  const nextImage = () => {
-    setCurrentImage((currentImage + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage((currentImage - 1 + images.length) % images.length);
-  };
-
   useEffect(() => {
     const token = localStorage.getItem("tokens");
     if (token) {
@@ -49,7 +37,7 @@ function OnClickProduct() {
     const fetchProductDetails = async () => {
       try {
         const response = await axios.get(
-          `${BASE_API_URI}/api/products/pending/${id}/`,
+          `${BASE_API_URI}/api/product/${id}/`,
           {
             headers: {
               Authorization: `Bearer ${accessToken.token}`,
@@ -106,7 +94,6 @@ function OnClickProduct() {
       console.log("Response:", response.data);
       alert("Product has been declined successfully.");
       navigate("/admin-dashboard");
-
     } catch (error) {
       console.error("Error declining product:", error);
     }
@@ -122,31 +109,10 @@ function OnClickProduct() {
           <h3 className="product_name">{product.product_name}</h3>
           <div className="product_img">
             <img
-              src={images[currentImage]}
+              src={BASE_API_URI + product.product_image}
               alt={product.product_name}
               style={{ width: "590px", height: "365px" }}
             />
-            <div className="navigation">
-              <button onClick={prevImage}>
-                <SlArrowLeft />
-              </button>
-              <button onClick={nextImage}>
-                <SlArrowRight />
-              </button>
-            </div>
-          </div>
-          <div className="thumbnails">
-            {images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`thumbnail ${index}`}
-                width={150.43}
-                height={95.42}
-                onClick={() => changeImage(index)}
-                className={index === currentImage ? "active" : ""}
-              />
-            ))}
           </div>
         </div>
         <div className="personal_card">
