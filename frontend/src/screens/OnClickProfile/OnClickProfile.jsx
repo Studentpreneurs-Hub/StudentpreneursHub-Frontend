@@ -24,8 +24,8 @@ const OnClickProfile = () => {
   const navigate = useNavigate();
   const [accessToken, setAccessToken] = useState("");
   const [pendingProducts, setPendingProducts] = useState([]); // State to store pending products
-  const [activeProducts, setActiveProducts] = useState([]);  // State to store active products
-  const [declineProducts, setDeclineProducts] = useState([]);  // State to store active products
+  const [activeProducts, setActiveProducts] = useState([]); // State to store active products
+  const [declineProducts, setDeclineProducts] = useState([]); // State to store active products
   const [userProducts, setUserProducts] = useState([]); // State to store user's products
 
   useEffect(() => {
@@ -110,7 +110,11 @@ const OnClickProfile = () => {
         </div>
 
         <div className="Profile__tabs">
-          <Tabs defaultActiveKey="active" id="uncontrolled-tab-example" className="mb-3">
+          <Tabs
+            defaultActiveKey="active"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+          >
             <Tab eventKey="active" title="Active">
               <div className="product__listings">
                 {activeProducts.map((product) => (
@@ -138,7 +142,7 @@ const OnClickProfile = () => {
               </div>
             </Tab>
             <Tab eventKey="declined" title="Declined">
-            <div className="product__listings">
+              <div className="product__listings">
                 {declineProducts.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -213,20 +217,6 @@ const OnClickProfile = () => {
                         <RiWhatsappFill />{" "}
                       </span>
                       <a href="">WhatsApp</a>
-                    </li>
-                    <li className="Store-contact__list__items">
-                      {" "}
-                      <span>
-                        <RiInstagramFill />
-                      </span>{" "}
-                      <a href="">Instagram</a>
-                    </li>
-                    <li className="Store-contact__list__items">
-                      {" "}
-                      <span>
-                        <RiFacebookFill />
-                      </span>{" "}
-                      <a href="">Facebook</a>
                     </li>
                   </ul>
                 </div>
