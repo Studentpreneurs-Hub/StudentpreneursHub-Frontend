@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import "./registerbusiness.css";
@@ -17,6 +17,7 @@ function RegisterBusiness() {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
   const [accessToken, setAccessToken] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // New state for loading
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,32 +37,35 @@ function RegisterBusiness() {
       setError("Field(s) cannot be empty.");
       setShowErrorModal(true);
       return;
-    } else {
-      try {
-        const response = await axios.post(
-          `${BASE_API_URI}/api/vendors/`,
-          {
-            phone_number: contact,
-            location: location,
-            store_name: storeName,
-            store_desc: description,
+    }
+
+    setIsLoading(true); // Set loading to true
+
+    try {
+      const response = await axios.post(
+        `${BASE_API_URI}/api/vendors/`,
+        {
+          phone_number: contact,
+          location: location,
+          store_name: storeName,
+          store_desc: description,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
           },
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-        console.log("Response:", response.data);
-        navigate("/login");
-      } catch (error) {
-        console.error("Error:", error);
-        setError(
-          "There was an error registering your business. Please try again."
-        );
-        setShowErrorModal(true);
-        return;
-      }
+        }
+      );
+      console.log("Response:", response.data);
+      navigate("/login");
+    } catch (error) {
+      console.error("Error:", error);
+      setError(
+        "There was an error registering your business. Please try again."
+      );
+      setShowErrorModal(true);
+    } finally {
+      setIsLoading(false); // Set loading to false after the request is complete
     }
   };
 
@@ -130,8 +134,20 @@ function RegisterBusiness() {
                 />
               </div>
             </Form>
-            <Button className="login_btn" onClick={handleGetStarted}>
-              Get Started
+            <Button className="login_btn rounded-pill" onClick={handleGetStarted} disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                </>
+              ) : (
+                "Get Started"
+              )}
             </Button>
 
             <CustomModal

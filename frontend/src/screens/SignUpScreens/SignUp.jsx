@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import CustomModal from "../../components/CustomModal/CustomModal";
 import logo from "../../assets/logo.png";
 import show from "../../assets/Show.png";
@@ -20,6 +20,7 @@ const SignUp = () => {
   const [successMessage, setSuccessMessage] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);  // Loader state
 
   const navigate = useNavigate();
 
@@ -58,11 +59,13 @@ const SignUp = () => {
       return;
     }
 
-    if (password != confirmedPassword) {
+    if (password !== confirmedPassword) {
       setError("Passwords don't match!");
       setShowErrorModal(true);
       return;
     }
+
+    setLoading(true);  // Start loading
 
     try {
       const response = await axios.post(`${BASE_API_URI}/api/auth/register/`, {
@@ -80,6 +83,8 @@ const SignUp = () => {
       setErrorMessage(err.response.data);
       setError(errorMessage?.detail);
       setShowErrorModal(true);
+    } finally {
+      setLoading(false);  // Stop loading
     }
   };
 
@@ -156,7 +161,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   className="signup__input"
-                  id="password"
+                  id="confirm_password"
                   placeholder="Confirm password"
                   value={confirmedPassword}
                   onChange={(e) => setConfirmedPassword(e.target.value)}
@@ -171,8 +176,22 @@ const SignUp = () => {
               handleCloseModal={handleCloseModal}
             />
 
-            <Button className="signup__btn" onClick={handleSubmit}>
-              Create Account
+            <Button
+              className="signup__btn rounded-pill"
+              onClick={handleSubmit}
+              disabled={loading}  // Disable the button while loading
+            >
+              {loading ? (  // Show spinner while loading
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              ) : (
+                "Create Account"
+              )}
             </Button>
           </div>
 

@@ -10,6 +10,7 @@ import { BASE_API_URI } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FiTrash2 } from "react-icons/fi";
+import { Spinner } from "react-bootstrap"; // Import Spinner
 
 const OnClickStartSelling = () => {
   const [updateProductName, SetUpdateProductName] = useState("");
@@ -19,6 +20,7 @@ const OnClickStartSelling = () => {
   const [selectedCondition, setSelectedCondition] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [accessToken, setAccessToken] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // New state for loading
   const fileInputRef = useRef(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
@@ -84,6 +86,8 @@ const OnClickStartSelling = () => {
     formData.append("product_category", selectedCategory);
     formData.append("product_image", selectedImage);
 
+    setIsLoading(true); // Set loading to true
+
     try {
       const response = await axios.post(
         `${BASE_API_URI}/api/products/`,
@@ -95,7 +99,7 @@ const OnClickStartSelling = () => {
           },
         }
       );
-      alert("Product submitted successfully!")
+      alert("Product submitted successfully!");
       console.log("Response:", response.data);
       navigate("/home");
     } catch (error) {
@@ -103,6 +107,8 @@ const OnClickStartSelling = () => {
       console.log("Error details: ", error.response);
       setError("Failed to submit product.");
       setShowErrorModal(true);
+    } finally {
+      setIsLoading(false); // Set loading to false after the request is complete
     }
   };
 
@@ -217,9 +223,22 @@ const OnClickStartSelling = () => {
         <Button
           type="submit"
           onClick={updateInfo}
-          className="approval--btn--save px-5"
+          className="approval--btn--save px-5 rounded-pill"
+          disabled={isLoading} // Disable button while loading
         >
-          Submit For Approval
+          {isLoading ? (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            </>
+          ) : (
+            "Submit For Approval"
+          )}
         </Button>
       </Container>
       <Footer />
