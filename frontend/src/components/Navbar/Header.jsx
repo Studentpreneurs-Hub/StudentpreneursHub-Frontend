@@ -81,14 +81,14 @@ function Header() {
                   id="basic-nav-dropdown"
                   className="dropdown-link"
                 >
-                  <NavDropdown.Item href="#action/3.1">
-                    Electronics
+                  <NavDropdown.Item href="/category/accessories">
+                    Accessories
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item href="/category/fashion">
                     Fashion
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Stationary
+                  <NavDropdown.Item href="/category/food">
+                    Food
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (

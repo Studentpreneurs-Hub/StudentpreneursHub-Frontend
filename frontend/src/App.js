@@ -17,6 +17,7 @@ import VendorDashboard from "./screens/VendorDashboard/VendorDashboard";
 import SellerOrBuyer from "./screens/SellerOrBuyer/SellerOrBuyer";
 import PageNotFound from "./screens/PageNotFound/PageNotFound";
 import Home from "./screens/HomePage/Home";
+import Categories from "./screens/Categories/Categories";
 import ProtectedRoute from "./components/ProtectedRoutes/ProjectedRoutes";
 import { AuthProvider } from "./utils/AuthContext";
 
@@ -85,6 +86,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <OnClickProduct />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/category/:categoryName"
+              element={
+                <ProtectedRoute>
+                 <Categories />
                 </ProtectedRoute>
               }
             />
