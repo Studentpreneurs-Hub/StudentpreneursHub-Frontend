@@ -18,12 +18,11 @@ import { useAuth } from "../../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 function OnClickProduct() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = [back, front, side];
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [accessToken, setAccessToken] = useState("");
   const { authTokens } = useAuth();
+  const [vendorInfo, setVendorInfo] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -99,6 +98,29 @@ function OnClickProduct() {
     }
   };
 
+  const fetchVendorInfo = async (email_address, setter) => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URI}/api/vendors/${email_address}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      console.log(response.data.detail);
+      setter(response.data.detail);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    if (accessToken) {
+      fetchVendorInfo(authTokens.user.email_address, setVendorInfo);
+    }
+  }, [accessToken]);
+
   if (!product) return <div>Loading...</div>;
 
   return (
@@ -123,8 +145,8 @@ function OnClickProduct() {
               style={{ clipPath: "circle()", width: "57px" }}
             />
             <div>
-              <h5 className="store_name">Maxine Apple Store</h5>
-              <span className="contact_name">{product.user?.full_name}</span>
+              <h5 className="store_name">{vendorInfo.store_name}</h5>
+              <span className="contact_name">{vendorInfo.user.full_name}</span>
             </div>
           </div>
           <div className="social_icons">
