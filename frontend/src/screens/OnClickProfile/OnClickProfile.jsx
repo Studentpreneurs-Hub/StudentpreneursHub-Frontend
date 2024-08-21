@@ -27,6 +27,7 @@ const OnClickProfile = () => {
   const [activeProducts, setActiveProducts] = useState([]); // State to store active products
   const [declineProducts, setDeclineProducts] = useState([]); // State to store active products
   const [userProducts, setUserProducts] = useState([]); // State to store user's products
+  const [vendorInfo, setVendorInfo] = useState({}); // Initialize as an empty object
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -51,11 +52,37 @@ const OnClickProfile = () => {
     }
   };
 
+  const fetchVendorInfo = async (email_address, setter) => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URI}/api/vendors/${email_address}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      console.log(response.data.detail);
+      setter(response.data.detail);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  function formatServerDate(dateString, locale = 'default') {
+    const date = new Date(dateString);
+    const month = date.toLocaleString(locale, { month: 'short' });
+    const year = date.getFullYear();
+    return `${month} ${year}`;
+  }
+  
+
   useEffect(() => {
     if (accessToken) {
       fetchProducts("pending", setPendingProducts);
       fetchProducts("active", setActiveProducts);
       fetchProducts("declined", setDeclineProducts);
+      fetchVendorInfo(authTokens.user.email_address, setVendorInfo);
     }
   }, [accessToken]);
 
@@ -85,12 +112,14 @@ const OnClickProfile = () => {
           />
           <div className="profile__header__info">
             <h2 className="profile__header__info__company">
-              {authTokens.user.full_name}
+              {vendorInfo.store_name || "Store Name"}
             </h2>
-            <p className="profile__header__info__name">Gideon Maxi Appiah</p>
+            <p className="profile__header__info__name">
+              {vendorInfo.user?.full_name || "Full Name"}
+            </p>
             <ul className="profile__header__info_socials">
               <li className="socials">
-                <a href="#">
+                <a href={`tel:${vendorInfo.phone_number || ""}`}>
                   <RiPhoneFill />
                 </a>
               </li>
@@ -171,13 +200,7 @@ const OnClickProfile = () => {
                 <div className="Store">
                   <p className="Store__heading">Store Description</p>
                   <p className="Store__description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nullam euismod libero id ante malesuada, ac efficitur lorem
-                    mollis. Phasellus vitae erat ut turpis posuere finibus ac
-                    nec sapien. Duis sed sapien nec ipsum feugiat lacinia.
-                    Vestibulum at convallis mauris. Fusce ut ante vitae nisl
-                    hendrerit scelerisque. Suspendisse potenti. Integer auctor
-                    justo nec augue vehicula, at varius nisl
+                    {vendorInfo.store_desc || "Store Description"}
                   </p>
                 </div>
 
@@ -192,11 +215,11 @@ const OnClickProfile = () => {
                   </ul>
                   <div className="Store-location">
                     <p>
-                      <CiLocationOn /> Jean Nelson Hall
+                      <CiLocationOn /> {vendorInfo.location || "Location"}
                     </p>
                     <p>
                       <BsPerson />
-                      Member since Nov 2023
+                      Member since {formatServerDate(vendorInfo.created_at)}
                     </p>
                   </div>
                 </div>
@@ -209,14 +232,19 @@ const OnClickProfile = () => {
                       <span>
                         <RiPhoneFill />
                       </span>{" "}
-                      <a href="tel:+">Call</a>
+                      <a href={`tel:${vendorInfo.phone_number || ""}`}>Call</a>
                     </li>
                     <li className="Store-contact__list__items">
                       {" "}
                       <span>
                         <RiWhatsappFill />{" "}
                       </span>
-                      <a href="">WhatsApp</a>
+                      <a
+                        href={`https://wa.me/${vendorInfo.phone_number || ""}`}
+                        target="_blank"
+                      >
+                        WhatsApp
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -233,9 +261,9 @@ const OnClickProfile = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Electronics</Dropdown.Item>
+              <Dropdown.Item href="#/action-1">Accessories</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Fashion</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Stationary</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Food</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
