@@ -35,14 +35,11 @@ function OnClickProduct() {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await axios.get(
-          `${BASE_API_URI}/api/product/${id}/`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken.token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${BASE_API_URI}/api/product/${id}/`, {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        });
         setProduct(response.data.detail);
         console.log(product);
       } catch (err) {
@@ -108,7 +105,7 @@ function OnClickProduct() {
           },
         }
       );
-      console.log(response.data.detail);
+      console.log(response.data.detail.user.email_address);
       setter(response.data.detail);
     } catch (err) {
       console.log(err);
@@ -117,7 +114,7 @@ function OnClickProduct() {
 
   useEffect(() => {
     if (accessToken) {
-      fetchVendorInfo(authTokens.user.email_address, setVendorInfo);
+      fetchVendorInfo(product.user?.email_address, setVendorInfo);
     }
   }, [accessToken]);
 
@@ -145,8 +142,13 @@ function OnClickProduct() {
               style={{ clipPath: "circle()", width: "57px" }}
             />
             <div>
+              {/* Check if vendorInfo.user exists before accessing properties */}
               <h5 className="store_name">{vendorInfo.store_name}</h5>
-              <span className="contact_name">{vendorInfo.user.full_name}</span>
+              {vendorInfo.user && (
+                <span className="contact_name">
+                  {vendorInfo.user.full_name}
+                </span>
+              )}
             </div>
           </div>
           <div className="social_icons">
