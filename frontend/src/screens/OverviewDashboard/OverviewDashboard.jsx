@@ -64,13 +64,13 @@ const OverviewDashboard = () => {
                 </Link>
               </li>
               <li className="sidebar-links">
-                <Link to="/ProductDashboard">
+                <Link to="/VendorDashboard">
                   <IoPersonCircleSharp className="fs-3 me-2" />
                   Studentpreneurs
                 </Link>
               </li>
               <li className="sidebar-links">
-                <Link to="/VendorDashboard">
+                <Link to="/ProductDashboard">
                   <RiShoppingBag3Line className="fs-3 me-2" />
                   Products
                 </Link>
