@@ -78,7 +78,7 @@ const VendorDashboard = () => {
       }
     };
 
-    return `${day}${daySuffix(day)} ${month}, ${year}`;
+    return `${day}${daySuffix(day)} ${month} ${year}`;
   };
 
   const handlePageChange = (newPage) => {
