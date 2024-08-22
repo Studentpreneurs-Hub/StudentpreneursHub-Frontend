@@ -62,7 +62,9 @@ const products = [
 const VendorDashboard = () => {
   const [key, setKey] = useState("active");
   const [accessToken, setAccessToken] = useState("");
-  const [allProducts, setAllProducts] = useState([]);
+  const [pendingProducts, setPendingProducts] = useState([]); // State to store pending products
+  const [activeProducts, setActiveProducts] = useState([]); // State to store active products
+  const [declineProducts, setDeclineProducts] = useState([]); // State to store active products
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -71,26 +73,27 @@ const VendorDashboard = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchAllProducts = async () => {
-      try {
-        const response = await axios.get(
-          `${BASE_API_URI}/api/product/pending/`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken.token}`,
-            },
-          }
-        );
-        setAllProducts(response.data.detail);
-        console.log(response.data.detail)
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  const fetchProducts = async (endpoint, setter) => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URI}/api/product/${endpoint}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      setter(response.data.detail);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
+  useEffect(() => {
     if (accessToken) {
-      fetchAllProducts();
+      fetchProducts("pending", setPendingProducts);
+      fetchProducts("active", setActiveProducts);
+      fetchProducts("declined", setDeclineProducts);
     }
   }, [accessToken]);
 
@@ -133,21 +136,21 @@ const VendorDashboard = () => {
           >
             <Tab eventKey="active" title="Active">
               <div className="product__listings">
-                {/* Add active products here */}
-                {products.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.name} />
-                    <h3 className="mt-3 fs-5">{product.name}</h3>
-                    <p>{product.price}</p>
-                  </div>
+                {activeProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    productId={product.id}
+                    productImg={BASE_API_URI + product.product_image}
+                    productCardTitle={product.product_name}
+                    productPrice={product.product_price}
+                  />
                 ))}
               </div>
             </Tab>
 
             <Tab eventKey="pending" title="Pending">
               <div className="product__listings">
-                {/* Add pending products here */}
-                {allProducts.map((product) => (
+                {pendingProducts.map((product) => (
                   <ProductCard
                     key={product.id}
                     productId={product.id}
@@ -161,13 +164,14 @@ const VendorDashboard = () => {
 
             <Tab eventKey="declined" title="Declined">
               <div className="product__listings">
-                {/* Add declined products here */}
-                {products.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.name} />
-                    <h3 className="mt-3 fs-5">{product.name}</h3>
-                    <p>{product.price}</p>
-                  </div>
+                {declineProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    productId={product.id}
+                    productImg={BASE_API_URI + product.product_image}
+                    productCardTitle={product.product_name}
+                    productPrice={product.product_price}
+                  />
                 ))}
               </div>
             </Tab>
