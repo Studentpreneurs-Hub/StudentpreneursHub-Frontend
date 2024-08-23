@@ -19,6 +19,7 @@ import PageNotFound from "./screens/PageNotFound/PageNotFound";
 import Home from "./screens/HomePage/Home";
 import Categories from "./screens/Categories/Categories";
 import ProtectedRoute from "./components/ProtectedRoutes/ProjectedRoutes";
+import Unauthorized from "./screens/Unauthorized/Unauthorized";
 import { AuthProvider } from "./utils/AuthContext";
 
 function App() {
@@ -36,8 +37,7 @@ function App() {
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
-            <Route path="/ProductDashboard" element={<ProductDashboard />} />
-            <Route path="/VendorDashboard" element={<VendorDashboard />} />
+            <Route path="/unauthorized" element={<Unauthorized />} />
 
             <Route
               path="/home"
@@ -75,8 +75,26 @@ function App() {
             <Route
               path="/admin-dashboard"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute requiredPermission="add_permission">
                   <OverviewDashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/ProductDashboard"
+              element={
+                <ProtectedRoute requiredPermission="add_permission">
+                  <ProductDashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/VendorDashboard"
+              element={
+                <ProtectedRoute requiredPermission="add_permission">
+                  <VendorDashboard />
                 </ProtectedRoute>
               }
             />
@@ -93,7 +111,7 @@ function App() {
               path="/category/:categoryName"
               element={
                 <ProtectedRoute>
-                 <Categories />
+                  <Categories />
                 </ProtectedRoute>
               }
             />

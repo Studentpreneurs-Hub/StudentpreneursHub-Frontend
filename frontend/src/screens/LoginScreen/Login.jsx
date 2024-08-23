@@ -13,7 +13,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);  // Loader state
+  const [loading, setLoading] = useState(false); // Loader state
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState("");
   const { login } = useAuth();
@@ -36,11 +36,11 @@ function Login() {
       return;
     }
 
-    setLoading(true);  // Start loading
+    setLoading(true); // Start loading
 
     try {
-      const permissions = await login(email, password);
-      if (permissions && permissions.length > 0) {
+      const userPermissions = await login(email, password);
+      if (userPermissions && userPermissions.includes("add_permission")) {
         navigate("/admin-dashboard");
       } else {
         navigate("/home");
@@ -49,7 +49,7 @@ function Login() {
       alert("Failed to log in");
       console.log(err);
     } finally {
-      setLoading(false);  // Stop loading
+      setLoading(false); // Stop loading
     }
   };
 
@@ -105,9 +105,9 @@ function Login() {
             <Button
               className="login_btn rounded-pill"
               onClick={handleLogin}
-              disabled={loading}  // Disable the button while loading
+              disabled={loading} // Disable the button while loading
             >
-              {loading ? (  // Show spinner while loading
+              {loading ? ( // Show spinner while loading
                 <Spinner
                   as="span"
                   animation="border"
