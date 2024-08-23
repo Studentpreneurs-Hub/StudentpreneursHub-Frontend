@@ -22,7 +22,7 @@ const Categories = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(`${BASE_API_URI}/api/product/active/`, {
+      const response = await axios.get(`${BASE_API_URI}/api/product/active/all/`, {
         headers: {
           Authorization: `Bearer ${accessToken.token}`,
         },
