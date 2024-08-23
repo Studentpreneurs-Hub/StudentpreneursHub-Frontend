@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
 import ProductCard from "../../components/ProductCard/productcard";
-import { useAuth } from "../../utils/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { BASE_API_URI } from "../../utils/constants";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const Categories = () => {
   const { categoryName } = useParams(); // Get the category name from the URL
-  const { authTokens } = useAuth();
-  const navigate = useNavigate();
   const [accessToken, setAccessToken] = useState("");
   const [products, setProducts] = useState([]); // State to store fetched products
   const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
@@ -71,7 +67,9 @@ const Categories = () => {
               </Col>
             ))
           ) : (
-            <p>No products found in this category.</p>
+            <p style={{ textAlign: "center" }}>
+              No products found in this category.
+            </p>
           )}
         </Row>
       </Container>
