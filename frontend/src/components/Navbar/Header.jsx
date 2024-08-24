@@ -117,7 +117,7 @@ function Header() {
                           : "/register_bussiness"
                       }
                     >
-                      <Button className="start_selling_btn">
+                      <Button className="start_selling_btn rounded-pill">
                         + Start Selling{" "}
                       </Button>
                     </Link>
