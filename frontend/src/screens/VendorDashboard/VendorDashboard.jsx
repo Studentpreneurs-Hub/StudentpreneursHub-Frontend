@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import { IoSearchOutline } from "react-icons/io5";
@@ -13,16 +13,15 @@ import Footer from '../../components/Footer/Footer';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { BASE_API_URI } from "../../utils/constants";
-import { useAuth } from "../../utils/AuthContext";
 import "./VendorDashboard.css";
 
 const VendorDashboard = () => {
   const [accessToken, setAccessToken] = useState("");
-  const { authTokens } = useAuth();
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [totalPages, setTotalPages] = useState(1); // Total pages
+  const [searchTerm, setSearchTerm] = useState(""); // Search term state
   const itemsPerPage = 10; // Number of items per page
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const VendorDashboard = () => {
     }
   }, []);
 
-  const fetchVendorInfo = async (page) => {
+  const fetchVendorInfo = useCallback(async (page) => {
     try {
       setLoading(true);
       const response = await axios.get(
@@ -54,13 +53,13 @@ const VendorDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [accessToken]);
 
   useEffect(() => {
     if (accessToken) {
       fetchVendorInfo(currentPage);
     }
-  }, [accessToken, currentPage]);
+  }, [accessToken, currentPage, fetchVendorInfo]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -86,6 +85,22 @@ const VendorDashboard = () => {
       setCurrentPage(newPage);
     }
   };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredStudents = students.filter((student) => {
+    const fullName = student.user?.full_name || ""; // Use empty string if null
+    const storeName = student.store_name || ""; // Use empty string if null
+    const emailAddress = student.user?.email_address || ""; // Use empty string if null
+
+    return (
+      fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      storeName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      emailAddress.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
 
   return (
     <>
@@ -123,6 +138,8 @@ const VendorDashboard = () => {
                   placeholder="  Search"
                   className="search"
                   aria-label="Search"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
                 />
               </span>
               <Button className="pagination--fe me-2">
@@ -154,7 +171,7 @@ const VendorDashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {students.map((student, index) => (
+                  {filteredStudents.map((student, index) => (
                     <tr key={index}>
                       <td>{formatDate(student.created_at)}</td>
                       <td>{student.user.full_name}</td>
