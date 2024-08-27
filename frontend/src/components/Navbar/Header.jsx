@@ -122,25 +122,25 @@ function Header() {
                       </Button>
                     </Link>
                   </Form>
-                    <Dropdown>
-                      <Dropdown.Toggle
-                        id="dropdown-basic"
-                        className="dropdown-toggle-custom"
-                      >
-                        <img
-                          src={NoProfileImg}
-                          className="profile-img-header"
-                          alt="No Profile Image"
-                        />
-                      </Dropdown.Toggle>
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      id="dropdown-basic"
+                      className="dropdown-toggle-custom"
+                    >
+                      <img
+                        src={NoProfileImg}
+                        className="profile-img-header"
+                        alt="No Profile Image"
+                      />
+                    </Dropdown.Toggle>
 
-                      <Dropdown.Menu>
-                        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
-                        <Dropdown.Item href="/onClickProfile">
-                          Profile
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="/onClickProfile">
+                        Profile
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </>
               ) : (
                 <>
@@ -148,7 +148,9 @@ function Header() {
                     <Nav.Link className="nav-text">Login</Nav.Link>
                   </LinkContainer>
                   <Link to="/signup">
-                    <Button className="btn start_btn rounded-pill">Get Started</Button>
+                    <Button className="btn start_btn rounded-pill">
+                      Get Started
+                    </Button>
                   </Link>
                 </>
               )}
