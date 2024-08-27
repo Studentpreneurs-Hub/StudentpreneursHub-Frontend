@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { Container, Button, Dropdown, Tabs, Tab } from "react-bootstrap";
 import "../OnClickProfile/OnClickProfile.css";
-import pic from "../../assets/profile_picture.png";
+import default_profile_img from "../../assets/no-profile-picture.png";
 import {
   RiPhoneFill,
   RiWhatsappFill,
-  RiInstagramFill,
-  RiFacebookFill,
 } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
@@ -28,6 +26,7 @@ const OnClickProfile = () => {
   const [declineProducts, setDeclineProducts] = useState([]); // State to store active products
   const [userProducts, setUserProducts] = useState([]); // State to store user's products
   const [vendorInfo, setVendorInfo] = useState({}); // Initialize as an empty object
+  const [profileInfo, setProfileInfo] = useState({}); // Initialize as an empty object
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -69,6 +68,23 @@ const OnClickProfile = () => {
     }
   };
 
+  const fetchProfileInfo = async (setter) => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URI}/api/profile/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      console.log(response.data.data);
+      setter(response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   function formatServerDate(dateString, locale = 'default') {
     const date = new Date(dateString);
     const month = date.toLocaleString(locale, { month: 'short' });
@@ -83,6 +99,7 @@ const OnClickProfile = () => {
       fetchProducts("active", setActiveProducts);
       fetchProducts("declined", setDeclineProducts);
       fetchVendorInfo(authTokens.user.email_address, setVendorInfo);
+      fetchProfileInfo(setProfileInfo);
     }
   }, [accessToken]);
 
@@ -106,7 +123,7 @@ const OnClickProfile = () => {
       <Container className="profile">
         <div className="profile__header">
           <img
-            src={pic}
+            src={BASE_API_URI + profileInfo.image || default_profile_img}
             alt="profile picture"
             className="profile__header__img"
           />

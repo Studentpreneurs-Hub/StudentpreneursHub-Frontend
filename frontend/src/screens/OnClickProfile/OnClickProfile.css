@@ -31,6 +31,12 @@
   gap: 2rem;
 }
 
+.profile__header__img{
+  width: 124px;
+height: 124px;
+border-radius: 124px;
+}
+
 .socials {
   display: flex;
   justify-content: center;
