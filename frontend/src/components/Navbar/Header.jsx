@@ -23,6 +23,7 @@ function Header() {
   const [accessToken, setAccessToken] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userStatus, setUserStatus] = useState(null);
+  const [profileInfo, setProfileInfo] = useState({}); 
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -33,7 +34,7 @@ function Header() {
 
   useEffect(() => {
     if (authTokens && authTokens.user) {
-      setUserEmail(authTokens.user.email_address); // Assuming authTokens.user contains user info
+      setUserEmail(authTokens.user.email_address); 
     }
   }, [authTokens]);
 
@@ -55,6 +56,27 @@ function Header() {
     };
 
     fetchVendors();
+  }, [accessToken, userEmail]);
+
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_API_URI}/api/profile/`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken.token}`,
+            },
+          }
+        );
+        setProfileInfo(response.data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchProfile();
   }, [accessToken, userEmail]);
 
   return (
@@ -128,9 +150,9 @@ function Header() {
                       className="dropdown-toggle-custom"
                     >
                       <img
-                        src={NoProfileImg}
+                        src={BASE_API_URI + profileInfo.image || NoProfileImg}
                         className="profile-img-header"
-                        alt="No Profile Image"
+                        alt="Profile Image"
                       />
                     </Dropdown.Toggle>
 
