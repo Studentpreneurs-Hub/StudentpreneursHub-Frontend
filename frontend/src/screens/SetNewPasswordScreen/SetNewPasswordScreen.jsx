@@ -131,7 +131,7 @@ const SetNewPasswordScreen = () => {
 
             <div>
               <Button
-                className="set-new-password-btn"
+                className="set-new-password-btn rounded-pill"
                 onClick={handleSubmit}
                 disabled={loading}
               >
