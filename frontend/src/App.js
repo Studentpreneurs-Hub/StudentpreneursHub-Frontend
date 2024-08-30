@@ -31,7 +31,7 @@ function App() {
             <Route path="/" element={<Landing />} exact />
             <Route path="/login" element={<Login />} />
             <Route path="/forgotPassword" element={<FogotPasswordScreen />} />
-            <Route path="/setnewPassword" element={<SetNewPasswordScreen />} />
+            <Route path="/reset-password" element={<SetNewPasswordScreen />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/otp" element={<OTPScreen />} />
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
