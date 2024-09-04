@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./onClickProduct.css";
-import back from "../../assets/iphone12-bk.jpg";
-import front from "../../assets/iphone12-fr.jpg";
-import side from "../../assets/iphone12-sd.jpg";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
 import sheldon from "../../assets/sheldon.jpg";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_API_URI } from "../../utils/constants";
@@ -22,7 +15,7 @@ function OnClickProduct() {
   const [product, setProduct] = useState({});
   const [accessToken, setAccessToken] = useState("");
   const { authTokens } = useAuth();
-  const [vendorInfo, setVendorInfo] = useState({});
+  const [showNumber, setShowNumber] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -95,28 +88,9 @@ function OnClickProduct() {
     }
   };
 
-  const fetchVendorInfo = async (email_address, setter) => {
-    try {
-      const response = await axios.get(
-        `${BASE_API_URI}/api/vendors/${email_address}/`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken.token}`,
-          },
-        }
-      );
-      console.log(response.data.detail.user.email_address);
-      setter(response.data.detail);
-    } catch (err) {
-      console.log(err);
-    }
+  const showPhoneNumber = () => {
+    setShowNumber(!showNumber);
   };
-
-  useEffect(() => {
-    if (accessToken) {
-      fetchVendorInfo(product.user?.email_address, setVendorInfo);
-    }
-  }, [accessToken]);
 
   if (!product) return <div>Loading...</div>;
 
@@ -142,20 +116,18 @@ function OnClickProduct() {
               style={{ clipPath: "circle()", width: "57px" }}
             />
             <div>
-              {/* Check if vendorInfo.user exists before accessing properties */}
-              <h5 className="store_name">{vendorInfo.store_name}</h5>
-              {vendorInfo.user && (
-                <span className="contact_name">
-                  {vendorInfo.user.full_name}
-                </span>
-              )}
+              <h5 className="store_name">{product.vendor?.store_name}</h5>
+              <span className="contact_name">{product.user?.full_name}</span>
             </div>
           </div>
           <div className="social_icons">
-            <FaTwitter size={20} />
-            <FaFacebookF size={20} />
-            <FaInstagram size={20} />
-            <FaLinkedin size={20} />
+            <FaPhone size={20} onClick={showPhoneNumber} />{" "}
+            <a
+              href={"tel:"+product.vendor?.phone_number}
+              style={{ fontWeight: "700", textDecoration: "none" }}
+            >
+              {showNumber && product.vendor?.phone_number}
+            </a>
           </div>
         </div>
       </div>
