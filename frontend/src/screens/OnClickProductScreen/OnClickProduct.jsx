@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./onClickProduct.css";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
-import sheldon from "../../assets/sheldon.jpg";
+import noprofile from "../../assets/no-profile-picture.png";
 import { FaPhone } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -111,7 +111,7 @@ function OnClickProduct() {
         <div className="personal_card">
           <div className="contact_details_card">
             <img
-              src={sheldon}
+              src={noprofile}
               alt=""
               style={{ clipPath: "circle()", width: "57px" }}
             />
