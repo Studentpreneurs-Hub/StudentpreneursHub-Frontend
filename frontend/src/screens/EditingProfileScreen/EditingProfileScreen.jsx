@@ -11,6 +11,7 @@ import profileImgPlaceholder from "../../assets/no-profile-picture.png";
 import { BASE_API_URI } from "../../utils/constants";
 import CustomModal from "../../components/CustomModal/CustomModal";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../utils/AuthContext";
 import axios from "axios";
 
 const EditingProfileScreen = () => {
@@ -24,6 +25,8 @@ const EditingProfileScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [profileImg, setProfileImg] = useState(profileImgPlaceholder); // State for profile image
   const [selectedFile, setSelectedFile] = useState(null); // State for selected file
+  const [vendorInfo, setVendorInfo] = useState({});
+  const { authTokens } = useAuth();
 
   const navigate = useNavigate();
 
@@ -53,16 +56,16 @@ const EditingProfileScreen = () => {
   };
 
   const updateInfo = async () => {
-    if (
-      updateName === "" ||
-      updateStoreName === "" ||
-      updateContact === "" ||
-      updateLocation === ""
-    ) {
-      setError("Field(s) cannot be empty.");
-      setShowErrorModal(true);
-      return;
-    }
+    // if (
+    //   updateName === "" ||
+    //   updateStoreName === "" ||
+    //   updateContact === "" ||
+    //   updateLocation === ""
+    // ) {
+    //   setError("Field(s) cannot be empty.");
+    //   setShowErrorModal(true);
+    //   return;
+    // }
 
     setIsLoading(true); // Set loading to true
 
@@ -96,6 +99,29 @@ const EditingProfileScreen = () => {
       setIsLoading(false); // Set loading to false after the request is complete
     }
   };
+
+  const fetchVendorInfo = async (email_address, setter) => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URI}/api/vendors/${email_address}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken.token}`,
+          },
+        }
+      );
+      console.log(response.data.detail);
+      setter(response.data.detail);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    if (accessToken) {
+      fetchVendorInfo(authTokens.user.email_address, setVendorInfo);
+    }
+  }, [accessToken]);
 
   return (
     <>
@@ -143,49 +169,58 @@ const EditingProfileScreen = () => {
                 onChange={(e) => SetUpdateName(e.target.value)}
               />
             </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label className="form--name">Store Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Maxmine Apple Deals"
-                value={updateStoreName}
-                onChange={(e) => SetUpdateStoreName(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label className="form--name">Location</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Jean Nelson Hall"
-                value={updateLocation}
-                onChange={(e) => SetUpdateLocation(e.target.value)}
-              />
-            </Form.Group>
           </Form>
-        </div>
-
-        <div className="contact--info mt-3">
-          <p className="info--heading">Contact Information</p>
-          <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-            <Form.Label column sm="2">
-              Contact
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control
-                className="contact--form"
-                type="tel"
-                placeholder="Phone Number"
-                value={updateContact}
-                onChange={(e) => SetUpdateContact(e.target.value)}
-              />
-            </Col>
-          </Form.Group>
+          {!(vendorInfo.user && !vendorInfo.user.vendor_status) ? (
+            <>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label className="form--name">Store Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Maxmine Apple Deals"
+                  value={updateStoreName}
+                  onChange={(e) => SetUpdateStoreName(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlTextarea1"
+              >
+                <Form.Label className="form--name">Location</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Jean Nelson Hall"
+                  value={updateLocation}
+                  onChange={(e) => SetUpdateLocation(e.target.value)}
+                />
+              </Form.Group>
+              <div className="contact--info mt-3">
+                <p className="info--heading">Contact Information</p>
+                <Form.Group
+                  as={Row}
+                  className="mb-3"
+                  controlId="formPlaintextEmail"
+                >
+                  <Form.Label column sm="2">
+                    Contact
+                  </Form.Label>
+                  <Col sm="10">
+                    <Form.Control
+                      className="contact--form"
+                      type="tel"
+                      placeholder="Phone Number"
+                      value={updateContact}
+                      onChange={(e) => SetUpdateContact(e.target.value)}
+                    />
+                  </Col>
+                </Form.Group>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="update--btn">
