@@ -9,6 +9,7 @@ import Header from "../../components/Navbar/Header";
 import landingImage_1 from "../../assets/landingImage_1.jpeg";
 import landingImage_2 from "../../assets/landingImage_2.jpg";
 import landingImage_3 from "../../assets/landingImage_3.jpg";
+import campus from "../../assets/University-of-Ghana.jpg";
 import { Link } from "react-router-dom";
 
 function Landing() {
@@ -33,7 +34,9 @@ function Landing() {
         <div className="sell_faster_div">
           <span className="sell_faster_text">Sell faster today</span>
           <br />
-          <Link to="/seller_or_buyer"><Button className="start_selling rounded-pill">Get started</Button></Link>
+          <Link to="/seller_or_buyer">
+            <Button className="start_selling rounded-pill">Get started</Button>
+          </Link>
         </div>
 
         <div className="arrow_div">
@@ -47,18 +50,30 @@ function Landing() {
       </div>
       <div className="campus_creativity_main_div">
         <div className="campus_creativity_heading">
-          <section style={{ paddingLeft: "3rem" }}>
-            <span>Where Campus Creativity Meets Exceptional Quality</span>
-          </section>
-          <p className="campus_p_text" style={{ marginLeft: "3rem" }}>
-            Delve into a world of entrepreneurial spirit with a diverse range of
-            offerings. From mouth-watering cuisines to cutting-edge gadgets and
-            trendy fashion, our student entrepreneurs have it all!
-          </p>
-          
-          <Link to='seller_or_buyer'><Button className="start_selling rounded-pill" style={{ marginLeft: "3rem" }}>
-            Get started
-          </Button></Link>
+          <div className="campus">
+            <div>
+              <section style={{ paddingLeft: "3rem" }}>
+                <span>Where Campus Creativity Meets Exceptional Quality</span>
+              </section>
+              <p className="campus_p_text" style={{ marginLeft: "3rem" }}>
+                Delve into a world of entrepreneurial spirit with a diverse
+                range of offerings. From mouth-watering cuisines to cutting-edge
+                gadgets and trendy fashion, our student entrepreneurs have it
+                all!
+              </p>
+
+              <Link to="seller_or_buyer">
+                <Button
+                  className="start_selling rounded-pill"
+                  style={{ marginLeft: "3rem" }}
+                >
+                  Get started
+                </Button>
+              </Link>
+            </div>
+
+            <img src={campus} alt="" />
+          </div>
           <hr style={{ width: "1030px", marginLeft: "3rem" }} />
 
           <div className="onboarding_instructions">
@@ -123,7 +138,9 @@ function Landing() {
             University of Ghana. Connect with an engaged and dynamic community
             eager to explore and support student-run businesses.
           </p>
-          <Link to='seller_or_buyer'><Button className="start_selling rounded-pill">Get Started</Button></Link>
+          <Link to="seller_or_buyer">
+            <Button className="start_selling rounded-pill">Get Started</Button>
+          </Link>
         </div>
         <div>
           <img src={Thousand} alt="oop" className="reach_thousand_img" />

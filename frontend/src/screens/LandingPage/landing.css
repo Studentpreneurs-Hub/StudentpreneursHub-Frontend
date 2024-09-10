@@ -77,15 +77,24 @@ div > p {
   line-height: 63px;
   letter-spacing: 0em;
   /* text-align: left; */
-  width: 662px;
+  /* width: 662px; */
   margin-top: 6rem;
   color: #000000;
   justify-content: center;
 }
 
+.campus{
+  display: flex;
+}
+
+.campus img{
+  width: 600px;
+}
+
 .campus_p_text {
   width: 90%;
 }
+
 
 Button {
   text-transform: capitalize !important;
