@@ -74,7 +74,7 @@ function Landing() {
 
             <img src={campus} alt="" />
           </div>
-          <hr style={{ width: "1030px", marginLeft: "3rem" }} />
+          <hr style={{ width: "1200x", marginLeft: "3rem" }} />
 
           <div className="onboarding_instructions">
             <div className="onboard">
