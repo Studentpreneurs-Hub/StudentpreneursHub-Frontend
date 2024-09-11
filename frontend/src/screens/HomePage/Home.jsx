@@ -47,13 +47,13 @@ function Home() {
         <div className="langingImage_container">
           <Carousel>
             <Carousel.Item interval={3000}>
-              <img src={homeImage_1} alt="uu" className="landingImage" />
+              <img src={homeImage_1} alt="uu" className="homeImage" />
             </Carousel.Item>
             <Carousel.Item interval={3000}>
-              <img src={homeImage_2} alt="uu" className="landingImage" />
+              <img src={homeImage_2} alt="uu" className="homeImage" />
             </Carousel.Item>
             <Carousel.Item interval={3000}>
-              <img src={homeImage_3} alt="uu" className="landingImage" />
+              <img src={homeImage_3} alt="uu" className="homeImage" />
             </Carousel.Item>
           </Carousel>
         </div>
