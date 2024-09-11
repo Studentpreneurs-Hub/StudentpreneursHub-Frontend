@@ -112,7 +112,7 @@ const OnClickStartSelling = () => {
     }
   };
 
-  const categories = ["accessories", "food", "fashion"]; // Category options
+  const categories = ["accessories", "food", "fashion", "others"]; // Category options
   const conditions = ["New", "Used"]; // Condition options
 
   return (
