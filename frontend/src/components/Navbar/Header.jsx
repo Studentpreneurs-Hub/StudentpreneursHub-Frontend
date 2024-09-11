@@ -108,6 +108,9 @@ function Header() {
                   <NavDropdown.Item href="/category/food">
                     Food
                   </NavDropdown.Item>
+                  <NavDropdown.Item href="/category/others">
+                    Others
+                  </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/help">
