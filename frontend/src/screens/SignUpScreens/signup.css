@@ -2,8 +2,8 @@
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
 :root {
-  --primary-colour: #153D6E !important;
-  --secondary-colour: #B6975D !important;
+  --primary-colour: #153d6e !important;
+  --secondary-colour: #b6975d !important;
   --neutral-colour: #6f767e !important;
   --primary-font: Lufga;
   --secondary-font: Satoshi;
@@ -29,12 +29,12 @@
   z-index: -1; /* Ensure particles are behind other content */
 }
 
-.body{
+.body {
   background-image: url('../../assets/gradient_background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@
   justify-content: center;
   align-items: center;
   font-family: var(--primary-font);
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 32px;
   position: relative;
   z-index: 2;
@@ -70,7 +70,7 @@
 }
 
 .signup__header__title {
-  color: #191C1F;
+  color: #191c1f;
   font-weight: 700;
   font-size: 30px;
   text-align: center;
@@ -92,7 +92,7 @@
 .signup__input {
   width: 100%;
   height: 2.8125rem;
-  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  padding: 0.75rem;
   border-radius: 0.75rem;
   border: 1px solid #e4e4e4;
   margin-top: 0.125rem;
@@ -174,4 +174,60 @@ img.showIcon {
 .signup__info__terms > a:hover,
 .signup__info__login > a:hover {
   opacity: 80%;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets */
+@media (max-width: 1024px) {
+  .signup {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .signup__btn {
+    width: 300px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 768px) {
+  .signup {
+    max-width: 95%;
+    padding: 4.5rem;
+  }
+
+  .signup__form{
+    place-content: normal;
+    padding: 1rem;
+  }
+
+  .signup__btn {
+    width: 100%;
+  }
+
+  .signup__header__title {
+    font-size: 24px;
+  }
+
+  .signup__header__subtitle {
+    font-size: 14px;
+  }
+
+  .signup__input {
+    font-size: 0.9rem;
+  }
+
+  .signup__info{
+    text-align: center;
+  }
+
+  .signup__info__terms, .signup__info__login{
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .signup__info__terms > a {
+    font-size: 10px;
+  }
 }
