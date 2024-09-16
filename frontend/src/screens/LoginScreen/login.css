@@ -1,7 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/satoshi");
 @import url("https://fonts.cdnfonts.com/css/Lufga");
 
-
 :root {
   --primary-colour: #153D6E !important;
   --secondary-colour: #B6975D !important;
@@ -30,12 +29,12 @@
   z-index: -1; /* Ensure particles are behind other content */
 }
 
-.login_body{
+.login_body {
   background-image: url('../../assets/gradient_background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,4 +174,82 @@ img.showIcon {
 .login__info__terms > a:hover,
 .login__info__login > a:hover {
   opacity: 80%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .login {
+    max-width: 50%;
+  }
+  
+  .login_btn {
+    width: 100%;
+  }
+
+  .login__info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+    max-width: 75%;
+    padding: 1rem;
+  }
+
+  .login__forgotpass__question > a {
+    margin-left: 8rem;
+  }
+
+  .login__header__title {
+    font-size: 24px;
+  }
+
+  .login__header__subtitle {
+    font-size: 14px;
+  }
+
+  .login__input {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+
+  .login_btn {
+    width: 100%;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .login {
+    max-width: 90%;
+  }
+
+  .login__header__title {
+    font-size: 20px !important;
+  }
+
+  .login__header__subtitle {
+    font-size: 12px !important;
+  }
+
+  .login__input {
+    font-size: 12px;
+    padding: 0.4rem;
+  }
+
+  .login__forgotpass__question > a {
+    margin-left: 4rem;
+  }
+
+  .login_btn {
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+    width: 100% !important;
+  }
+
+  .login__forgotpass__question > a, .login__info__login{
+    margin-left: 3rem !important;
+    font-size: 0.8rem !important;
+  }
 }
