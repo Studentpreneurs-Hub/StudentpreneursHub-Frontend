@@ -2,10 +2,10 @@ import "../AboutUs/AboutUs.css";
 import Header from "../../components/Navbar/Header";
 import Footer from "../../components/Footer/Footer";
 import HeroImg from "../../assets/hero_about_us.png";
-import person1 from "../../assets/person_1.jpeg";
-import person2 from "../../assets/person_2.jpeg";
-import person3 from "../../assets/person_3.jpeg";
-import person4 from "../../assets/person_4.jpeg";
+import Manuel from "../../assets/Manuel.jpeg";
+import Nick from "../../assets/nick.jpg";
+import Ronen from "../../assets/Nii.jpeg";
+import Kingsley from "../../assets/Kingsley.jpeg";
 
 const AboutUS = () => {
   return (
@@ -60,28 +60,28 @@ const AboutUS = () => {
 
         <div className="team__members">
           <div className="team__member">
-            <img className="team__member__img" src={person1} alt="" />
+            <img className="team__member__img" src={Manuel} alt="" />
             <div className="team__member__details">
               <h3 className="team__member__name">Emmanuel</h3>
               <p className="team__member__role">Team Lead</p>
             </div>
           </div>
           <div className="team__member">
-            <img className="team__member__img" src={person2} alt="" />
+            <img className="team__member__img" src={Nick} alt="" />
             <div className="team__member__details">
               <h3 className="team__member__name">Nick</h3>
               <p className="team__member__role">UI/UX Designer</p>
             </div>
           </div>
           <div className="team__member">
-            <img className="team__member__img" src={person3} alt="" />
+            <img className="team__member__img" src={Ronen} alt="" />
             <div className="team__member__details">
               <h3 className="team__member__name">Ronen</h3>
               <p className="team__member__role">Frontend Engineer</p>
             </div>
           </div>
           <div className="team__member">
-            <img className="team__member__img" src={person4} alt="" />
+            <img className="team__member__img" src={Kingsley} alt="" />
             <div className="team__member__details">
               <h3 className="team__member__name">Kingsley</h3>
               <p className="team__member__role">Frontend Engineer</p>
