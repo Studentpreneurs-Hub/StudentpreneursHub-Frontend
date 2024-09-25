@@ -14,13 +14,12 @@ const AboutUS = () => {
       <section className="hero__section">
         <img src={HeroImg} alt="about us" />
         <h1 className="hero__section__heading">
-          Empowering campus entrepreneurs to boost sales
+          Igniting the Future of Student Entrepreneurship
         </h1>
         <p className="hereo__section_paragraphy">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-          lacinia, erat ut ullamcorper feugiat, eros metus blandit metus, vel
-          venenatis purus mi ac nisi. Aenean in fermentum augue. Nam posuere,
-          libero in fermentum suscipit, libero ligula{" "}
+          We believe in the power of student innovation. Our platform is
+          designed to inspire and empower the next generation of entrepreneurs,
+          providing a space where ideas come to life and ventures thrive.
         </p>
       </section>
       <section className="why__section">
@@ -28,26 +27,30 @@ const AboutUS = () => {
         <div className="why__section__reasons">
           <div className="reason__items">
             <span className="reasons__numbering">01.</span>
-            <h3 className="reasons__heading">Sign up</h3>
+            <h3 className="reasons__heading">Empowering Student Innovators</h3>
             <p className="reasons__description">
-              Register now to unlock a world of opportunities and resources
-              tailored for your success on campus.
+              We aim to provide student entrepreneurs with the tools and
+              platform they need to transform their ideas into successful
+              ventures.
             </p>
           </div>
           <div className="reason__items">
             <span className="reasons__numbering">02.</span>
-            <h3 className="reasons__heading">Create a store</h3>
+            <h3 className="reasons__heading">Bridging Visibility Gaps</h3>
             <p className="reasons__description">
-              Easily set up your personalized store in minutes. Showcase your
-              brand and what makes your offerings special.
+              Traditional promotion methods are limited. Our platform ensures
+              student-run businesses reach a wider audience within and beyond
+              their campus.
             </p>
           </div>
           <div className="reason__items">
             <span className="reasons__numbering">03.</span>
-            <h3 className="reasons__heading">Upload Products and Flourish</h3>
+            <h3 className="reasons__heading">
+              Supporting Ecosystem
+            </h3>
             <p className="reasons__description">
-              Upload your products and let your creativity shine! Reach fellow
-              students and staff with your unique offerings
+              We’re fostering a community where students can connect,
+              collaborate, and access vital resources to grow their businesses.
             </p>
           </div>
         </div>
