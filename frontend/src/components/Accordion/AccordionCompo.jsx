@@ -6,38 +6,42 @@ function AccordionCompo() {
     <div>
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Who we are?</Accordion.Header>
+          <Accordion.Header>What is Studentpreneur?</Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            Studentpreneur is a web-based platform designed to support student
+            entrepreneurs at the University of Ghana. It provides a centralized
+            space where student-run businesses can showcase their products and
+            services, connect with potential customers, and collaborate with
+            other student entrepreneurs, fostering a vibrant entrepreneurial
+            culture within the university community.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>What we do</Accordion.Header>
+          <Accordion.Header>
+            Who can use the Studentpreneur platform?
+          </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            The platform is open to all student entrepreneurs at the University
+            of Ghana. Whether you run a small business, offer services, or are
+            looking to launch a new venture, Studentpreneur is designed to help
+            you gain visibility, grow your network, and access resources to
+            support your entrepreneurial journey.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
-          <Accordion.Header>Where we are Located</Accordion.Header>
+          <Accordion.Header>
+            How is Studentpreneur different from using social media to promote
+            my business?
+          </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            While social media is useful for general promotion, Studentpreneur
+            is specifically tailored for student entrepreneurs at the University
+            of Ghana. The platform allows you to target your audience within the
+            university, ensuring that your products or services reach other
+            students, staff, and even university events. Additionally,
+            Studentpreneur offers features like networking with other student
+            entrepreneurs and access to resources designed to support your
+            business growth.
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
