@@ -13,6 +13,7 @@ import axios from "axios";
 function Home() {
   const [accessToken, setAccessToken] = useState("");
   const [products, setProducts] = useState([]);
+  const [visibleProducts, setVisibleProducts] = useState(5); // Track the number of products to show
 
   useEffect(() => {
     const token = localStorage.getItem("tokens");
@@ -40,6 +41,10 @@ function Home() {
     }
   }, [accessToken]);
 
+  const handleSeeMore = () => {
+    setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 5); // Increase the number of visible products by 5
+  };
+
   return (
     <>
       <Header />
@@ -60,23 +65,28 @@ function Home() {
 
         <h1 className="home__heading">Top Categories 🔥</h1>
         <div className="home__top">
-            {products.length > 0 ? (
-              products.map((product) => (
-                  <ProductCard
-                    productId={product.id}
-                    productImg={BASE_API_URI + product.product_image}
-                    productCardTitle={product.product_name}
-                    productPrice={product.product_price}
-                  />
-              ))
-            ) : (
-              <p style={{ textAlign: "center" }}>
-                No products found in this category.
-              </p>
-            )}
+          {products.length > 0 ? (
+            products.slice(0, visibleProducts).map((product) => (
+              <ProductCard
+                key={product.id}
+                productId={product.id}
+                productImg={BASE_API_URI + product.product_image}
+                productCardTitle={product.product_name}
+                productPrice={product.product_price}
+              />
+            ))
+          ) : (
+            <p style={{ textAlign: "center" }}>
+              No products found in this category.
+            </p>
+          )}
         </div>
 
-        <button className="home__btn">See More</button>
+        {visibleProducts < products.length && ( // Show "See More" button if there are more products to display
+          <button className="home__btn" onClick={handleSeeMore}>
+            See More
+          </button>
+        )}
       </section>
       <Footer />
     </>
