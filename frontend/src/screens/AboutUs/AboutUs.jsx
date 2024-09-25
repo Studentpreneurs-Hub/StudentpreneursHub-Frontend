@@ -67,7 +67,7 @@ const AboutUS = () => {
             <img className="team__member__img" src={person2} alt="" />
             <div className="team__member__details">
               <h3 className="team__member__name">Nick</h3>
-              <p className="team__member__role">UI\UX Designer</p>
+              <p className="team__member__role">UI/UX Designer</p>
             </div>
           </div>
           <div className="team__member">
