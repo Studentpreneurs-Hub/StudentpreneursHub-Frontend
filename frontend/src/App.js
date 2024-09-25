@@ -20,6 +20,7 @@ import Home from "./screens/HomePage/Home";
 import Categories from "./screens/Categories/Categories";
 import ProtectedRoute from "./components/ProtectedRoutes/ProjectedRoutes";
 import Unauthorized from "./screens/Unauthorized/Unauthorized";
+import FAQ from "./screens/FAQ/FAQ";
 import { AuthProvider } from "./utils/AuthContext";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/register_bussiness" element={<RegisterBusiness />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/seller_or_buyer" element={<SellerOrBuyer />} />
+            <Route path="/faqs" element={<FAQ />} />
             <Route path="/unauthorized" element={<Unauthorized />} />
 
             <Route
